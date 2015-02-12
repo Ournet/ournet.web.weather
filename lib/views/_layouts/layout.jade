@@ -1,0 +1,98 @@
+doctype html
+html(lang=currentCulture.language)
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= site.title
+    meta(name='description', content=site.head.description)
+    meta(name='keywords', content=site.head.keywords)
+    block styles
+    //- link(type='text/css', rel='stylesheet', href='/asset?name=css-main&v=@Links.Srsvc.Version')
+    if (site.head.canonical)
+      link(rel='canonical', href=site.head.canonical)
+    link(rel='shortcut icon', href=site.head.faviconUrl)
+  body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language))
+    #fb-root
+    #page(class=site.pageLayoutCss)
+      if (site.showTopPageBar)
+        #sys-top-bar
+          .container
+            .row
+              #sys-menu.col-sm-8.col-xs-14
+                each item in topBarMenu
+                  a(href=item.href, class=item.cssClass)
+                    | item.text
+                    if (item.label)
+                      span.count= item.label.text
+
+              #sys-user.col-sm-6.hidden-xs
+                if (hasMultipleLangs)
+                  a.bar-item(href=('/?ul='+topBarLangs[0].id))= topBarLangs[0].text
+
+      #page-wrapper
+        #page-header
+          .container
+            block pageHeadContent
+        #page-content.clearfix
+          block content
+        #page-footer
+          .container
+            .page-load-divider
+              span.domain-World.ref-color ●●●
+              span.domain-Live.ref-color ●●●
+              span.domain-Politics.ref-color ●●●
+              span.domain-Entertainment.ref-color ●●●
+              span.domain-Sports.ref-color ●●●
+              span.domain-Business.ref-color ●●●
+              span.domain-Tech.ref-color ●●●
+              span.domain-Science.ref-color ●●●
+              span.domain-Arts.ref-color ●●●
+              span.domain-Justice.ref-color ●●●
+              span.domain-Live.ref-color ●●●
+              span.domain-Politics.ref-color ●●●
+              span.domain-Entertainment.ref-color ●●●
+              span.domain-Sports.ref-color ●●●
+              span.domain-Business.ref-color ●●●
+              span.domain-Tech.ref-color ●●●
+              span.domain-Science.ref-color ●●●
+              span.domain-Arts.ref-color ●●●
+              span.domain-Justice.ref-color ●●●
+            .row
+              #page-footer-info.col-sm-5.col-xs-14
+                div= __('contact')
+                  a=  config.email
+                div
+                | Version 
+                = project.version
+                div
+                  a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
+              #page-footer-portals.col-sm-5.col-xs-14
+                h4= __('international')
+                each item in project.portalsAbroad
+                  div
+                    a(href='http://'+item.href, target='_blank')
+                      i.flag-icon(class='flag-'+item.id)= item.text
+
+              #page-footer-social.col-sm-4.col-xs-14
+                if (shareInfo)
+                  .our-sharedata(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
+                    each service in config.shareDataServices
+                      a.our-share-item(class=service, data-service=service, href=shareService.getShareUrl(service, shareInfo), rel='nofollow', target='_blank', title='share_on_format.FormatWith(service.StartWithUpperCase())')
+                        span.share-icon
+                          i
+                        span.share-count.hidden
+
+    if (!noGoogleAds)
+      script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    block scripts
+    
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '#{config.googleAnalyticsId}', '#{config.domain}');
+      ga('set', 'dimension1', '#{project.name}');
+      ga('send', 'pageview');
