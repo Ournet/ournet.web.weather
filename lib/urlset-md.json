@@ -6,6 +6,10 @@
 			"url": "/vremea/places",
 			"absolute": true
 		},
+		"places": {
+			"url": "/vremea/places",
+			"absolute": true
+		},
 		"@widget": {
 			"home": {
 				"url": "/widget",
