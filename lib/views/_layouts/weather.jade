@@ -1,0 +1,44 @@
+extends ./normal
+
+block content
+  .row
+    #page-content-menu.col-sm-2.hidden-xs
+      #page-content-menu-inner
+        .menu-header
+          a(href=links.home())= __('weather')
+        .menu
+          each item in mainPlaces
+            .item
+              a(href=item.href, title=item.text, class=item.cssClass)= item.text
+            .item
+              a(href=links.weather.places())= __('other_n_places_format')
+
+    #page-data.col-sm-12.col-xs-14
+      #page-data-inner
+        .row
+          .col-sm-14.col-md-9
+            if (position)
+              #user-location
+                for item, i in position
+                  a(href=item.href)= item.text
+                    if (i < position.count - 1)
+                    ='  › '
+            block content
+            br
+            .text-center.gads-468
+              // Ournet 468x60
+              ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
+              script.
+                (adsbygoogle = window.adsbygoogle || []).push({ });
+
+          .col-md-5.hidden-sm.hidden-xs
+            #page-content-right
+              block right_content
+
+              #affix-right-region(data-spy='affix', data-offset-top='410', data-offset-bottom='200')
+                .tab.view-ads.gads-300-600
+                  // Ournet 300x600
+                  ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
+                  script.
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                .tab.view-ads= config.socialPluginsHtmlCode

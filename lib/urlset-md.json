@@ -1,0 +1,16 @@
+{
+	"home": "/",
+	"@weather": {
+		"home": "/",
+		"search": {
+			"url": "/vremea/places",
+			"absolute": true
+		},
+		"@widget": {
+			"home": {
+				"url": "/widget",
+				"absolute": true
+			}
+		}
+	}
+}
