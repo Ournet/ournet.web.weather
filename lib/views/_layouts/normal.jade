@@ -28,12 +28,12 @@ block content_header
           //-     | else if(diff
           //-   |                                 }
           //- |                         }
-        .col-md-7.col-sm-14
-          a#widget-w-link(href=links.weather.widget.home())
-            span.icon
-            = __('weather_on_your_site')
+          .col-md-7.col-sm-14
+            a#widget-w-link(href=links.weather.widget.home())
+              span.icon
+              = __('weather_on_your_site')
 
 block content
   #layout-content(class="clearfix")
     .container
-      block content
+      block normal_content

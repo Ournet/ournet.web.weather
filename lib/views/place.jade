@@ -1,6 +1,6 @@
 extends ./_layouts/weather
 
-block content
+block weather_content
   #place-weather-title
     if (shareInfo)
       .our-sharedata.pull-right(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
@@ -26,17 +26,22 @@ block content
             th= __('weather.item_wind_dir')
             th= __('weather.item_wind_speed')
         tbody
-          each item, i in report.times
+          each day, i in report.days
             tr
-              td.hour= new Date(item.from).toString()
-              td.symbol
-                span.w-icon(class='wi'+item.symbol, title=item.symbol)
-              td.symbol-name= item.symbol_name
-              td.no.temperature= item.t.value
-              td.no.pressure= item.pressure.value
-              td.wind-dir
-                img(alt=item.wind.dir.code, title=item.wind.dir.code, src='http://assets.ournetcdn.net/root/img/icons/weather/32-wind-arrow.png', class='@item.WindDirectionCss()')
-              td.wind-speed= item.wind.speed.mps + __('weather.item_wind_speed_ms')
+              th(colspan='7', class='head')
+                div
+                  h3= util.moment(day.date).format('dddd, D MMM')
+            each item in day.times
+              tr
+                td.hour= util.moment(item.from).format('LT')
+                td.symbol
+                  span.w-icon(class='wi'+item.symbol.number, title=item.symbol.number)
+                td.symbol-name= item.symbol_name
+                td.no.temperature= item.t.value
+                td.no.pressure= item.pressure.value
+                td.wind-dir
+                  img(alt=item.wind.dir.code, title=item.wind.dir.code, src='http://assets.ournetcdn.net/root/img/icons/weather/32-wind-arrow.png', class='@item.WindDirectionCss()')
+                td.wind-speed= item.wind.speed.mps +' '+ __('weather.item_wind_speed_ms')
 
       #weather-source-footer
         a#yr-logo(href='http://www.yr.no/', rel='nofollow', target='_blank')= __('weather_cright')

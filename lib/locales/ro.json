@@ -1,6 +1,15 @@
 {
-  "ro": "Română",
-  "contact": "Contact",
-  "weather_cright": "Prognoza meteo oferită de yr.no",
-  "international": "Internațional"
+	"ro": "Română",
+	"contact": "Contact",
+	"weather_cright": "Prognoza meteo oferită de yr.no",
+	"international": "Internațional",
+	"search_text": "Caută localitate",
+	"weather_on_your_site": "Vremea pe site-ul tău",
+	"weather": "weather",
+	"weather.item_conditions": "Condiţia atmosferică",
+	"weather.item_temperatire": "Temperatura aerului, °C",
+	"weather.item_pressure": "Pr. atmosf., hPa",
+	"weather.item_wind_dir": "Directia vîntului",
+	"weather.item_wind_speed": "Viteza vînt. m/s",
+	"weather.item_wind_speed_ms": "m/s"
 }

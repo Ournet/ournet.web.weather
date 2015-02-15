@@ -1,6 +1,6 @@
 extends ./normal
 
-block content
+block normal_content
   .row
     #page-content-menu.col-sm-2.hidden-xs
       #page-content-menu-inner
@@ -23,7 +23,7 @@ block content
                   a(href=item.href)= item.text
                     if (i < position.count - 1)
                     ='  › '
-            block content
+            block weather_content
             br
             .text-center.gads-468
               // Ournet 468x60

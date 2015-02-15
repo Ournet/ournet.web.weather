@@ -2,7 +2,7 @@
 	"ro": "ro",
 	"contact": "contact",
 	"weather_cright": "weather_cright",
-	"international": "international",
+	"international": "International",
 	"search_text": "search_text",
 	"weather_on_your_site": "weather_on_your_site",
 	"weather.item_conditions": "weather.item_conditions",
@@ -10,5 +10,6 @@
 	"weather.item_pressure": "weather.item_pressure",
 	"weather.item_wind_dir": "weather.item_wind_dir",
 	"weather.item_wind_speed": "weather.item_wind_speed",
-	"weather.item_wind_speed_ms": "weather.item_wind_speed_ms"
+	"weather.item_wind_speed_ms": "weather.item_wind_speed_ms",
+	"weather": "weather"
 }
