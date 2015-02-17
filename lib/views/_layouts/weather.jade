@@ -17,11 +17,11 @@ block normal_content
       #page-data-inner
         .row
           .col-sm-14.col-md-9
-            if (position)
+            if (location)
               #user-location
-                for item, i in position
+                for item, i in location
                   a(href=item.href)= item.text
-                    if (i < position.count - 1)
+                  if (i < location.length - 1)
                     ='  › '
             block weather_content
             br

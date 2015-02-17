@@ -19,5 +19,10 @@
 	"weather.weather_title_format": "Vremea în %s",
 	"weather2": "Meteo",
 	"home_title_format": "Vremea in %s pe 10 zile",
-	"share_on_format": "share_on_format"
+	"share_on_format": "Trimite pe %s",
+	"home": "Acasă",
+	"places": "Locuri",
+	"news": "Știri",
+	"opinia": "Opinia",
+	"exchange": "Curs valutar"
 }

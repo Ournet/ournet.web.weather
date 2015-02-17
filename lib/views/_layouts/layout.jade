@@ -15,16 +15,16 @@ html(lang=currentCulture.language)
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language))
     #fb-root
     #page(class=site.pageLayoutCss)
-      if (site.showTopPageBar)
+      if (showTopPageBar)
         #sys-top-bar
           .container
             .row
               #sys-menu.col-sm-8.col-xs-14
                 each item in topBarMenu
                   a(href=item.href, class=item.cssClass)
-                    | item.text
+                    = item.text
                     if (item.label)
-                      span.count= item.label.text
+                      span.count= item.label
 
               #sys-user.col-sm-6.hidden-xs
                 if (hasMultipleLangs)
@@ -60,19 +60,20 @@ html(lang=currentCulture.language)
               span.domain-Justice.ref-color ●●●
             .row
               #page-footer-info.col-sm-5.col-xs-14
-                div= __('contact')
+                div= __('contact')+': '
                   a=  config.email
                 div
                 | Version 
                 = project.version
-                div
-                  a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
+                //- div
+                //-   a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
               #page-footer-portals.col-sm-5.col-xs-14
                 h4= __('international')
-                each item in project.portalsAbroad
+                each item in config.international
                   div
-                    a(href='http://'+item.href, target='_blank')
-                      i.flag-icon(class='flag-'+item.id)= item.text
+                    a(href=item.url, target='_blank')
+                      i.flag-icon(class='flag-'+item.id)
+                      = item[currentCulture.language]
 
               #page-footer-social.col-sm-4.col-xs-14
                 if (shareInfo)
