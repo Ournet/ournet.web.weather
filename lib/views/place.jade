@@ -1,5 +1,5 @@
 extends ./_layouts/weather
-
+- var date = Date.now()
 block weather_content
   #place-weather-title
     if (shareInfo)
@@ -30,13 +30,14 @@ block weather_content
             tr
               th(colspan='7', class='head')
                 div
-                  h3= util.moment(day.date).format('dddd, D MMM')
+                  h3= util.moment(day.date).format('dddd, D MMMM')
             each item in day.times
               tr
-                td.hour= util.moment(item.from).format('LT')
+                - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
+                td.hour= util.moment(item.from).format(config.hour_format)
                 td.symbol
-                  span.w-icon(class='wi'+item.symbol.number, title=item.symbol.number)
-                td.symbol-name= item.symbol_name
+                  span.w-icon(class='wi'+item.symbol.number, title=symbol_name)
+                td.symbol-name= symbol_name
                 td.no.temperature= item.t.value
                 td.no.pressure= item.pressure.value
                 td.wind-dir
@@ -44,5 +45,8 @@ block weather_content
                 td.wind-speed= item.wind.speed.mps +' '+ __('weather.item_wind_speed_ms')
 
       #weather-source-footer
-        a#yr-logo(href='http://www.yr.no/', rel='nofollow', target='_blank')= __('weather_cright')
+        a#yr-logo(href='http://www.yr.no/', rel='nofollow', target='_blank')
+        = __('weather_cright')
       p.sinfo= subTitle
+
+- console.log(Date.now())

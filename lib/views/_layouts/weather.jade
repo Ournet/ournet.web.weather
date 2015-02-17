@@ -7,11 +7,11 @@ block normal_content
         .menu-header
           a(href=links.home())= __('weather')
         .menu
-          each item in mainPlaces
+          each item in config.mainPlaces
             .item
-              a(href=item.href, title=item.text, class=item.cssClass)= item.text
-            .item
-              a(href=links.weather.places())= __('other_n_places_format')
+              a(href=links.weather.place(item.id), title=item_name, class=(place && place.id && item.id == place.id ? 'selected': ''))= item[currentCulture.language]
+          .item
+            a(href=links.weather.places())= util.format(__('other_n_places_format'), config.placesCount)
 
     #page-data.col-sm-12.col-xs-14
       #page-data-inner
@@ -41,4 +41,4 @@ block normal_content
                   ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
                   script.
                     (adsbygoogle = window.adsbygoogle || []).push({});
-                .tab.view-ads= config.socialPluginsHtmlCode
+                .tab.view-ads!= config.socialPluginsHtmlCode

@@ -5,11 +5,12 @@
 	"international": "Internațional",
 	"search_text": "Caută localitate",
 	"weather_on_your_site": "Vremea pe site-ul tău",
-	"weather": "weather",
+	"weather": "Vremea",
 	"weather.item_conditions": "Condiţia atmosferică",
 	"weather.item_temperatire": "Temperatura aerului, °C",
 	"weather.item_pressure": "Pr. atmosf., hPa",
 	"weather.item_wind_dir": "Directia vîntului",
 	"weather.item_wind_speed": "Viteza vînt. m/s",
-	"weather.item_wind_speed_ms": "m/s"
+	"weather.item_wind_speed_ms": "m/s",
+	"other_n_places_format": "+%d localităţi"
 }
