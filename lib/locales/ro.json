@@ -12,5 +12,12 @@
 	"weather.item_wind_dir": "Directia vîntului",
 	"weather.item_wind_speed": "Viteza vînt. m/s",
 	"weather.item_wind_speed_ms": "m/s",
-	"other_n_places_format": "+%d localităţi"
+	"other_n_places_format": "+%d localităţi",
+	"weather.weather_item_head_title_format": "Vremea in %s, prognoza meteo in %s",
+	"weather.weather_item_head_description_format": "Prognoza meteo in %s, vremea in %s - azi, maine, pentru 10 zile",
+	"weather.place_weather_details_info": "Meteo in %s, vremea la %s azi, maine, poimaine, 3 zile, 7 zile, 10 zile, urmatoarele zile. Starea vremii in %s.",
+	"weather.weather_title_format": "Vremea în %s",
+	"weather2": "Meteo",
+	"home_title_format": "Vremea in %s pe 10 zile",
+	"share_on_format": "share_on_format"
 }

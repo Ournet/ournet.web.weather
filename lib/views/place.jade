@@ -5,10 +5,10 @@ block weather_content
     if (shareInfo)
       .our-sharedata.pull-right(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
         each service in config.shareDataServices
-          a.our-share-item(class=service, data-service=service, href='@ShareServiceUtility.GetServiceShareUrl(@service, Model.ShareInfo)', rel='nofollow', target='_blank', title='@Ournet.Web.Portal.Resources.Project.share_on_format.FormatWith(service.StartWithUpperCase())')
-          span.share-icon
-            i
-          span.share-count.hidden
+          a.our-share-item(class=service, data-service=service, href=shareInfo.getShareUrl(service), rel='nofollow', target='_blank', title=util.format(__('share_on_format'),util.startWithUpperCase(service)))
+            span.share-icon
+              i
+            span.share-count.hidden
 
     h1= title
   #place-weather-summary.group
@@ -39,9 +39,10 @@ block weather_content
                   span.w-icon(class='wi'+item.symbol.number, title=symbol_name)
                 td.symbol-name= symbol_name
                 td.no.temperature= item.t.value
+                  | &deg;
                 td.no.pressure= item.pressure.value
                 td.wind-dir
-                  img(alt=item.wind.dir.code, title=item.wind.dir.code, src='http://assets.ournetcdn.net/root/img/icons/weather/32-wind-arrow.png', class='@item.WindDirectionCss()')
+                  div(alt=item.wind.dir.code, title=item.wind.dir.code, class=util.weather.windDirectionCss(item.wind.dir.code))
                 td.wind-speed= item.wind.speed.mps +' '+ __('weather.item_wind_speed_ms')
 
       #weather-source-footer

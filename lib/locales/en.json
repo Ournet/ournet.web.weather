@@ -11,5 +11,11 @@
 	"weather.item_wind_dir": "weather.item_wind_dir",
 	"weather.item_wind_speed": "weather.item_wind_speed",
 	"weather.item_wind_speed_ms": "weather.item_wind_speed_ms",
-	"weather": "weather"
+	"weather": "weather",
+	"weather.weather_item_head_title_format": "weather.weather_item_head_title_format",
+	"weather.weather_item_head_description_format": "weather.weather_item_head_description_format",
+	"weather.place_weather_details_info": "weather.place_weather_details_info",
+	"weather.weather_title_format": "weather.weather_title_format",
+	"weather2": "weather2",
+	"other_n_places_format": "other_n_places_format"
 }
