@@ -29,6 +29,9 @@
     "moment": "^2.9.0",
     "morgan": "^1.5.1",
     "response-time": "^2.2.0",
-    "urlset": "^0.1.2"
+    "urlset": "^0.1.2",
+    "ournet.core": "https://npm.fury.io/G4qSJ8SL1vn1TcQvP9KP/dumitru/ournet.core/-/latest.tgz",
+    "ournet.data.places": "https://npm.fury.io/G4qSJ8SL1vn1TcQvP9KP/dumitru/ournet.data.places/-/latest.tgz",
+    "ournet.data.weather": "https://npm.fury.io/G4qSJ8SL1vn1TcQvP9KP/dumitru/ournet.data.weather/-/latest.tgz"
   }
 }

@@ -1,1 +1,26 @@
-{}
+{
+	"ru": "ru",
+	"news": "news",
+	"weather": "weather",
+	"opinia": "opinia",
+	"exchange": "exchange",
+	"home": "home",
+	"weather.weather_item_head_title_format": "weather.weather_item_head_title_format",
+	"weather.weather_item_head_description_format": "weather.weather_item_head_description_format",
+	"weather.weather_title_format": "weather.weather_title_format",
+	"weather2": "weather2",
+	"search_text": "search_text",
+	"weather_on_your_site": "weather_on_your_site",
+	"other_n_places_format": "other_n_places_format",
+	"share_on_format": "share_on_format",
+	"weather.item_conditions": "weather.item_conditions",
+	"weather.item_temperatire": "weather.item_temperatire",
+	"weather.item_pressure": "weather.item_pressure",
+	"weather.item_wind_dir": "weather.item_wind_dir",
+	"weather.item_wind_speed": "weather.item_wind_speed",
+	"weather.item_wind_speed_ms": "weather.item_wind_speed_ms",
+	"weather_cright": "weather_cright",
+	"contact": "contact",
+	"international": "international",
+	"weather.place_weather_details_info": "weather.place_weather_details_info"
+}

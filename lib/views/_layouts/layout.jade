@@ -8,7 +8,7 @@ html(lang=currentCulture.language)
     meta(name='description', content=site.head.description)
     meta(name='keywords', content=site.head.keywords)
     block styles
-    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-ab9990ac.min.css')
+    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-fb2d6f4b.min.css')
     if (site.head.canonical)
       link(rel='canonical', href=site.head.canonical)
     link(rel='shortcut icon', href=config.favicon)
@@ -27,8 +27,10 @@ html(lang=currentCulture.language)
                       span.count= item.label
 
               #sys-user.col-sm-6.hidden-xs
-                if (hasMultipleLangs)
-                  a.bar-item(href=('/?ul='+topBarLangs[0].id))= topBarLangs[0].text
+                if (config.languages.length>1)
+                  each key in config.languages
+                    if (key!=currentCulture.language)
+                      a.bar-item(href=links.home({ul:key}))= config.languagesNames[key]
 
       #page-wrapper
         #page-header
@@ -89,7 +91,7 @@ html(lang=currentCulture.language)
     script.
       window.globalInitData={cn: '#config.country',ul:'#currentCulture.language'};
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
-    script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-8aee53d8.min.js')
+    script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-200f641f.min.js')
     block scripts
     
     script.
