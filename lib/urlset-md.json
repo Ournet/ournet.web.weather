@@ -1,33 +1,24 @@
 {
 	"home": "/",
-	"@weather": {
+	"weather": {
+		"$name": "vremea",
 		"home": "/",
-		"search": {
-			"url": "/vremea/places",
-			"absolute": true
-		},
-		"place": {
-			"url": "/vremea/${0}",
-			"absolute": true
-		},
+		"search": "/places",
+		"place": "/${0}",
 		"places": {
-			"url": "/vremea/places",
-			"absolute": true
+			"$url": "/places",
+			"byAdm1": "/${0}"
 		},
-		"placesByAdm1": {
-			"url": "/vremea/places/${0}",
-			"absolute": true
-		},
-		"@widget": {
+		"widget": {
 			"home": {
-				"url": "/widget",
-				"absolute": true
+				"$url": "/widget",
+				"$absolute": true
 			}
 		},
-		"@controls": {
-			"placesList": {
-				"url": "/controls/places/${0}/${1}",
-				"absolute": true
+		"controls": {
+			"morePlaces": {
+				"$url": "/controls/more_places/${0}/${1}.json",
+				"$absolute": true
 			}
 		}
 	}

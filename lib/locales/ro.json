@@ -27,5 +27,9 @@
 	"exchange": "Curs valutar",
 	"weather.search_place_in_cn": "Caută localitate în %s",
 	"language_ro": "Română",
-	"country_md": "Moldova"
+	"country_md": "Moldova",
+	"load_more_places": "Mai multe localităţi",
+	"weather.search_place_in_cn_format": "Caută localitate în %s, %s",
+	"weather.other_n_places_format": "weather.other_n_places_format",
+	"today": "today"
 }

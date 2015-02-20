@@ -8,7 +8,7 @@ block weather_content
       .list-item
         .item
           a(href=links.weather.place(item.id, {ul: currentCulture.language}))= item.getName(currentCulture.language)
-          div=region.getName(currentCulture.language)
-  if (places.LastEvaluatedKey)
-    .list-footer
-      a(class='load-more', onclick=('loadMorePlaces(this,'+links.weather.controls.places(region.admin1_code, places.LastEvaluatedKey.id)+')'))= __('load_more_places')
+          //- div=region.getName(currentCulture.language)
+  //- if (places.LastEvaluatedKey)
+  //-   .list-footer
+  //-     a(class='load-more', onclick=('loadMorePlaces(this,\''+links.weather.controls.morePlaces(region.admin1_code, places.LastEvaluatedKey.id)+'\')'))= __('load_more_places')

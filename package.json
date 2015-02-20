@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://Mitea@bitbucket.org/ournet/ournet.web.weather.git"
+    "url": "https://bitbucket.org/ournet/ournet.web.weather.git"
   },
   "keywords": [
     "ournet",
@@ -29,6 +29,6 @@
     "moment": "^2.9.0",
     "morgan": "^1.5.1",
     "response-time": "^2.2.0",
-    "urlset": "^0.1.2"
+    "urlset": "^0.3.4"
   }
 }
