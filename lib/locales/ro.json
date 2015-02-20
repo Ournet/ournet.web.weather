@@ -24,5 +24,8 @@
 	"places": "Locuri",
 	"news": "Știri",
 	"opinia": "Opinia",
-	"exchange": "Curs valutar"
+	"exchange": "Curs valutar",
+	"weather.search_place_in_cn": "Caută localitate în %s",
+	"language_ro": "Română",
+	"country_md": "Moldova"
 }

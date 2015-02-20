@@ -1,0 +1,10 @@
+extends ./_layouts/weather
+block weather_content
+  #place-weather-title
+    h1= title
+  br
+  .list.ot-region
+    each item in regions
+      .list-item
+        .item
+          a(href=links.weather.placesByAdm1(item.admin1_code))= item.getName(currentCulture.language)

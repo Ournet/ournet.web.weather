@@ -14,9 +14,19 @@
 			"url": "/vremea/places",
 			"absolute": true
 		},
+		"placesByAdm1": {
+			"url": "/vremea/places/${0}",
+			"absolute": true
+		},
 		"@widget": {
 			"home": {
 				"url": "/widget",
+				"absolute": true
+			}
+		},
+		"@controls": {
+			"placesList": {
+				"url": "/controls/places/${0}/${1}",
 				"absolute": true
 			}
 		}

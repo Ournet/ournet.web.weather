@@ -22,5 +22,9 @@
 	"weather_cright": "weather_cright",
 	"contact": "contact",
 	"international": "international",
-	"weather.place_weather_details_info": "weather.place_weather_details_info"
+	"weather.place_weather_details_info": "weather.place_weather_details_info",
+	"language_ru": "language_ru",
+	"country_md": "country_md",
+	"places": "places",
+	"weather.search_place_in_cn": "weather.search_place_in_cn"
 }
