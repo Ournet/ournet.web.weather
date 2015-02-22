@@ -34,7 +34,7 @@ block normal_content
           .col-md-5.hidden-sm.hidden-xs
             #page-content-right
               block right_content
-              - var attrs= affix? {affix:'affix'}:{}
+              - var attrs= affix? {'data-spy':'affix'}:{}
               #affix-right-region(data-offset-top='410', data-offset-bottom='200')&attributes(attrs)
                 .tab.view-ads.gads-300-600
                   // Ournet 300x600
