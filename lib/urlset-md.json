@@ -10,8 +10,16 @@
 			"byAdm1": "/${0}"
 		},
 		"widget": {
+			"$absolute": true,
 			"$url": "/widget",
-			"widgetFrame": "/widget_frame"
+			"widgetFrame": {
+				"$url": "/widget/widget_frame",
+				"$absolute": true
+			},
+			"widgetScript": {
+				"$url": "/widget/widget_script",
+				"$absolute": true
+			}
 		},
 		"controls": {
 			"morePlaces": {

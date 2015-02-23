@@ -32,5 +32,18 @@
 	"today": "today",
 	"weather.search_place_in_cn_format": "weather.search_place_in_cn_format",
 	"search_place_format": "search_place_format",
-	"recent_search": "recent_search"
+	"recent_search": "recent_search",
+	"weather_on_your_site_info": "weather_on_your_site_info",
+	"weather_widget.configuration": "weather_widget.configuration",
+	"weather.place": "weather.place",
+	"weather_widget.days": "weather_widget.days",
+	"weather_widget.border_color": "weather_widget.border_color",
+	"weather_widget.back_color": "weather_widget.back_color",
+	"weather_widget.head_back_color": "weather_widget.head_back_color",
+	"weather_widget.head_text_color": "weather_widget.head_text_color",
+	"weather_widget.line_color": "weather_widget.line_color",
+	"weather_widget.width": "weather_widget.width",
+	"weather_widget.generate": "weather_widget.generate",
+	"weather_widget.preview": "weather_widget.preview",
+	"weather_widget.html_code": "weather_widget.html_code"
 }
