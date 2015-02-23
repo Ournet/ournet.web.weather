@@ -30,5 +30,7 @@
 	"weather.home_title_format": "weather.home_title_format",
 	"weather_in_cn_summary": "weather_in_cn_summary",
 	"today": "today",
-	"weather.search_place_in_cn_format": "weather.search_place_in_cn_format"
+	"weather.search_place_in_cn_format": "weather.search_place_in_cn_format",
+	"search_place_format": "search_place_format",
+	"recent_search": "recent_search"
 }

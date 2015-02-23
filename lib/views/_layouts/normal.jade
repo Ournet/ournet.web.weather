@@ -4,9 +4,9 @@ block content_header
   .row
     .col-md-7.col-sm-9.col-xs-14
       #header-logo.pull-left
-        a(title=project.name, href=links.home())
+        a(title=project.name, href=links.home({ul: currentCulture.language}))
       #header-search.pull-left
-        form#q-form(method='get', action=links.weather.search())
+        form#q-form(method='get', action=links.weather.search({ul: currentCulture.language}))
           input#q(name='q', type='text', placeholder=__('search_text'))
           a#search-btn(onclick="$('#q-form').submit();")
             span.icon
@@ -29,7 +29,7 @@ block content_header
           //-   |                                 }
           //- |                         }
           .col-md-7.col-sm-14
-            a#widget-w-link(href=links.weather.widget.home())
+            a#widget-w-link(href=links.weather.widget())
               span.icon
               = __('weather_on_your_site')
 

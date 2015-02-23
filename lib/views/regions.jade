@@ -7,4 +7,4 @@ block weather_content
     each item in regions
       .list-item
         .item
-          a(href=links.weather.places.byAdm1(item.admin1_code))= item.getName(currentCulture.language)
+          a(href=links.weather.places.byAdm1(item.admin1_code, {ul:currentCulture.language}))= item.getName(currentCulture.language)
