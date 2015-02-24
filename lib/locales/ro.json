@@ -48,5 +48,6 @@
 	"weather_widget.generate": "Generează",
 	"weather_widget.preview": "Previzualizare",
 	"weather_widget.html_code": "Codul HTML",
-	"weather_on_your_site_info": "Pune vremea pe site-ul tău pentru orice localitate din %s."
+	"weather_on_your_site_info": "Pune vremea pe site-ul tău pentru orice localitate din %s.",
+	"language_ru": "Русский"
 }

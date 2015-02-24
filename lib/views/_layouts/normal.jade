@@ -29,7 +29,7 @@ block content_header
           //-   |                                 }
           //- |                         }
           .col-md-7.col-sm-14
-            a#widget-w-link(href=links.weather.widget())
+            a#widget-w-link(href=links.weather.widget({ul: currentCulture.language}))
               span.icon
               = __('weather_on_your_site')
 

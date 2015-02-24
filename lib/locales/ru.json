@@ -46,5 +46,6 @@
 	"weather_widget.generate": "weather_widget.generate",
 	"weather_widget.preview": "weather_widget.preview",
 	"weather_widget.html_code": "weather_widget.html_code",
-	"weather_in_format": "weather_in_format"
+	"weather_in_format": "weather_in_format",
+	"search_place_in_cn_format": "search_place_in_cn_format"
 }

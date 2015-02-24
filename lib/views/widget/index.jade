@@ -5,6 +5,13 @@ block append styles
 
 block form_content
   div
+    if (shareInfo)
+      .our-sharedata.pull-right(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
+        each service in config.shareDataServices
+          a.our-share-item(class=service, data-service=service, href=shareInfo.getShareUrl(service), rel='nofollow', target='_blank', title=util.format(__('share_on_format'),util.startWithUpperCase(service)))
+            span.share-icon
+              i
+            span.share-count.hidden
     h1= __('weather_on_your_site')
     p= site.head.description
     .row

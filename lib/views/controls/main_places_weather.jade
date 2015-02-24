@@ -2,7 +2,7 @@ table.weather-summary
   each item in placesWeather
     tr
       td.name
-        a(href=links.weather.place(item.place.id))= item.place.getName(currentCulture.language)
+        a(href=links.weather.place(item.place.id, {ul: currentCulture.language}))= item.place.getName(currentCulture.language)
       td.symbol
         span.w-icon(class='wi'+item.weather.symbol.number, title=util.weather.symbolName(item.weather.symbol, currentCulture.language))
       td.symbol-name= util.weather.symbolName(item.weather.symbol, currentCulture.language)
