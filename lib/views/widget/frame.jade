@@ -6,8 +6,10 @@ html(xmlns='http://www.w3.org/1999/xhtml')
       body{font-size:.75em;font-family:Arial, Helvetica, Sans-Serif;margin:0;padding:0;color:#848484;}
       .head{padding:5px 6px;font-size:110%;font-weight:bold;white-space:nowrap;}a{text-decoration:none;}a:active{color:#ca0000;}
       .day{width:25%;}.day .name{font-weight:bold;text-align:center;}.day .date{font-size:90%;margin-top:4px;text-align:center;}
-      .icon{width:25%;position: relative;overflow: hidden;}.details .temp{text-align:center;font-size:110%;}.details .name{color:#333;font-size:80%;margin-top:4px;text-align:center;}
-      .line{padding:3px 0px;height:36px;overflow: hidden;}.line.on{border-bottom:1px solid #ddd;}
+      .icon{width:25%;position: relative;overflow: hidden;}.details .temp{text-align:center;font-size:110%;}.details .name{color:#333;font-size:90%;margin-top:4px;text-align:center;white-space:nowrap;}
+      .line{padding:3px 0px;height:36px;overflow: hidden;border-bottom:1px solid #ddd;}
+      .line:last-child{border-bottom:none;}
+      td{overflow:hidden}
       .w-icon {width: 32px;height: 32px;display: inline-block;background-image: url('http://i.static.srsvc.com/root/img/icons/weather/40-weather-icons-wb.png');background-position: 0px 0px;background-repeat: no-repeat;
       -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
       .w-icon.night {background-image: url('http://i.static.srsvc.com/root/img/icons/weather/40-weather-icons-night-wb.png');}
