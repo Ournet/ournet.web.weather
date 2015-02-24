@@ -1,0 +1,97 @@
+extends ../_layouts/form
+
+block append styles
+  link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/widget-073f7d4b.min.css')
+
+block form_content
+  div
+    if (shareInfo)
+      .our-sharedata.pull-right(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
+        each service in config.shareDataServices
+          a.our-share-item(class=service, data-service=service, href=shareInfo.getShareUrl(service), rel='nofollow', target='_blank', title=util.format(__('share_on_format'),util.startWithUpperCase(service)))
+            span.share-icon
+              i
+            span.share-count.hidden
+    h1= __('weather_on_your_site')
+    p= site.head.description
+    .row
+      .col-sm-6.col-md-5.col-xs-14
+        fieldset.form(style='padding: 10px; background: #E6F2FA;', ng-controller='Widget2Crtl', ng-init='placeid='+place.id)
+          table.form-table
+            tr
+              td
+                label(style='min-width: inherit', for='conf_place')= __('weather.place')+ ':'
+              td
+                input#conf_place(type='text', style='width: 140px; font-weight: bold; background: #f5f5f5;', name='place', value=place.getName(currentCulture.language))
+                input#conf_placeid(type='hidden', value=place.id)
+            tr
+              td(colspan='2')
+                table(style='border-spacing: 0px; padding: 0px; margin: 0px;')
+                  tr
+                    td
+                      b= __('weather_widget.base_color') + ':'
+                    td
+                      b= __('weather_widget.item_color') + ':'
+                    td
+                      b= __('weather_widget.text_color') + ':'
+                  tr
+                    td
+                      input#conf_color(type='text', name='color', value='68a7d4', maxlength='6', style='width: 60px')
+                    td
+                      input#conf_itemcolor(type='text', name='itemcolor', placeholder='auto', maxlength='6', style='width: 60px')
+                    td
+                      input#conf_textcolor(type='text', name='textcolor', placeholder='auto', maxlength='6', style='width: 60px')
+            tr
+              td
+                label(style='min-width: inherit', for='conf_pos')= __('weather_widget.position')+':'
+              td
+                select#conf_pos(name='pos', style='width: 100px;')
+                  option(value='h')= __('weather_widget.horizontal')
+                  option(value='v', selected='selected')= __('weather_widget.vertical')
+            tr
+              td
+                label(style='min-width: inherit', for='conf_days')= __('weather_widget.days')+':'
+              td
+                select#conf_days(name='days', style='width: 50px;')
+                  option(value='1') 1
+                  option(value='2') 2
+                  option(selected='selected', value='3') 3
+                  option(value='4') 4
+                  option(value='5') 5
+            tr
+              td
+                label(style='min-width: inherit', for='conf_w')= __('weather_widget.width')+':'
+              td
+                input#conf_w(type='number', style='width: 50px;', maxlength='3', min='100', max='800', name='w', value='250')
+            tr
+              td
+                label(style='min-width: inherit', for='conf_header')= __('weather_widget.show_header')+':'
+              td
+                input#conf_header(type='checkbox', name='header', checked='checked')
+            tr
+              td
+              td
+                button#conf_generate(type='button')= __('weather_widget.generate')
+        br
+        if (currentCulture.country == "ro")
+          iframe(width='300', height='169', src='//www.youtube.com/embed/sLYbJaLlY6M?rel=0', frameborder='0', allowfullscreen='')
+        else if (currentCulture.country == "md")
+          iframe(width='300', height='225', src='//www.youtube.com/embed/cI1yc9TxWb8?rel=0', frameborder='0', allowfullscreen='')
+      .col-sm-8.col-md-9.col-xs-14
+        div(style='text-align: center; padding-bottom: 20px; background-color: #ddd')
+          br
+          h2= __('weather_widget.preview')
+          br
+          #weather-iframe(style='min-height: 260px;')
+          br
+          h2= __('weather_widget.html_code')
+          div(style='text-align: center')
+            textarea#weather-script(style='width: 80%; height: 160px;')
+
+
+
+
+block append scripts
+  script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/page-widget2-85c40c70.min.js')
+
+
