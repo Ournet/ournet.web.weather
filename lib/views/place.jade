@@ -49,4 +49,21 @@ block weather_content
         = __('weather_cright')
       p.sinfo= subTitle
 
-- console.log(Date.now())
+
+block right_content
+  if (stories && stories.length>0)
+    .tab
+      .tab-title
+        h4= __('latest_news')
+      .tab-content
+        .list.ot-news.view-icon-line
+          each story, i in stories
+            if (i < 4)
+              .list-item.ot-news
+                .item.ot-news.media
+                  a.pull-left(href=story.url)
+                    img.story-img.media-object(alt='', src=('http://wi.ournetcdn.net/image/q_'+story.imagedate+'_'+story.imageid+'.jpg'))
+                  .media-body
+                    a(href=story.url)= story.title
+                    .details= util.moment.utc(story.date).fromNow(true)
+

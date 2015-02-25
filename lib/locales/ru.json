@@ -56,5 +56,6 @@
 	"weather_widget.vertical": "weather_widget.vertical",
 	"weather_widget.show_header": "weather_widget.show_header",
 	"weather.max": "weather.max",
-	"weather.min": "weather.min"
+	"weather.min": "weather.min",
+	"latest_news": "latest_news"
 }
