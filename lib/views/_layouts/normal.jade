@@ -6,7 +6,9 @@ block content_header
       #header-logo.pull-left
         a(title=project.name, href=links.home({ul: currentCulture.language}))
       #header-search.pull-left
-        form#q-form(method='get', action=links.weather.search({ul: currentCulture.language}))
+        form#q-form(method='get', action=links.weather.search())
+          if (currentCulture.language!=config.language)
+            input(type='hidden', name='ul', value=currentCulture.language)
           input#q(name='q', type='text', placeholder=__('search_text'))
           a#search-btn(onclick="$('#q-form').submit();")
             span.icon

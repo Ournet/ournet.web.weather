@@ -33,7 +33,7 @@ block weather_content
                   h3= util.moment(new Date(day.date)).format('dddd, D MMMM')
             each item, j in day.times
               - var date = new Date(item.from)
-              if (date > now)
+              if (new Date(item.to) > now)
                 tr(class=(j==day.times.length-1?'last-hour':null))
                   - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
                   td.hour= util.moment(date).format(config.hour_format)
