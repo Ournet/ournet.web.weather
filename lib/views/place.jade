@@ -65,5 +65,5 @@ block right_content
                     img.story-img.media-object(alt='', src=('http://wi.ournetcdn.net/image/q_'+story.imagedate+'_'+story.imageid+'.jpg'))
                   .media-body
                     a(href=story.url)= story.title
-                    .details= util.moment.utc(story.date).fromNow(true)
+                    .details= util.moment.utc(story.date).format('LT')
 
