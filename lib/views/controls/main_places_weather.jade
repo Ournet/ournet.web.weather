@@ -11,4 +11,4 @@ table.weather-summary
       td.wind-dir
         div(title=item.weather.wind.dir.code, class='wi'+item.weather.symbol.number)
       td.wind-speed= item.weather.wind.speed.mps
-        = __('weather.item_wind_speed_ms')
+        = ' ' + __('weather.item_wind_speed_ms')

@@ -56,5 +56,7 @@
 	"weather_widget.position": "Poziție",
 	"weather_widget.horizontal": "Orizontal",
 	"weather_widget.vertical": "Vertical",
-	"weather_widget.show_header": "Cu titlu"
+	"weather_widget.show_header": "Cu titlu",
+	"weather.max": "max",
+	"weather.min": "min"
 }

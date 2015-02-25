@@ -5,18 +5,18 @@ html(xmlns='http://www.w3.org/1999/xhtml')
     style(type='text/css').
       *,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
       body{background-color:transparent;font-size:.75em;font-family:Arial, Helvetica, Sans-Serif;margin:0;padding:0;color:#848484;}
-      #widget{ background: #@Model.PostData.Color;color:@textColor;text-shadow: 1px 1px 3px @itemColorDark;}
-      #header{background:@itemColorDark;border-bottom:1px solid @itemColorDark;height: @(Model.Formatter.HeaderHeight)px;overflow: hidden;}
+      #widget{background: ##{query.color};color:#{formatter.textColor};text-shadow: 1px 1px 3px #{formatter.itemColorDark};}
+      #header{background:#{formatter.itemColorDark};border-bottom:1px solid #{formatter.itemColorDark};height: #{formatter.headerHeight}px;overflow: hidden;}
       #header .inner{ padding: 5px 8px;overflow: hidden;}
       #header a{ text-decoration: none;}
-      #header .title{line-height: 30px;font-size: 20px;color:@textColor;}
+      #header .title{line-height: 30px;font-size: 20px;color:#{formatter.textColor};}
       #header .date{ line-height: 12px;font-size: 11px;}
-      #header .caret{position: absolute;right: 8px;top: 17px;width: 0;height: 0;border-left: 8px solid transparent;border-right: 8px solid transparent;border-top: 8px solid @textColor;}
+      #header .caret{position: absolute;right: 8px;top: 17px;width: 0;height: 0;border-left: 8px solid transparent;border-right: 8px solid transparent;border-top: 8px solid #{formatter.itemBorderColor};}
       #body{padding: 4px 4px 7px 4px;}
       .table{width: 100%;}
-      .table .item{height: @(Model.Formatter.ItemHeight)px;}
-      .in-table{background:@itemColor;cursor: pointer;overflow: hidden;border-top: 1px solid @itemColorLighter;display: block;margin: 3px;padding: 0px;}
-      .in-table:hover{ background-color: @itemColorDark;-webkit-transition: background-color 0.2s linear;-moz-transition: background-color 0.2s linear;-o-transition: background-color 0.2s linear;-ms-transition: background-color 0.2s linear;transition: background-color 0.2s linear;}
+      .table .item{height: #{formatter.itemHeight}px;}
+      .in-table{background:#{formatter.itemColor};cursor: pointer;overflow: hidden;border-top: 1px solid #{formatter.itemColorLighter};display: block;margin: 3px;padding: 0px;}
+      .in-table:hover{background-color:#{formatter.itemColorDark};-webkit-transition: background-color 0.2s linear;-moz-transition: background-color 0.2s linear;-o-transition: background-color 0.2s linear;-ms-transition: background-color 0.2s linear;transition: background-color 0.2s linear;}
       /*      content     */
       .table .item .inner{ padding: 5px;overflow: hidden;}
       .table .date span{ white-space: nowrap;}
@@ -24,28 +24,25 @@ html(xmlns='http://www.w3.org/1999/xhtml')
       .table .temp{ text-transform: lowercase;font-weight: bold;white-space: nowrap;}
       .position-h .table .item li{ float: left;display: inline-block;height: 100%;vertical-align: central;}
       .position-h .table .item{ text-align: center;}
-      .position-h .table .date{ width: @dateWidth;}
+      .position-h .table .date{ width: #{formatter.dateWidth};}
       .position-h .table .date span{ display: block;}
       .position-h .table .date span.day-name{ font-weight: bold;}
-      .position-h .table .image{ width: @imageWidth;}
-      .position-h .table .temp{ width: @tempWidth;}
-      .position-h .table .info{ width: @infoWidth;}
-      .position-h .info .inner,.position-h .temp .inner,.position-h .date .inner {
-      padding-top: 15%;
-      height: 100%;
-      }
+      .position-h .table .image{ width: #{formatter.imageWidth};}
+      .position-h .table .temp{ width: #{formatter.tempWidth};}
+      .position-h .table .info{ width: #{formatter.infoWidth};}
+      .position-h .info .inner,.position-h .temp .inner,.position-h .date .inner {padding-top: 15%;height: 100%;}
       ul,li{ margin: 0px;padding: 0px;list-style: none;}
       .table ul{ height: 100%;}
       ul ul li{ overflow: hidden;}
-      .position-v .table{ height: @(Model.Formatter.ItemHeight+2)px;overflow: hidden;}
+      .position-v .table{ height: #{formatter.itemHeight+2}px;overflow: hidden;}
       .position-v li li{ display: block;float: none;text-align: center;vertical-align: middle;}
-      .position-v .table .item{float: left;min-width: 60px;width:@((100F/Model.PostData.Days).ToString().Replace(',','.'))%}
-      .position-v .table .date{ height: @dateWidth;}
+      .position-v .table .item{float: left;min-width: 60px;width:#{(100/query.days)}%}
+      .position-v .table .date{ height:#{formatter.dateWidth};}
       .position-v .table .date span{ display: block;}
       .position-v .table .date span.day-name{ font-weight: bold;}
-      .position-v .table .image{ height: @imageWidth;}
-      .position-v .table .temp{ height: @tempWidth;}
-      .position-v .table .info{ height: @infoWidth;background-color: @itemColorDark;}
+      .position-v .table .image{ height: #{formatter.imageWidth};}
+      .position-v .table .temp{ height: #{formatter.tempWidth};}
+      .position-v .table .info{ height: #{formatter.infoWidth};background-color: #{formatter.itemColorDark};}
   body
     != widget
     script.
