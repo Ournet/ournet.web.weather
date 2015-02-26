@@ -33,9 +33,6 @@
     "urlset": "^0.3.4",
     "time": "^0.11.1",
     "chroma-js": "^0.6.3",
-    "request": "^2.53.0",
-    "ournet.core": "https://npm.fury.io/G4qSJ8SL1vn1TcQvP9KP/dumitru/ournet.core/-/latest.tgz",
-    "ournet.data.places": "https://npm.fury.io/G4qSJ8SL1vn1TcQvP9KP/dumitru/ournet.data.places/-/latest.tgz",
-    "ournet.data.weather": "https://npm.fury.io/G4qSJ8SL1vn1TcQvP9KP/dumitru/ournet.data.weather/-/latest.tgz"
+    "request": "^2.53.0"
   }
 }

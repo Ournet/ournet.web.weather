@@ -71,10 +71,11 @@ html(lang=currentCulture.language)
                 //-   a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
               #page-footer-portals.col-sm-5.col-xs-14.clearfix
                 h4= __('international')
-                each item in config.international
+                each id in config.internationalIds
+                  - var item = config.international[id]
                   div
                     a(href=item.url, target='_blank')
-                      i.flag-icon(class='flag-'+item.id)
+                      i.flag-icon(class='flag-'+id)
                       = item[currentCulture.language]
 
               #page-footer-social.col-sm-4.col-xs-14
