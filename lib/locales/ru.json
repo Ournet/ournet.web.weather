@@ -10,7 +10,7 @@
 	"weather2": "Прогноз погоды",
 	"search_text": "Поиск города...",
 	"other_n_places_format": "+%d нас. пункты",
-	"share_on_format": "share_on_format",
+	"share_on_format": "Отправить на %s",
 	"weather.item_conditions": "Состояние атмосферы",
 	"weather.item_temperatire": "Температура, °C",
 	"weather.item_pressure": "Атм. давл. hPa",
