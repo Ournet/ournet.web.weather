@@ -46,7 +46,7 @@ block weather_content
                   td.wind-dir
                     div(alt=item.wind.dir.code, title=item.wind.dir.code, class=util.weather.windDirectionCss(item.wind.dir.code))
                   td.wind-speed= item.wind.speed.mps +' '+ __('weather.item_wind_speed_ms')
-                if (i==2 && j==day.times.length-1)
+                if (i==1 && j==day.times.length-1)
                   tr
                     td(colspan=7)
                       .tab.view-ads.view-fill.no-margin.gads-468
