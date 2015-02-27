@@ -2,7 +2,11 @@
 	"home": "/",
 	"weather": {
 		"$name": "vremea",
-		"home": "/",
+		"home": {
+			"$url": "/",
+			"$absolute": true
+		},
+		"search": "/places",
 		"search": "/places",
 		"place": "/${0}",
 		"places": {
