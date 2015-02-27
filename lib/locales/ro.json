@@ -1,5 +1,4 @@
 {
-	"ro": "Română",
 	"contact": "Contact",
 	"weather_cright": "Prognoza meteo oferită de yr.no",
 	"international": "Internațional",
@@ -60,5 +59,6 @@
 	"weather.max": "max",
 	"weather.min": "min",
 	"latest_news": "Ultimele știri",
-	"country_ru": "country_ru"
+	"country_ru": "Rusia",
+	"country_ro": "România"
 }
