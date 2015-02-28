@@ -31,6 +31,7 @@
 	"search_place_format": "Търси резултати за: %s",
 	"weather.place": "Място",
 	"search_place_in_cn_format": "Намери град в %s, %s",
+	"weather.search_place_in_cn": "Намери град в %s",
 
 	"weather_on_your_site": "Времето на вашия сайт",
 	"weather_on_your_site_info": "Прогноза за времето на вашия сайт за всяко място в %s.",
