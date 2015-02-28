@@ -53,5 +53,7 @@
 	"weather_widget.position": "позиция",
 	"weather_widget.horizontal": "хоризонтален",
 	"weather_widget.vertical": "вертикален",
-	"weather_widget.show_header": "Покажи хедър"
+	"weather_widget.show_header": "Покажи хедър",
+	"weather.max": "max",
+	"weather.min": "min"
 }
