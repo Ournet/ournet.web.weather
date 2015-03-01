@@ -8,3 +8,5 @@
 (export COUNTRY=ru PORT=4103 && forever start index.js)
 
 (export COUNTRY=bg PORT=4104 && forever start index.js)
+
+(export COUNTRY=in PORT=4105 && forever start index.js)

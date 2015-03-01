@@ -20,7 +20,7 @@ block form_content
           table.form-table
             tr
               td
-                label(style='min-width: inherit', for='conf_place')= __('weather.place')+ ':'
+                label(style='min-width: inherit', for='conf_place')= __('place')+ ':'
               td
                 input#conf_place(type='text', style='width: 140px; font-weight: bold; background: #f5f5f5;', name='place', value=place.getName(currentCulture.language))
                 input#conf_placeid(type='hidden', value=place.id)
@@ -29,11 +29,11 @@ block form_content
                 table(style='border-spacing: 0px; padding: 0px; margin: 0px;')
                   tr
                     td
-                      b= __('weather_widget.base_color') + ':'
+                      b= __('base_color') + ':'
                     td
-                      b= __('weather_widget.item_color') + ':'
+                      b= __('item_color') + ':'
                     td
-                      b= __('weather_widget.text_color') + ':'
+                      b= __('text_color') + ':'
                   tr
                     td
                       input#conf_color(type='text', name='color', value='68a7d4', maxlength='6', style='width: 60px')
@@ -43,14 +43,14 @@ block form_content
                       input#conf_textcolor(type='text', name='textcolor', placeholder='auto', maxlength='6', style='width: 60px')
             tr
               td
-                label(style='min-width: inherit', for='conf_pos')= __('weather_widget.position')+':'
+                label(style='min-width: inherit', for='conf_pos')= __('position')+':'
               td
                 select#conf_pos(name='pos', style='width: 100px;')
-                  option(value='h')= __('weather_widget.horizontal')
-                  option(value='v', selected='selected')= __('weather_widget.vertical')
+                  option(value='h')= __('horizontal')
+                  option(value='v', selected='selected')= __('vertical')
             tr
               td
-                label(style='min-width: inherit', for='conf_days')= __('weather_widget.days')+':'
+                label(style='min-width: inherit', for='conf_days')= __('days')+':'
               td
                 select#conf_days(name='days', style='width: 50px;')
                   option(value='1') 1
@@ -60,18 +60,18 @@ block form_content
                   option(value='5') 5
             tr
               td
-                label(style='min-width: inherit', for='conf_w')= __('weather_widget.width')+':'
+                label(style='min-width: inherit', for='conf_w')= __('width')+':'
               td
                 input#conf_w(type='number', style='width: 50px;', maxlength='3', min='100', max='800', name='w', value='250')
             tr
               td
-                label(style='min-width: inherit', for='conf_header')= __('weather_widget.show_header')+':'
+                label(style='min-width: inherit', for='conf_header')= __('show_header')+':'
               td
                 input#conf_header(type='checkbox', name='header', checked='checked')
             tr
               td
               td
-                button#conf_generate(type='button')= __('weather_widget.generate')
+                button#conf_generate(type='button')= __('generate')
         br
         if (currentCulture.country == "ro")
           iframe(width='300', height='169', src='//www.youtube.com/embed/sLYbJaLlY6M?rel=0', frameborder='0', allowfullscreen='')
@@ -80,11 +80,11 @@ block form_content
       .col-sm-8.col-md-9.col-xs-14
         div(style='text-align: center; padding-bottom: 20px; background-color: #ddd')
           br
-          h2= __('weather_widget.preview')
+          h2= __('preview')
           br
           #weather-iframe(style='min-height: 260px;')
           br
-          h2= __('weather_widget.html_code')
+          h2= __('html_code')
           div(style='text-align: center')
             textarea#weather-script(style='width: 80%; height: 160px;')
 

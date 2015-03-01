@@ -17,58 +17,58 @@ block form_content
     .row
       .col-sm-6.col-xs-14
         fieldset.form(style='padding:10px;background:#E6F2FA;')
-          h3(style='font-weight:normal;margin-top:0px;')= __('weather_widget.configuration')
+          h3(style='font-weight:normal;margin-top:0px;')= __('configuration')
           table.form-table(border='0', cellspacing='0')
             tr
               td.label
-                label(for='conf_place')= __('weather.place') + ':'
+                label(for='conf_place')= __('place') + ':'
               td
                 input#conf_place.ac_input.filled(type='text', style='width:140px;', name='place', value=place.getName(currentCulture.language))
                 input#conf_placeid(type='hidden', value=place.id)
             tr
               td.label
-                label(for='conf_days')= __('weather_widget.days') + ':'
+                label(for='conf_days')= __('days') + ':'
               td
                 input#conf_days(type='text', style='width:40px;', maxlength='1', name='days', value='5')
             tr
               td.label
-                label(for='conf_bcolor')= __('weather_widget.border_color') + ':'
+                label(for='conf_bcolor')= __('border_color') + ':'
               td
                 input#conf_bcolor(type='text', style='width:70px;', maxlength='6', name='bcolor', value='CA0000')
             tr
               td.label
-                label(for='conf_bkcolor')= __('weather_widget.back_color') + ':'
+                label(for='conf_bkcolor')= __('back_color') + ':'
               td
                 input#conf_bkcolor(type='text', style='width:70px;', maxlength='6', name='bkcolor', value='FFF')
             tr
               td.label
-                label(for='conf_hbkcolor')= __('weather_widget.head_back_color') + ':'
+                label(for='conf_hbkcolor')= __('head_back_color') + ':'
               td
                 input#conf_hbkcolor(type='text', style='width:70px;', maxlength='6', name='hbkcolor', value='CA0000')
             tr
               td.label
-                label(for='conf_htcolor')= __('weather_widget.head_text_color') + ':'
+                label(for='conf_htcolor')= __('head_text_color') + ':'
               td
                 input#conf_htcolor(type='text', style='width:70px;', maxlength='6', name='htcolor', value='FFF')
             tr
               td.label
-                label(for='conf_lcolor')= __('weather_widget.line_color') + ':'
+                label(for='conf_lcolor')= __('line_color') + ':'
               td
                 input#conf_lcolor(type='text', style='width:70px;', maxlength='6', name='lcolor', value='DDD')
             tr
               td.label
-                label(for='conf_w')= __('weather_widget.width') + ':'
+                label(for='conf_w')= __('width') + ':'
               td
                 input#conf_w(type='text', style='width:70px;', maxlength='3', name='w', value='200')
             tr
               td
               td.field
                 br
-                button#conf_generate= __('weather_widget.generate')
+                button#conf_generate= __('generate')
       .col-sm-8.col-xs-14
-        h2= __('weather_widget.preview')
+        h2= __('preview')
         #weather-iframe(style='min-height:260px;')
-        h2= __('weather_widget.html_code')
+        h2= __('html_code')
         div
           textarea#weather-script(style='width:96%;height:160px;')
 
