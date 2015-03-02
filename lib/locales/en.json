@@ -53,5 +53,7 @@
 	"vertical": "Vertical",
 	"show_header": "Show header",
 	"max": "max",
-	"min": "min"
+	"min": "min",
+	"language_it": "language_it",
+	"country_it": "country_it"
 }
