@@ -1,6 +1,6 @@
 {
   "name": "ournet.web.weather",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "private": true,
   "description": "ournet weather web server",
   "main": "index.js",
@@ -30,7 +30,7 @@
     "moment": "^2.9.0",
     "morgan": "^1.5.1",
     "response-time": "^2.2.0",
-    "urlset": "^0.3.4",
+    "urlset": "^0.4.0",
     "time": "^0.11.1",
     "chroma-js": "^0.6.3",
     "request": "^2.53.0",
