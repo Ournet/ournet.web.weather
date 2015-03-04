@@ -14,7 +14,7 @@ block weather_content
     | )
   br
   - var date = util.moment(new Date()), datenow = util.moment(new Date())
-  - date.locale(currentCulture.language)
+  - date = date.locale(currentCulture.language)
   table#cn-summary
     thead
       tr.menu
