@@ -32,7 +32,6 @@
 	"load_more_places": "Mai multe localităţi",
 	"search_place_in_cn_format": "Caută localitate în %s, %s",
 	"today": "Astăzi",
-	"home_title_format": "Vremea in %s pe 10 zile",
 	"weather_in_cn_summary": "Prognoza meteo in %s pentru 10 zile in orice localitate",
 	"search_place_format": "Rezultatele căutării după: %s",
 	"recent_search": "Ultimele căutări",
@@ -60,5 +59,6 @@
 	"min": "min",
 	"latest_news": "Ultimele știri",
 	"country_ru": "Rusia",
-	"country_ro": "România"
+	"country_ro": "România",
+	"language_en": "language_en"
 }
