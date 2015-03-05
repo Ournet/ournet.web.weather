@@ -30,7 +30,7 @@ block weather_content
             tr
               th(colspan='7', class='head')
                 div
-                  h3= util.moment(new Date(day.date)).format('dddd, D MMMM')
+                  h3= util.moment(new Date(day.date)).locale(currentCulture.language).format('dddd, D MMMM')
             each item, j in day.times
               - var date = new Date(item.from)
               if (new Date(item.to) > now)
