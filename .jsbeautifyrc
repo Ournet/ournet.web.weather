@@ -7,9 +7,5 @@
   "js": {
     "indent_char": "\t",
     "indent_size": 1
-  },
-  "json": {
-    "indent_char": "\t",
-    "indent_size": 1
   }
 }
