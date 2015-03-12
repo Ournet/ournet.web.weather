@@ -35,7 +35,6 @@
 	"latest_news": "Последние новости",
 	"place": "Населенный пункт",
 	"weather_in_format": "Погода в %s",
-	"search_place_in_cn_format": "Поиск города/нас. пункта в %s, %s",
 	"weather_on_your_site_info": "Вставьте погодные информеры на вашем сайте для любого города/нас. пункта в %s.",
 	"configuration": "Конфигурация",
 	"weather_on_your_site": "Погода на вашем сайте",
@@ -58,5 +57,6 @@
 	"show_header": "Header",
 	"max": "max",
 	"min": "min",
-	"country_ru": "Россия"
+	"country_ru": "Россия",
+	"exchange_rates": "Курсы валют"
 }
