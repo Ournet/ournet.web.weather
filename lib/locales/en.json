@@ -56,8 +56,9 @@
 	"min": "min",
 	"language_it": "language_it",
 	"country_it": "country_it",
-	"country_undefined": "country_undefined",
 	"country_md": "country_md",
 	"opinia": "opinia",
-	"exchange": "exchange"
+	"exchange": "exchange",
+	"language_sq": "language_sq",
+	"country_al": "country_al"
 }
