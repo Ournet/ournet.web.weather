@@ -103,5 +103,10 @@ html(lang=currentCulture.language)
       ga('create', '#{config.googleAnalyticsId}', '#{config.domain}');
       ga('set', 'dimension1', '#{project.name}');
       ga('send', 'pageview');
+      
+    if (_events.length > 0)
+      script
+        each a in _events
+          = "ga('send', 'event', '"+a.category+"', '"+a.action+"', '"+a.label+"', '"+a.value+"')"
     if (config.htmlFooter)
       != config.htmlFooter
