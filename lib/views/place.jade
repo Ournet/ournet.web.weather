@@ -13,7 +13,6 @@ block weather_content
   #place-weather-summary.group
     h2.sinfo= site.head.description
   if (report)
-    - var now = new Date()
     .weather
       table.weather-table
         thead
@@ -27,33 +26,35 @@ block weather_content
             th= __('item_wind_speed')
         tbody
           each day, i in report.days
-            tr
-              th(colspan='7', class='head')
-                div
-                  h3= util.moment(new Date(day.date)).locale(currentCulture.language).format('dddd, D MMMM')
-            each item, j in day.times
-              - var date = new Date(item.from)
-              if (new Date(item.to) > now)
-                tr(class=(j==day.times.length-1?'last-hour':null))
-                  - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
-                  td.hour= util.moment(date).format(config.hour_format)
-                  td.symbol
-                    span.w-icon(class='wi'+item.symbol.number, title=symbol_name)
-                  td.symbol-name= symbol_name
-                  td.no.temperature= item.t.value
-                    | &deg;
-                  td.no.pressure= item.pressure.value
-                  td.wind-dir
-                    div(alt=item.wind.dir.code, title=item.wind.dir.code, class=util.weather.windDirectionCss(item.wind.dir.code))
-                  td.wind-speed= item.wind.speed.mps +' '+ __('item_wind_speed_ms')
-                if (i==1 && j==day.times.length-1)
-                  tr
-                    td(colspan=7)
-                      .tab.view-ads.view-fill.no-margin.gads-468
-                        // Ournet 468x60
-                        ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
-                        script.
-                          (adsbygoogle = window.adsbygoogle || []).push({ });
+            - var dayDate = new Date(day.date);
+            if (dayDate >= currentDateNoTime)
+              tr
+                th(colspan='7', class='head')
+                  div
+                    h3= util.moment(dayDate).locale(currentCulture.language).format('dddd, D MMMM')
+              each item, j in day.times
+                - var date = new Date(item.from)
+                if (new Date(item.to) > currentDate)
+                  tr(class=(j==day.times.length-1?'last-hour':null))
+                    - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
+                    td.hour= util.moment(date).format(config.hour_format)
+                    td.symbol
+                      span.w-icon(class='wi'+item.symbol.number, title=symbol_name)
+                    td.symbol-name= symbol_name
+                    td.no.temperature= item.t.value
+                      | &deg;
+                    td.no.pressure= item.pressure.value
+                    td.wind-dir
+                      div(alt=item.wind.dir.code, title=item.wind.dir.code, class=util.weather.windDirectionCss(item.wind.dir.code))
+                    td.wind-speed= item.wind.speed.mps +' '+ __('item_wind_speed_ms')
+                  if (i==1 && j==day.times.length-1)
+                    tr
+                      td(colspan=7)
+                        .tab.view-ads.view-fill.no-margin.gads-468
+                          // Ournet 468x60
+                          ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
+                          script.
+                            (adsbygoogle = window.adsbygoogle || []).push({ });
 
       #weather-source-footer
         span#yr-logo
