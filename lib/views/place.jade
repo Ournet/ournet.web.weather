@@ -74,7 +74,7 @@ block right_content
               .list-item.ot-news
                 .item.ot-news.media
                   a.pull-left(href=story.url)
-                    img.story-img.media-object(alt='', src=('http://wi.ournetcdn.net/image/q_'+story.imagedate+'_'+story.imageid+'.jpg'))
+                    img.story-img.media-object(alt='', src=(story.imageSrc))
                   .media-body
                     a(href=story.url)= story.title
                     //- .details= util.moment(new Date(story.date)).format('LT')
