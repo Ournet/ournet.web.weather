@@ -1,17 +1,19 @@
 extends ./_layouts/weather
 block weather_content
-  #place-weather-title
-    if (shareInfo)
-      .our-sharedata.pull-right(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
-        each service in config.shareDataServices
-          a.our-share-item(class=service, data-service=service, href=shareInfo.getShareUrl(service), rel='nofollow', target='_blank', title=util.format(__('share_on_format'),util.startWithUpperCase(service)))
-            span.share-icon
-              i
-            span.share-count.hidden
-
-    h1= title
-  #place-weather-summary.group
-    h2.sinfo= site.head.description
+  #page-title
+    //- .pull-left
+    //-   img(class='media-object', src=entipicImage, style='background-image:url("'+entipicTimeImage+'")')
+    .media-body
+      #place-weather-title
+        h1= title
+      #place-weather-summary
+        h2.sinfo= site.head.description
+      if (shareInfo)
+        .our-sharedata.clearfix(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
+          each service in config.shareDataServices
+            a.our-share-item(class=service, data-service=service, href=shareInfo.getShareUrl(service), rel='nofollow', target='_blank', title=util.format(__('share_on_format'),util.startWithUpperCase(service)))
+              span.share-icon
+                i
   if (report)
     .weather
       table.weather-table
