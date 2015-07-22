@@ -3,7 +3,7 @@ block weather_content
   #page-title(class=(currentCulture.language==='ro' ? 'media': null))
     if (currentCulture.language==='ro')
       .pull-left
-        img(class='media-object', src=entipicImage, style='background-image:url("'+entipicTimeImage+'")')
+        img(class='media-object', src=entipicImage)
     .media-body
       #place-weather-title
         h1= title
