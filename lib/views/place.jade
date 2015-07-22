@@ -1,8 +1,9 @@
 extends ./_layouts/weather
 block weather_content
-  #page-title.media
-    .pull-left
-      img(class='media-object', src=entipicImage, style='background-image:url("'+entipicTimeImage+'")')
+  #page-title(class=(currentCulture.language==='ro' ? 'media': null))
+    if (currentCulture.language==='ro')
+      .pull-left
+        img(class='media-object', src=entipicImage, style='background-image:url("'+entipicTimeImage+'")')
     .media-body
       #place-weather-title
         h1= title
