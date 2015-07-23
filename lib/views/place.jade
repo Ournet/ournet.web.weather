@@ -1,7 +1,7 @@
 extends ./_layouts/weather
 block weather_content
   #page-title(class=(currentCulture.language==='ro_' ? 'media': null))
-    if (currentCulture.language==='ro')
+    if (currentCulture.language==='ro_')
       .pull-left
         img(class='media-object', src=entipicImage)
     .media-body
