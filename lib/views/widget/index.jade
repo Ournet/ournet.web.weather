@@ -1,9 +1,10 @@
 extends ../_layouts/form
 
 block append styles
-  link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/widget-073f7d4b.min.css')
+  link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/widget-d899c433.min.css')
 
 block form_content
+  input#widget-type(type="hidden", value="widget")
   div
     if (shareInfo)
       .our-sharedata.pull-right(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
@@ -15,66 +16,69 @@ block form_content
     h1= __('weather_on_your_site')
     p= site.head.description
     .row
-      .col-sm-6.col-xs-14
-        fieldset.form(style='padding:10px;background:#E6F2FA;')
-          h3(style='font-weight:normal;margin-top:0px;')= __('configuration')
-          table.form-table(border='0', cellspacing='0')
+      .col-sm-6.col-md-5.col-xs-14
+        fieldset.form#widget-conf
+          table.form-table
             tr
-              td.label
-                label(for='conf_place')= __('place') + ':'
               td
-                input#conf_place.ac_input.filled(type='text', style='width:140px;', name='place', value=place.getName(currentCulture.language))
-                input#conf_placeid(type='hidden', value=place.id)
+                label(style='min-width: inherit', for='conf_place')= __('place')+ ':'
+              td
+                input#conf_place(type='text', style='width: 140px; font-weight: bold; background: #f5f5f5;', name='place', value=place.getName(currentCulture.language))
+                input#widget-conf-placeid.conf-input(name="id" type='hidden', value=place.id)
             tr
               td.label
                 label(for='conf_days')= __('days') + ':'
               td
-                input#conf_days(type='text', style='width:40px;', maxlength='1', name='days', value='5')
+                input#conf_days.conf-input(type='text', style='width:40px;', maxlength='1', name='days', value='5')
             tr
               td.label
                 label(for='conf_bcolor')= __('border_color') + ':'
               td
-                input#conf_bcolor(type='text', style='width:70px;', maxlength='6', name='bcolor', value='CA0000')
+                input#conf_bcolor.conf-input(type='text', style='width:70px;', maxlength='6', name='bcolor', placeholder='CA0000')
             tr
               td.label
                 label(for='conf_bkcolor')= __('back_color') + ':'
               td
-                input#conf_bkcolor(type='text', style='width:70px;', maxlength='6', name='bkcolor', value='FFF')
+                input#conf_bkcolor.conf-input(type='text', style='width:70px;', maxlength='6', name='bkcolor', placeholder='FFF')
             tr
               td.label
                 label(for='conf_hbkcolor')= __('head_back_color') + ':'
               td
-                input#conf_hbkcolor(type='text', style='width:70px;', maxlength='6', name='hbkcolor', value='CA0000')
+                input#conf_hbkcolor.conf-input(type='text', style='width:70px;', maxlength='6', name='hbkcolor', placeholder='CA0000')
             tr
               td.label
                 label(for='conf_htcolor')= __('head_text_color') + ':'
               td
-                input#conf_htcolor(type='text', style='width:70px;', maxlength='6', name='htcolor', value='FFF')
+                input#conf_htcolor.conf-input(type='text', style='width:70px;', maxlength='6', name='htcolor', placeholder='FFF')
             tr
               td.label
                 label(for='conf_lcolor')= __('line_color') + ':'
               td
-                input#conf_lcolor(type='text', style='width:70px;', maxlength='6', name='lcolor', value='DDD')
+                input#conf_lcolor.conf-input(type='text', style='width:70px;', maxlength='6', name='lcolor', placeholder='DDD')
             tr
               td.label
                 label(for='conf_w')= __('width') + ':'
               td
-                input#conf_w(type='text', style='width:70px;', maxlength='3', name='w', value='200')
+                input#conf_w.conf-input(type='text', style='width:70px;', maxlength='3', name='w', value='200')
             tr
               td
-              td.field
-                br
-                button#conf_generate= __('generate')
-      .col-sm-8.col-xs-14
-        h2= __('preview')
-        #weather-iframe(style='min-height:260px;')
-        h2= __('html_code')
-        div
-          textarea#weather-script(style='width:96%;height:160px;')
-
+              td
+                button#widget-conf-generate.btn(type='button')= __('generate')
+        br
+        //- if (currentCulture.country == "ro")
+        //-   iframe(width='300', height='169', src='//www.youtube.com/embed/sLYbJaLlY6M?rel=0', frameborder='0', allowfullscreen='')
+        //- else if (currentCulture.country == "md")
+        //-   iframe(width='300', height='225', src='//www.youtube.com/embed/cI1yc9TxWb8?rel=0', frameborder='0', allowfullscreen='')
+      .col-sm-8.col-md-9.col-xs-14
+        div#widget-preview
+          h2= __('preview')
+          br
+          #widget-iframe
+          br
+          h2= __('html_code')
+          div
+            textarea#widget-script
 
 
 block append scripts
-  script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/page-widget1-70183f22.min.js')
-
-    
+  script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/page-widget-b84e5631.min.js')
