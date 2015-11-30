@@ -10,7 +10,8 @@ var options = {
 	defaults: {
 		'LOGGLY_DOMAIN': 'ournet',
 		'NODE_ENV': 'production',
-		'AWS_REGION': 'eu-central-1'
+		'AWS_REGION': 'eu-central-1',
+		'PORT': 1507
 	}
 };
 
