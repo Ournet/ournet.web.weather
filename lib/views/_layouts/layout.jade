@@ -8,11 +8,11 @@ html(lang=currentCulture.language)
     meta(name='description', content=site.head.description)
     meta(name='keywords', content=site.head.keywords)
     block styles
-    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-fbe60296.min.css')
+    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-90a971e2.min.css')
     if (site.head.canonical)
       link(rel='canonical', href=site.head.canonical)
     link(rel='shortcut icon', href=config.favicon)
-  body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language))
+  body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform))
     #fb-root
     #page(class=site.pageLayoutCss)
       if (showTopPageBar)

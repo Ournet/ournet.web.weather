@@ -34,8 +34,8 @@
     "morgan": "^1.5.1",
     "ournet.core": "^0.1.8",
     "ournet.data": "^0.0.8",
-    "ournet.data.places": "^0.2.1",
-    "ournet.data.weather": "^0.2.6",
+    "ournet.data.places": "^0.2.2",
+    "ournet.data.weather": "^0.2.7",
     "request": "^2.55.0",
     "response-time": "^2.2.0",
     "urlset": "^0.4.0"
