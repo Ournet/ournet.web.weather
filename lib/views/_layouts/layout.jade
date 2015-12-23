@@ -92,6 +92,11 @@ html(lang=currentCulture.language)
       window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
     script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-7f5d509f.min.js')
+    script(type='text/javascript').
+      var addthis_config = {
+        data_ga_property: '#{config.googleAnalyticsId}',
+        data_ga_social: true
+      };
     block scripts
     
     script.
