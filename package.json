@@ -1,6 +1,6 @@
 {
   "name": "ournet.web.weather",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "private": true,
   "description": "ournet weather web server",
   "main": "index.js",
