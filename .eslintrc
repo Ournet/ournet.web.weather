@@ -7,12 +7,9 @@
     "no-unused-vars": 2,
     "no-underscore-dangle": 1,
     "curly": 2,
+    "camelcase": 1,
     "valid-jsdoc": [1, {
       "requireReturn": false
     }]
-  },
-  "globals": {
-    "describe": false,
-    "it": false
   }
 }

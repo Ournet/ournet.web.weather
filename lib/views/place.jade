@@ -66,13 +66,13 @@ block weather_content
 
 
 block right_content
-  if (stories && stories.length>0)
+  if (latestStories && latestStories.length>0)
     .tab
       .tab-title
         h4= __('latest_news')
       .tab-content
         .list.ot-news.view-icon-line
-          each story, i in stories
+          each story, i in latestStories
             if (i < 4)
               .list-item.ot-news
                 .item.ot-news.media
