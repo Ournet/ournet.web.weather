@@ -8,90 +8,87 @@ html(lang=currentCulture.language)
     meta(name='description', content=site.head.description)
     meta(name='keywords', content=site.head.keywords)
     block styles
-    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-a31580a7.min.css')
+    link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/main.css')
+    //- link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-a31580a7.min.css')
     if (site.head.canonical)
       link(rel='canonical', href=site.head.canonical)
     link(rel='shortcut icon', href=config.favicon)
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform))
     #fb-root
-    #page(class=site.pageLayoutCss)
-      if (showTopPageBar)
-        #sys-top-bar
-          .container
-            .row
-              #sys-menu.col-sm-8.col-xs-14
-                each item in topBarMenu
-                  a(href=item.href, class=item.cssClass)
-                    = item.text
-                    if (item.label)
-                      span.count= item.label
-
-              #sys-user.col-sm-6.hidden-xs
-                if (config.languages.length>1)
-                  each key in config.languages
-                    if (key!=currentCulture.language)
-                      a.bar-item(href=links.home({ul:key}))= config.languagesNames[key]
-
-      #page-wrapper
-        #page-header
-          .container
-            block content_header
-        #page-content.clearfix
-          block content
-        #page-footer
-          .container
-            .page-load-divider
-              span.domain-World.ref-color &#9679;&#9679;&#9679;
-              span.domain-Live.ref-color &#9679;&#9679;&#9679;
-              span.domain-Politics.ref-color &#9679;&#9679;&#9679;&#9679;
-              span.domain-Entertainment.ref-color &#9679;&#9679;&#9679;&#9679;
-              span.domain-Sports.ref-color &#9679;&#9679;&#9679;
-              span.domain-Business.ref-color &#9679;&#9679;&#9679;
-              span.domain-Tech.ref-color &#9679;&#9679;&#9679;&#9679;
-              span.domain-Science.ref-color &#9679;&#9679;&#9679;
-              span.domain-Arts.ref-color &#9679;&#9679;&#9679;
-              span.domain-Justice.ref-color &#9679;&#9679;&#9679;
-              span.domain-Live.ref-color &#9679;&#9679;&#9679;
-              span.domain-Politics.ref-color &#9679;&#9679;&#9679;&#9679;
-              span.domain-Entertainment.ref-color &#9679;&#9679;&#9679;
-              span.domain-Sports.ref-color &#9679;&#9679;&#9679;
-              span.domain-Business.ref-color &#9679;&#9679;&#9679;&#9679;
-              span.domain-Tech.ref-color &#9679;&#9679;&#9679;
-              span.domain-Science.ref-color &#9679;&#9679;&#9679;
-              span.domain-Arts.ref-color &#9679;&#9679;&#9679;&#9679;
-              span.domain-Justice.ref-color &#9679;&#9679;&#9679;
-            .row
-              #page-footer-info.col-sm-5.col-xs-14
-                div= __('contact')+': '
-                  a=  config.email
+    header#page-header
+      .container-fluid
+        .row
+          .col-xs-2.col-sm-4.col-md-3#header-logo
+            a(title=project.name, href=links.home({ul: currentCulture.language}))
+          .col-xs-10.col-sm-4.col-md-3#header-search
+            form#q-form(method='get', action=links.weather.search())
+              if (currentCulture.language!==config.language)
+                input(type='hidden', name='ul', value=currentCulture.language)
+              input#q(name='q', type='text', placeholder=__('search_text'))
+              a#search-btn(onclick="$('#q-form').submit();")
+                span.icon
+          .col-md-3.hidden-xs.hidden-sm
+            if (exchangeWidget && exchangeWidget.rates)
+              #widget-exchange
+                each item, i in exchangeWidget.rates
+                  if (i<2)
+                    - var value = item.buy
+                    - var diff = value - item.buy1d
+                    - var diffCss = diff>0 ? "view-plus": "view-minus"
+                    - diffCss = diff==0 || diff==NaN?'view-no-change': diffCss
+                    div(class="item "+diffCss)
+                      .symbol= item.currency.symbol
+                      span(class="value")= util.numberFormat(value, 2, currentCulture.language)
+                      .popover
+                        small(class="details")= util.moment(exchangeWidget.date).locale(currentCulture.language).format(config.monthFormat)
+                        .item-source(title=exchangeWidget.source.name)= exchangeWidget.source.abbr
+                        .item-value= util.numberFormat(value, 4, currentCulture.language)
+                        if(diff)
+                          small(class="item-diff")= util.numberFormat(diff, 4, currentCulture.language)
+                        .item-details
+                          a(href=exchangeWidget.url)= __('exchange_rates')
+                            |  ›
+          .col-md-3.col-sm-4.hidden-xs
+            #men Meniu
+    main#main(class=site.pageLayoutCss)
+      section#preview
+        #preview-image
+          i(class=previewImageClass)
+        block preview
+      section#content
+        block content
+    footer#footer
+      .container
+        .row
+          .col-sm-4.col-xs-12
+            div= __('contact')+': '
+              a=  config.email
+            div
+            | Version 
+            = project.version
+            div
+              a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
+          .col-sm-4.col-xs-12
+            h4= __('international')
+              each id in config.internationalIds
+                - var item = config.international[id]
                 div
-                | Version 
-                = project.version
-                div
-                  a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
-              #page-footer-portals.col-sm-5.col-xs-14.clearfix
-                h4= __('international')
-                each id in config.internationalIds
-                  - var item = config.international[id]
-                  div
-                    a(href=item.url, target='_blank')
-                      i.flag-icon(class='flag-'+id)
-                      = item[currentCulture.language]
-
-              #page-footer-social.col-sm-4.col-xs-14
-                if (shareInfo)
-                  .our-sharedata(data-appname='ournet', data-identifier=shareInfo.identifier, data-title=shareInfo.title, data-cid=shareInfo.clientId)
-                    each service in config.shareDataServices
-                      a.our-share-item(class=service, data-service=service, href=shareInfo.getShareUrl(service), rel='nofollow', target='_blank', title=util.format(__('share_on_format'),util.startWithUpperCase(service)))
-                        span.share-icon
-                          i
+                  a(href=item.url, target='_blank')
+                    i.flag-icon(class='flag-'+id)
+                    = item[currentCulture.language]
+          .col-sm-4.col-xs-12
+            if (config.languages.length>1)
+              each key in config.languages
+                if (key!=currentCulture.language)
+                  a.bar-item(href=links.home({ul:key}))= config.languagesNames[key]
 
     if (!noGoogleAds)
       script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
     script.
       window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
-    script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-7f5d509f.min.js')
+    //- script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-7f5d509f.min.js')
+    script(type='text/javascript', src='http://localhost:8044/js/weather/main.js')
     block scripts
     
     script.
