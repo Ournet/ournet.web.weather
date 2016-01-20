@@ -5,29 +5,26 @@ block content
     .row
       //- left menu
       .hidden-xs.col-sm-3.col-md-2
-        .tab.view-main-places
-          .tab-title
-            h4
-              a(href=links.home())= __('weather')
-          .tab-content
-            ul
+        .group
+          .group-content
+            ul.main-menu
               each item in mainPlaces
                 li
                   a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=item_name, class=(place && place.id && item.id == place.id ? 'selected': ''))= item.getName(currentCulture.language)
               li
                 a(href=links.weather.places({ul:currentCulture.language}))= util.format(__('other_n_places_format'), config.placesCount)
 
-        .tab.view-recent-places
-          .tab-title
+        .group
+          .group-title
             h4= __('recent_search')
-          .tab-content
+          .group-content
             ul
               each item in latestPlaces
                 li
                   a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=item.getName(currentCulture.language))= item.getName(currentCulture.language)
       //- center content
       .col-xs-12.col-sm-9.col-md-6
-        if (location)
+        if (location && location.length>1)
           #user-location
             for item, i in location
               a(href=item.href)= item.text
@@ -45,12 +42,12 @@ block content
       .col-md-4.hidden-sm.hidden-xs
         block right_content_top
         - var attrs= affix? {'data-spy':'affix'}:{}
-        #affix-right-region(data-offset-top='395', data-offset-bottom='200')&attributes(attrs)
-          .tab.view-ads.gads-300-600
+        #affix-right-region
+          .group
             // Ournet 300x600
             ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
             script.
               (adsbygoogle = window.adsbygoogle || []).push({});
-        .tab.view-ads!= config.socialPluginsHtmlCode
+        .group!= config.socialPluginsHtmlCode
         block right_content_bottom
 

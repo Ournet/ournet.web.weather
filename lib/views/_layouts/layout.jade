@@ -20,8 +20,8 @@ html(lang=currentCulture.language)
       .container-fluid
         .row
           .col-xs-12.col-sm-8.col-md-5
-            .col-xs-5.col-sm-6#header-logo
-              a(title=project.name, href=links.home({ul: currentCulture.language}))
+            .col-xs-5.col-sm-6
+              a#header-logo(title=project.name, href=links.home({ul: currentCulture.language}))
             .col-xs-7.col-sm-6#header-search
               form#q-form(method='get', action=links.weather.search())
                 if (currentCulture.language!==config.language)
@@ -53,40 +53,39 @@ html(lang=currentCulture.language)
           .col-md-3.col-sm-4.hidden-xs
             #men Meniu
     main#main(class=site.pageLayoutCss)
-      section#preview
-        #preview-image(class=previewImageClass)
-        #preview-content
+      section#sight
+        #sight-image(class=previewImageClass)
+        #sight-content
           .container
             .row
-              .hidden-xs.col-sm-3.col-md-2
-              .col-xs-12.col-sm-9.col-md-6
+              .col-xs-12.col-sm-9.col-md-6.col-sm-offset-3.col-md-offset-2
                 block preview
-      section#content
+      section#page-content
         block content
-    footer#footer
-      .container
-        .row
-          .col-sm-4.col-xs-12
-            div= __('contact')+': '
-              a=  config.email
-            div
-            | Version 
-            = project.version
-            div
-              a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
-          .col-sm-4.col-xs-12
-            h4= __('international')
+      footer#page-footer
+        .container
+          .row
+            .col-sm-4.col-xs-12
+              div= __('contact')+': '
+                a=  config.email
+              div
+              | Version 
+              = project.version
+              div
+                a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
+            .col-sm-4.col-xs-12
+              h4= __('international')
               each id in config.internationalIds
                 - var item = config.international[id]
                 div
                   a(href=item.url, target='_blank')
                     i.flag-icon(class='flag-'+id)
                     = item[currentCulture.language]
-          .col-sm-4.col-xs-12
-            if (config.languages.length>1)
-              each key in config.languages
-                if (key!=currentCulture.language)
-                  a.bar-item(href=links.home({ul:key}))= config.languagesNames[key]
+            .col-sm-4.col-xs-12
+              if (config.languages.length>1)
+                each key in config.languages
+                  if (key!=currentCulture.language)
+                    a.bar-item(href=links.home({ul:key}))= config.languagesNames[key]
 
     if (!noGoogleAds)
       script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')

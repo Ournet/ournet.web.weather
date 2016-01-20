@@ -9,11 +9,11 @@ block preview
 block weather_content
   - var date = util.moment(new Date()), datenow = util.moment(new Date())
   - date = date.locale(currentCulture.language)
-  ul.tab-menu#w-summary-menu
+  ul#w-summary-menu.list-inline
     li.selected.first(data-date=date.format('YYYY-MM-DD'))= __('today')
     li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
     li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
     li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
-  #w-summary-content
+  #w-summary-content.content-box
     include ./controls/main_places_weather.jade
   br

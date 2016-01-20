@@ -24,7 +24,7 @@ block weather_content
               tr
                 th(colspan='7', class='head')
                   div
-                    h3= util.moment(dayDate).locale(currentCulture.language).format('dddd, D MMMM')
+                    h4= util.moment(dayDate).locale(currentCulture.language).format('dddd, D MMMM')
               each item, j in day.times
                 - var date = new Date(item.from)
                 if (new Date(item.to) > currentDate)
@@ -52,7 +52,7 @@ block weather_content
       #weather-source-footer
         span#yr-logo
         = __('weather_cright')
-      p.sinfo= subTitle
+      p.small.text-muted= subTitle
 
 
 block right_content
