@@ -73,7 +73,7 @@ html(lang=currentCulture.language)
               = project.version
               div
                 a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
-            .col-sm-4.col-xs-12
+            #page-footer-portals.col-sm-4.col-xs-12
               h4= __('international')
               each id in config.internationalIds
                 - var item = config.international[id]
