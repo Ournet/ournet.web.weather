@@ -65,10 +65,10 @@ block right_content_top
           each story, i in latestStories
             if (i < 4)
               .list-item
-                .item.ot-news.media
-                  a.pull-left(href=story.url)
-                    img.media-object(alt='', src=(story.imageSrc))
-                  .media-body
-                    a(href=story.url)= story.title
-                    //- .details= util.moment(new Date(story.date)).format('LT')
+                .item.ot-news.clearfix
+                  a.media(href=story.url)
+                    .pull-left
+                      img.media-object(alt='', src=(story.imageSrc))
+                    .media-body= story.title
+                      //- .details= util.moment(new Date(story.date)).format('LT')
 

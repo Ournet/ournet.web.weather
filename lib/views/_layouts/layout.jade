@@ -16,7 +16,7 @@ html(lang=currentCulture.language)
     link(rel='shortcut icon', href=config.favicon)
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform))
     #fb-root
-    header#page-header
+    header#page-header.trans
       .container-fluid
         .row
           .col-xs-12.col-sm-8.col-md-5
@@ -28,7 +28,7 @@ html(lang=currentCulture.language)
                   input(type='hidden', name='ul', value=currentCulture.language)
                 input#q(name='q', type='text', placeholder=__('search_text'))
                 a#search-btn(onclick="$('#q-form').submit();")
-                  span.icon
+                  i.icon
           .col-md-4.hidden-xs.hidden-sm
             if (exchangeWidget && exchangeWidget.rates)
               #widget-exchange
@@ -51,14 +51,23 @@ html(lang=currentCulture.language)
                           a(href=exchangeWidget.url)= __('exchange_rates')
                             |  ›
           .col-md-3.col-sm-4.hidden-xs
-            #men Meniu
+            if (weatherWidget && weatherWidget.forecast)
+              #widget-weather
+                //- .background(style='background-image:url('+sightImage.small+')')
+                //- .shadow
+                span.symbol
+                  img(alt='', src='http://assets.ournetcdn.net/root/img/icons/weather/48/'+weatherWidget.forecast.symbol.id+'.png', title=weatherWidget.forecast.symbol.name)
+                span.name
+                  a(href=weatherWidget.place.url)= weatherWidget.place.name
+                  span.no= weatherWidget.forecast.temperature + '°C'
     main#main(class=site.pageLayoutCss)
       section#sight
-        #sight-image(class=previewImageClass)
+        #sight-image(style='background-image:url('+sightImage.large+')')
+        #sight-shadow
         #sight-content
           .container
             .row
-              .col-xs-12.col-sm-9.col-md-6.col-sm-offset-3.col-md-offset-2
+              .col-xs-12.col-sm-10.col-md-7.col-sm-offset-3.col-md-offset-2
                 block preview
       section#page-content
         block content
@@ -85,13 +94,16 @@ html(lang=currentCulture.language)
               if (config.languages.length>1)
                 each key in config.languages
                   if (key!=currentCulture.language)
-                    a.bar-item(href=links.home({ul:key}))= config.languagesNames[key]
+                    div
+                      a(href=links.home({ul:key}))= config.languagesNames[key]
+              div
+                a(href=links.weather.widget())= __('weather_on_your_site')
 
     if (!noGoogleAds)
       script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
     script.
       window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
-    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
     //- script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-7f5d509f.min.js')
     script(type='text/javascript', src='http://localhost:8044/js/weather/main.js')
     block scripts
