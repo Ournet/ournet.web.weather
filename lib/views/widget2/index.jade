@@ -1,11 +1,4 @@
-extends ../_layouts/form
-
-block preview
-  h1= __('weather_on_your_site')
-  h2.sub-title= site.head.description
-
-block append styles
-  link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/page-widget.css')
+extends ../_layouts/widget
 
 block form_content
   input#widget-type(type="hidden", value="widget2")
@@ -81,9 +74,3 @@ block form_content
         h2= __('html_code')
         div
           textarea#widget-script
-
-
-block append scripts
-  script(type='text/javascript', src='http://localhost:8044/js/weather/page-widget.js')
-
-
