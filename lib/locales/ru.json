@@ -58,5 +58,7 @@
 	"max": "max",
 	"min": "min",
 	"country_ru": "Россия",
-	"exchange_rates": "Курсы валют"
+	"exchange_rates": "Курсы валют",
+	"info": "Информация",
+	"useful": "Полезно"
 }

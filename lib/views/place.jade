@@ -72,3 +72,11 @@ block right_content_top
                     .media-body= story.title
                       //- .details= util.moment(new Date(story.date)).format('LT')
 
+block append scripts
+  script.
+    $('#affix-right-region').affix({
+      offset: {
+        top: $('#affix-right-region').offset().top-50,
+        bottom: 200
+      }
+    });

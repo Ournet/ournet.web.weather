@@ -77,11 +77,17 @@ html(lang=currentCulture.language)
         .container
           .row
             .col-sm-4.col-xs-12
+              h4= __('info')
               div= __('contact')+': '
                 a=  config.email
               div
-              | Version 
-              = project.version
+                | Version 
+                = project.version
+                if (config.languages.length>1)
+                  |,  
+                  each key in config.languages
+                    if (key!=currentCulture.language)
+                      a(href=links.home({ul:key}))= config.languagesNames[key]
               div
                 a(href='http://www.yr.no', rel='nofollow', target='_blank')= __('weather_cright')
             #page-footer-portals.col-sm-4.col-xs-12
@@ -93,13 +99,12 @@ html(lang=currentCulture.language)
                     i.flag-icon(class='flag-'+id)
                     = item[currentCulture.language]
             .col-sm-4.col-xs-12
-              if (config.languages.length>1)
-                each key in config.languages
-                  if (key!=currentCulture.language)
-                    div
-                      a(href=links.home({ul:key}))= config.languagesNames[key]
+              h4= __('useful')
               div
                 a(href=links.weather.widget())= __('weather_on_your_site')
+              each host, key in config.projects
+                div
+                  a(href='http://'+host)= __(key)
 
     if (!noGoogleAds)
       script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
@@ -125,7 +130,7 @@ html(lang=currentCulture.language)
         data_ga_property: '#{config.googleAnalyticsId}',
         data_ga_social: true
       };
-    script(async='', src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-559bd1344703b48a")
+    //- script(async='', src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-559bd1344703b48a")
       
     if (_events.length > 0)
       script

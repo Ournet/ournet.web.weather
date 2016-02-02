@@ -37,7 +37,7 @@
     "morgan": "^1.5.1",
     "ournet.data": "^0.1.1",
     "ournet.data.places": "^0.3.0",
-    "ournet.data.weather": "^0.3.0",
+    "ournet.data.weather": "^0.3.2",
     "ournet.logger": "^0.1.0",
     "ournet.utils": "^0.1.0",
     "request": "^2.67.0",

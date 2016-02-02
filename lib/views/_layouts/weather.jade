@@ -6,6 +6,9 @@ block content
       //- left menu
       .hidden-xs.col-sm-3.col-md-2
         .group
+          .group-title
+            h4
+              a(href=links.home({ul:currentCulture.language}))= __('weather')
           .group-content
             ul.main-menu
               each item in mainPlaces
@@ -41,8 +44,7 @@ block content
       //- right content
       #page-content-right.col-md-4.hidden-sm.hidden-xs
         block right_content_top
-        - var attrs= affix? {'data-spy':'affix'}:{}
-        #affix-right-region(data-offset-top='400', data-offset-bottom='100')&attributes(attrs)
+        #affix-right-region
           .group
             // Ournet 300x600
             ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
@@ -50,4 +52,3 @@ block content
               (adsbygoogle = window.adsbygoogle || []).push({});
           .group!= config.socialPluginsHtmlCode
         block right_content_bottom
-

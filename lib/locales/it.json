@@ -54,5 +54,7 @@
 	"min": "min",
 	"max": "max",
 	"latest_news": "Ultime notizie",
-	"language_en": "language_en"
+	"language_en": "language_en",
+	"info": "Informazione",
+	"useful": "Utile"
 }
