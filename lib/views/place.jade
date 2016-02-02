@@ -42,11 +42,11 @@ block weather_content
                   if (i==1 && j==day.times.length-1)
                     tr
                       td(colspan=7)
-                        .text-center
+                        .ads-block.ads-60.text-center
                           // Ournet 468x60
-                          ins.adsbygoogle(data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
+                          ins.adsbygoogle(style='display:inline-block;width:468px;height:60px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
                           script.
-                            (adsbygoogle = window.adsbygoogle || []).push({ });
+                            (adsbygoogle = window.adsbygoogle || []).push({});
 
       #weather-source-footer
         span#yr-logo
@@ -56,7 +56,7 @@ block weather_content
 
 block right_content_top
   if (latestStories && latestStories.length>0)
-    .group
+    .group.view-stories
       .group-title
         h4= __('latest_news')
       .group-content
@@ -75,7 +75,7 @@ block append scripts
   script.
     $('#affix-right-region').affix({
       offset: {
-        top: $('#affix-right-region').offset().top-50,
+        top: $('#affix-right-region').offset().top-60,
         bottom: 200
       }
     });

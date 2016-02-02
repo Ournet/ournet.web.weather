@@ -10,7 +10,7 @@ html(lang=currentCulture.language)
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,700%7CRoboto+Slab:300,400,700')
     block styles
     if (NODE_ENV==='production')
-      link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-291a2d9f42.min.css')
+      link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-be3504572d.min.css')
     else
       link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/main.css')
     if (site.head.canonical)
@@ -135,7 +135,7 @@ html(lang=currentCulture.language)
         data_ga_property: '#{config.googleAnalyticsId}',
         data_ga_social: true
       };
-    //- script(async='', src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-559bd1344703b48a")
+    script(async='', src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-559bd1344703b48a")
       
     if (_events.length > 0)
       script
