@@ -1,22 +1,21 @@
 extends ./layout
 
-block preview
-  h1= __('weather_on_your_site')
-  h2.sub-title= site.head.description
-
 block append styles
   if (NODE_ENV==='production')
-    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/page-widget.min.css?v='+project.version)
+    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/page-widget-722a8de8d2.min.css')
   else
     link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/page-widget.css')
 
 block content
   .container
     .content-box
+      .page-title
+        h1= __('weather_on_your_site')
+        h2.sub-title= site.head.description
       block form_content
 
 block append scripts
   if (NODE_ENV==='production')
-    script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/page-widget.min.js?v='+project.version)
+    script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/page-widget-9995504c07.min.js')
   else
     script(type='text/javascript', src='http://localhost:8044/js/weather/page-widget.js')

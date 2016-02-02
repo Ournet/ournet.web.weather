@@ -1,9 +1,8 @@
 extends ./_layouts/weather
 
-block preview
-  h1= title
-
 block weather_content
+  .page-title
+    h1= title
   .content-box
     .list.ot-region
       each item in regions

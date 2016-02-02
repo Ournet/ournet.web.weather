@@ -10,12 +10,19 @@ html(lang=currentCulture.language)
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,700%7CRoboto+Slab:300,400,700')
     block styles
     if (NODE_ENV==='production')
-      link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main.min.css?v='+project.version)
+      link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/main-291a2d9f42.min.css')
     else
       link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/main.css')
     if (site.head.canonical)
       link(rel='canonical', href=site.head.canonical)
     link(rel='shortcut icon', href=config.favicon)
+
+    if (config.fbId)
+      meta(property='fb:app_id', content=config.fbId)
+
+    link(rel='publisher', href='https://facebook.com/'+ config.domain)
+    meta(property='og:site_name', content=config.name)
+    meta(property='og:image', content=sightImage.large)
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform))
     #fb-root
     header#page-header.trans
@@ -28,8 +35,8 @@ html(lang=currentCulture.language)
               form#q-form(method='get', action=links.weather.search())
                 if (currentCulture.language!==config.language)
                   input(type='hidden', name='ul', value=currentCulture.language)
-                input#q(name='q', type='text', placeholder=__('search_text'))
-                a#search-btn(onclick="$('#q-form').submit();")
+                input#q(name='q', type='text', placeholder= place && place.getName(currentCulture.language) || __('search_text'))
+                a#search-btn
                   i.icon
           .col-md-4.hidden-xs.hidden-sm
             if (exchangeWidget && exchangeWidget.rates)
@@ -66,11 +73,6 @@ html(lang=currentCulture.language)
       section#sight
         #sight-image(style='background-image:url('+sightImage.large+')')
         #sight-shadow
-        #sight-content
-          .container
-            .row
-              .col-xs-12.col-sm-10.col-md-7.col-sm-offset-3.col-md-offset-2
-                block preview
       section#page-content
         block content
       footer#page-footer
@@ -112,7 +114,7 @@ html(lang=currentCulture.language)
       window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
     if (NODE_ENV==='production')
-      script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main.min.js?v='+project.version)
+      script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-f9f4d648ac.min.js')
     else
       script(type='text/javascript', src='http://localhost:8044/js/weather/main.js')
     block scripts
