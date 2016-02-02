@@ -23,6 +23,9 @@ html(lang=currentCulture.language)
     link(rel='publisher', href='https://facebook.com/'+ config.domain)
     meta(property='og:site_name', content=config.name)
     meta(property='og:image', content=sightImage.large)
+    meta(property='og:updated_time', content=currentDate.getTime())
+    meta(property='og:locale', content=currentCulture.language+'_'+currentCulture.country.toUpperCase())
+
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform))
     #fb-root
     header#page-header.trans
