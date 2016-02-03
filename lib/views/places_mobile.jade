@@ -1,0 +1,13 @@
+extends ./_layouts/weather_mobile
+
+block weather_content
+  .page-title
+    h1= title
+  .content-box
+    .list.ot-place
+      each item in (places.Items || places)
+        .list-item
+          .item
+            a(href=links.weather.place(item.id, {ul: currentCulture.language}))= item.getName(currentCulture.language)
+            if (item.region)
+              div= item.region.getName(currentCulture.language)

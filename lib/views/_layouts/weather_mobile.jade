@@ -1,0 +1,16 @@
+extends ./layout_mobile
+
+block content
+  .container
+    .row
+      .col-xs-12
+        if (location && location.length>1)
+          #user-location
+            for item, i in location
+              a(href=item.href)= item.text
+              if (i < location.length - 1)
+                ='  › '
+        block weather_content
+        br
+        include ../_includes/ads-60.jade
+        br

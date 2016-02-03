@@ -1,0 +1,20 @@
+extends ./_layouts/weather_mobile
+
+block weather_content
+  .page-title
+    h1= title
+    h2.sub-title
+      = subTitle+' ('
+      a(href=links.weather.places({ul: currentCulture.language}))= util.format(__('other_n_places_format'),config.placesCount)
+      | )
+
+  - var date = util.moment(new Date()), datenow = util.moment(new Date())
+  - date = date.locale(currentCulture.language)
+  ul#w-summary-menu.list-inline
+    li.selected.first(data-date=date.format('YYYY-MM-DD'))= __('today')
+    li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
+    li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
+    li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
+  #w-summary-content.content-box
+    include ./controls/main_places_weather.jade
+  br

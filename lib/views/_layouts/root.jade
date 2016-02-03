@@ -71,9 +71,9 @@ html(lang=currentCulture.language)
       window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
     if (NODE_ENV==='production')
-      script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/main-f9f4d648ac.min.js')
+      script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/'+site.platform+'/main-f9f4d648ac.min.js')
     else
-      script(type='text/javascript', src='http://localhost:8044/js/weather/main.js')
+      script(type='text/javascript', src='http://localhost:8044/js/weather/'+site.platform+'/main.js')
     block scripts
     
     script.

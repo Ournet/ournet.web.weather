@@ -1,0 +1,30 @@
+extends ./root
+
+block page_header_content
+  .shadow
+  .container-fluid
+    .row
+      .col-xs-5
+        a#header-logo(title=project.name, href=links.home({ul: currentCulture.language}))
+      .col-xs-7#header-search
+        form#q-form(method='get', action=links.weather.search())
+          if (currentCulture.language!==config.language)
+            input(type='hidden', name='ul', value=currentCulture.language)
+          input#q(name='q', type='text', placeholder= place && place.getName(currentCulture.language) || __('search_text'))
+          a#search-btn
+            i.icon
+
+block page_main_content
+  section#sight
+    #sight-image(style='background-image:url('+sightImage.small+')')
+    #sight-shadow
+  section#page-content
+    block content
+
+block scripts
+  script(type='text/javascript').
+    var addthis_config = {
+      data_ga_property: '#{config.googleAnalyticsId}',
+      data_ga_social: true
+    };
+  script(async='', src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-559bd1344703b48a")
