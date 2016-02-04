@@ -36,10 +36,16 @@ if (report)
                 if (i==1 && j==day.times.length-1)
                   tr
                     td(colspan=7)
-                      .ads-block.ads-60.text-center
-                        // Ournet 468x60
-                        ins.adsbygoogle(style='display:inline-block;width:468px;height:60px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
-                        script.
+                      .ads-block.text-center
+                        if (site.platform === 'mobile')
+                          // Mobile 320x100
+                          ins.adsbygoogle(style='display:inline-block;width:320px;height:100px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1679401435')
+                          script.
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        else
+                          // Ournet 468x60
+                          ins.adsbygoogle(style='display:inline-block;width:468px;height:60px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
+                          script.
                           (adsbygoogle = window.adsbygoogle || []).push({});
 
     #weather-source-footer
