@@ -34,22 +34,24 @@ block content
               if (i < location.length - 1)
                 ='  › '
         block weather_content
-        br
-        .ads-block.text-center
-          // Ournet 468x60
-          ins.adsbygoogle(style='display:inline-block;width:468px;height:60px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
-          script.
-            (adsbygoogle = window.adsbygoogle || []).push({});
+        if (!noGoogleAds)
+          br
+          .ads-block.text-center
+            // Ournet 468x60
+            ins.adsbygoogle(style='display:inline-block;width:468px;height:60px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
+            script.
+              (adsbygoogle = window.adsbygoogle || []).push({});
         br
       //- right content
       #page-content-right.col-md-4.hidden-sm.hidden-xs
         block right_content_top
         #affix-right-region
-          .group
-            .ads-block.ads-600
-              // Ournet 300x600
-              ins.adsbygoogle(style='display:inline-block;width:300px;height:600px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
-              script.
-                (adsbygoogle = window.adsbygoogle || []).push({});
+          if (!noGoogleAds)
+            .group
+              .ads-block.ads-600
+                // Ournet 300x600
+                ins.adsbygoogle(style='display:inline-block;width:300px;height:600px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
+                script.
+                  (adsbygoogle = window.adsbygoogle || []).push({});
           .group!= config.socialPluginsHtmlCode
         block right_content_bottom

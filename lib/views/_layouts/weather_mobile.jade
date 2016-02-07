@@ -11,10 +11,11 @@ block content
               if (i < location.length - 1)
                 ='  › '
         block weather_content
-        br
-        .ads-block.text-center
-          // Mobile 320x100
-          ins.adsbygoogle(style='display:inline-block;width:320px;height:100px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1679401435')
-          script.
-            (adsbygoogle = window.adsbygoogle || []).push({});
+        if (!noGoogleAds)
+          br
+          .ads-block.text-center
+            // Mobile 320x100
+            ins.adsbygoogle(style='display:inline-block;width:320px;height:100px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1679401435')
+            script.
+              (adsbygoogle = window.adsbygoogle || []).push({});
         br
