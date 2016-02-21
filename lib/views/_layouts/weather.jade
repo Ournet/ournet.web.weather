@@ -1,57 +1,55 @@
 extends ./layout
 
 block content
-  .container
-    .row
-      //- left menu
-      .hidden-xs.col-sm-3.col-md-2
-        .group
-          .group-title
-            h4
-              a(href=links.home({ul:currentCulture.language}))= __('weather')
-          .group-content
-            ul.main-menu
-              each item in mainPlaces
-                li
-                  a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=item_name, class=(place && place.id && item.id == place.id ? 'selected': ''))= item.getName(currentCulture.language)
+  .row
+    //- left menu
+    .hidden-xs.col-sm-3.col-md-2
+      .group
+        .group-title
+          h4
+            a(href=links.home({ul:currentCulture.language}))= __('country_'+currentCulture.country)
+        .group-content
+          ul.main-menu
+            each item in mainPlaces
               li
-                a(href=links.weather.places({ul:currentCulture.language}))= util.format(__('other_n_places_format'), config.placesCount)
+                a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=item_name, class=(place && place.id && item.id == place.id ? 'selected': ''))= item.getName(currentCulture.language)
+            li
+              a(href=links.weather.places({ul:currentCulture.language}))= util.format(__('other_n_places_format'), config.placesCount)
 
+      .group
+        .group-title
+          h4= __('recent_search')
+        .group-content
+          ul
+            each item in latestPlaces
+              li
+                a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=item.getName(currentCulture.language))= item.getName(currentCulture.language)
+    //- center content
+    .col-xs-12.col-sm-9.col-md-6
+      if (location && location.length>1)
+        #user-location
+          for item, i in location
+            a(href=item.href)= item.text
+            if (i < location.length - 1)
+              ='  › '
+      block weather_content
+      if (!noGoogleAds)
+        br
+        .ads-block.text-center
+          // Ournet 468x60
+          ins.adsbygoogle(style='display:inline-block;width:468px;height:60px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
+          script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
+      br
+    //- right content
+    #page-content-right.col-md-4.hidden-sm.hidden-xs
+      block right_content_top
+      if (!noGoogleAds)
         .group
-          .group-title
-            h4= __('recent_search')
-          .group-content
-            ul
-              each item in latestPlaces
-                li
-                  a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=item.getName(currentCulture.language))= item.getName(currentCulture.language)
-      //- center content
-      .col-xs-12.col-sm-9.col-md-6
-        if (location && location.length>1)
-          #user-location
-            for item, i in location
-              a(href=item.href)= item.text
-              if (i < location.length - 1)
-                ='  › '
-        block weather_content
-        if (!noGoogleAds)
-          br
-          .ads-block.text-center
-            // Ournet 468x60
-            ins.adsbygoogle(style='display:inline-block;width:468px;height:60px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3749376618')
+          .ads-block.ads-600
+            // Ournet 300x600
+            ins.adsbygoogle(style='display:inline-block;width:300px;height:600px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
             script.
               (adsbygoogle = window.adsbygoogle || []).push({});
-        br
-      //- right content
-      #page-content-right.col-md-4.hidden-sm.hidden-xs
-        block right_content_top
-        #affix-right-region
-          if (!noGoogleAds)
-            .group
-              .ads-block.ads-600
-                // Ournet 300x600
-                ins.adsbygoogle(style='display:inline-block;width:300px;height:600px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1855601031')
-                script.
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-          .group!= config.socialPluginsHtmlCode
-        block right_content_bottom
+      .group!= config.socialPluginsHtmlCode
+      block right_content_bottom

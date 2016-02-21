@@ -39,10 +39,16 @@ html(lang=currentCulture.language)
 
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform + ' '+(site.pageLayoutCss||'')))
     #fb-root
-    header#page-header.trans
-      block page_header_content
-    main#main
-      block page_main_content
+
+    #page-top
+      #top-ads
+      #top-line.accent-line
+    header#page-header
+      .container
+        block page_header_content
+    main#page-main
+      .container
+        block page_main_content
     footer#page-footer
       .container
         .row
