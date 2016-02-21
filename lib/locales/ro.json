@@ -66,5 +66,9 @@
 	"useful": "Util",
 	"news.click.md": "news.click.md",
 	"meteo.click.md": "meteo.click.md",
-	"curs.click.md": "curs.click.md"
+	"curs.click.md": "curs.click.md",
+	"temperature": "temperature",
+	"vind": "vind",
+	"mm": "mm",
+	"wind": "wind"
 }
