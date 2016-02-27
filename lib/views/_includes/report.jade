@@ -1,34 +1,17 @@
 if (report)
   .weather-table
-    .wt-body
-      each day, ri in report.days
-        - var dayDate = new Date(day.times[day.times.length-1].from);
-        - dayDate = util.moment(dayDate).locale(currentCulture.language);
-        - var dayTime = day.times[parseInt((day.times.length-1)/2)];
-        - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
-        - var minTime = day.times.reduce(function(min, c){return c.t.value<min.t.value?c:min;});
-        - var totalPrecipitation = day.times.reduce(function(t,b){return t + b.p.value;},0);
-        - var isWeekend = [6, 7].indexOf(dayDate.isoWeekday()) > -1;
-        .wt-row.report-summary(class=(ri===0 ? 'closed' : null))
-          .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
-            .wday= dayDate.format('dddd')
-            .date= dayDate.format('D MMMM')
-          .wt-col.wt-temp
-            i.w-icon(class='wi-' + dayTime.symbol.number)
-            span.temp= maxTime.t.value
-              | &deg;
-            if (day.times.length>1)
-              span.temp-night= minTime.t.value
-                | &deg;
-          .wt-col.wt-precip
-            if (totalPrecipitation)
-              i.wi.wi-raindrops
-              span.value= totalPrecipitation + ' ' + __('mm')
-          .wt-col.wt-wind
-            i.wi.wi-wind(class='wi-towards-' + dayTime.wind.dir.code.toLowerCase())
-            span.value= dayTime.wind.speed.mps +' '+ __('item_wind_speed_ms')
+    each day, ri in report.days
+      - var dayDate = util.localDate(day.times[day.times.length-1].from);
+      - dayDate = util.moment(dayDate).locale(currentCulture.language);
+      - var dayTime = day.times[parseInt((day.times.length-1)/2)];
+      - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
+      - var minTime = day.times.reduce(function(min, c){return c.t.value<min.t.value?c:min;});
+      - var totalPrecipitation = day.times.reduce(function(t,b){return t + b.p.value;},0);
+      - var isWeekend = [6, 7].indexOf(dayDate.isoWeekday()) > -1;
+      - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
 
-        .report-details(class=(ri===0 ? 'opened' : null))
+      .report-details(class=(ri===0 ? 'opened' : null))
+        .wt-body
           //- .wt-caption
           //-   .date= dayDate.format('D MMMM')
           .wt-head
@@ -40,8 +23,9 @@ if (report)
           //- .table
           each item in day.times
             - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
-            - var date = new Date(item.from);
+            - var date = util.localDate(item.from);
             - date = util.moment(date).locale(currentCulture.language);
+            - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
             .wt-row
               .wt-col.wt-date= date.format('HH:mm')
               .wt-col.wt-temp
@@ -55,9 +39,29 @@ if (report)
                   span.value= item.p.value + ' ' + __('mm')
               .wt-col.wt-wind
                 //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
-                span.value= item.wind.speed.mps +' '+ __('item_wind_speed_ms')+ ' '
-                strong= item.wind.dir.code
-
+                span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
+                = ' ' + __('item_wind_speed_ms')
+                span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
+      .report-summary(class=(ri===0 ? 'closed' : null))
+        .wt-body
+          .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
+            .wday= dayDate.format('dddd')
+            .date= dayDate.format('D MMMM')
+          .wt-col.wt-temp
+            i.w-icon(class='wi-' + dayTime.symbol.number)
+            span.temp= maxTime.t.value
+              | &deg;
+            if (day.times.length>1)
+              span.temp-night= minTime.t.value
+                | &deg;
+          .wt-col.wt-precip
+            if (totalPrecipitation)
+              //- i.wi.wi-raindrops
+              span.value= totalPrecipitation + ' ' + __('mm')
+          .wt-col.wt-wind
+            span.wind-speed(class='beaufort-'+dayTime.wind.speed.beaufort)= dayTime.wind.speed.mps
+            = ' ' + __('item_wind_speed_ms')
+            span.wind-dir(title=dayWindCode, class='wind-dir-' + dayWindCode) &rarr;
 
     //- #weather-source-footer
       span#yr-logo

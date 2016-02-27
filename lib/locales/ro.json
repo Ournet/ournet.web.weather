@@ -67,8 +67,7 @@
 	"news.click.md": "news.click.md",
 	"meteo.click.md": "meteo.click.md",
 	"curs.click.md": "curs.click.md",
-	"temperature": "temperature",
-	"vind": "vind",
+	"temperature": "Temperatura",
 	"mm": "mm",
-	"wind": "wind"
+	"wind": "Vânt"
 }
