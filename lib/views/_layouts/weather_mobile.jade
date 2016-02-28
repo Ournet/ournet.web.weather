@@ -1,21 +1,20 @@
 extends ./layout_mobile
 
 block content
-  .container
-    .row
-      .col-xs-12
-        if (location && location.length>1)
-          #user-location
-            for item, i in location
-              a(href=item.href)= item.text
-              if (i < location.length - 1)
-                ='  › '
-        block weather_content
-        if (!noGoogleAds)
-          br
-          .ads-block.text-center
-            // Mobile 320x100
-            ins.adsbygoogle(style='display:inline-block;width:320px;height:100px', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1679401435')
-            script.
-              (adsbygoogle = window.adsbygoogle || []).push({});
+  .row
+    .col-xs-12
+      if (location && location.length>1)
+        #user-location
+          for item, i in location
+            a(href=item.href)= item.text
+            if (i < location.length - 1)
+              ='  › '
+      block weather_content
+      if (!noGoogleAds)
         br
+        .ads-block.text-center
+          // Ournet weather bottom
+          ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='2592557031', data-ad-format='auto')
+          script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
+      br

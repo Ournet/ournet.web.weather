@@ -6,14 +6,6 @@ block append styles
   else
     link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/page-widget.css')
 
-block content
-  .container
-    .content-box
-      .page-title
-        h1= __('weather_on_your_site')
-        h2.sub-title= site.head.description
-      block form_content
-
 block append scripts
   if (NODE_ENV==='production')
     script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/page-widget-9995504c07.min.js')
