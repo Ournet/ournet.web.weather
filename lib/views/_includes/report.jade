@@ -9,6 +9,7 @@ if (report)
       - var totalPrecipitation = day.times.reduce(function(t,b){return t + b.p.value;},0);
       - var isWeekend = [6, 7].indexOf(dayDate.isoWeekday()) > -1;
       - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
+      - var todayHolidays = holidays[day.date];
 
       .report-details(class=(ri===0 ? 'opened' : null))
         .wt-body
@@ -42,6 +43,10 @@ if (report)
                 span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
                 = ' ' + __('item_wind_speed_ms')
                 span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
+        if (todayHolidays)
+          .wt-footer
+            each item in todayHolidays
+              div= item.name
       .report-summary(class=(ri===0 ? 'closed' : null))
         .wt-body
           .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
@@ -62,7 +67,10 @@ if (report)
             span.wind-speed(class='beaufort-'+dayTime.wind.speed.beaufort)= dayTime.wind.speed.mps
             = ' ' + __('item_wind_speed_ms')
             span.wind-dir(title=dayWindCode, class='wind-dir-' + dayWindCode) &rarr;
-
+        if (todayHolidays)
+          .wt-footer
+            each item in todayHolidays
+              div= item.name
     //- #weather-source-footer
       span#yr-logo
       = __('weather_cright')

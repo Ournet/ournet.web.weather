@@ -11,9 +11,9 @@ html(lang=currentCulture.language)
     block styles
     if (NODE_ENV==='production')
       if (site.platform === 'mobile')
-        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/mobile/main-cefc2b1c89.min.css')
+        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/mobile/main-df6caf4b71.min.css')
       else
-        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/desktop/main-048e127677.min.css')
+        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/desktop/main-3da2f532b0.min.css')
     else
       link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/'+site.platform+'/main.css')
     if (site.head.canonical)
