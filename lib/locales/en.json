@@ -62,5 +62,8 @@
 	"language_sq": "language_sq",
 	"country_al": "country_al",
 	"info": "Info",
-	"useful": "Useful"
+	"useful": "Useful",
+	"temperature": "Temperature",
+	"mm": "mm",
+	"wind": "Wind"
 }

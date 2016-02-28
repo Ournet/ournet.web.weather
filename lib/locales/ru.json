@@ -60,5 +60,8 @@
 	"country_ru": "Россия",
 	"exchange_rates": "Курсы валют",
 	"info": "Информация",
-	"useful": "Полезно"
+	"useful": "Полезно",
+	"temperature": "Температура",
+	"mm": "мм",
+	"wind": "Ветер"
 }

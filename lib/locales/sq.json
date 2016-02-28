@@ -62,5 +62,8 @@
 	"language_sq": "language_sq",
 	"country_al": "Shqipëri",
 	"info": "Info",
-	"useful": "I dobishëm"
+	"useful": "I dobishëm",
+	"temperature": "Temperaturë",
+	"mm": "mm",
+	"wind": "Erë"
 }

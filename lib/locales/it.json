@@ -56,5 +56,8 @@
 	"latest_news": "Ultime notizie",
 	"language_en": "language_en",
 	"info": "Informazione",
-	"useful": "Utile"
+	"useful": "Utile",
+	"temperature": "Temperatura",
+	"mm": "mm",
+	"wind": "Vento"
 }

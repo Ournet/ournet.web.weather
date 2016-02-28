@@ -57,5 +57,8 @@
 	"max": "max",
 	"min": "min",
 	"info": "Info",
-	"useful": "Hasznos"
+	"useful": "Hasznos",
+	"temperature": "Hőmérséklet",
+	"mm": "mm",
+	"wind": "Szél"
 }

@@ -11,9 +11,9 @@ html(lang=currentCulture.language)
     block styles
     if (NODE_ENV==='production')
       if (site.platform === 'mobile')
-        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/mobile/main-6d2d08bf87.min.css')
+        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/mobile/main-cefc2b1c89.min.css')
       else
-        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/desktop/main-5ab94d7238.min.css')
+        link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/desktop/main-048e127677.min.css')
     else
       link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/'+site.platform+'/main.css')
     if (site.head.canonical)
@@ -89,9 +89,9 @@ html(lang=currentCulture.language)
     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
     if (NODE_ENV==='production')
       if (site.platform === 'mobile')
-        script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/mobile/main-5cf1bf1dd4.min.js')
+        script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/mobile/main-82b2c68692.min.js')
       else
-        script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/desktop/main-c9964e8bd7.min.js')
+        script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/desktop/main-82b2c68692.min.js')
     else
       script(type='text/javascript', src='http://localhost:8044/js/weather/'+site.platform+'/main.js')
     block scripts

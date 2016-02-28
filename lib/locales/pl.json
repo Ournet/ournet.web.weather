@@ -55,5 +55,8 @@
 	"search_place_in_cn": "Szukaj miasta w %s",
 	"search_place_in_cn_format": "Szukaj miasta w %s, %s",
 	"info": "Informacje",
-	"useful": "Przydatny"
+	"useful": "Przydatny",
+	"temperature": "Temperatura",
+	"mm": "mm",
+	"wind": "Wiatr"
 }
