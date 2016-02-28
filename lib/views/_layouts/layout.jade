@@ -20,8 +20,8 @@ block page_header_content
             i.icon
     .col-sm-6.col-md-7.hidden-xs
       #header-widgets
-        if (exchangeWidget && exchangeWidget.rates)
-          .col-md-6.hidden-sm
+        .col-md-6.hidden-sm
+          if (exchangeWidget && exchangeWidget.rates)
             #widget-exchange
               each item, i in exchangeWidget.rates
                 if (i<2)
@@ -41,8 +41,8 @@ block page_header_content
                       .item-details
                         a(href=exchangeWidget.url)= __('exchange_rates')
                           |  ›
-        if (weatherWidget && weatherWidget.forecast)
-          .col-md-6.col-sm-12
+        .col-md-6.col-sm-12
+          if (weatherWidget && weatherWidget.forecast)
             #widget-weather
               //- .shadow
               span.symbol
