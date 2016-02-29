@@ -42,7 +42,19 @@ html(lang=currentCulture.language)
 
     #page-top
       #top-ads
-      #top-line.accent-line
+      #top-line
+        svg.accent-line
+          g#svg-accent-line
+            rect(height='100%', width='10%', fill='#9db49f')
+            rect(height='100%', width='10%', x='10%', fill='#e46f61')
+            rect(height='100%', width='10%', x='20%', fill='#875f8d')
+            rect(height='100%', width='10%', x='30%', fill='#c84697')
+            rect(height='100%', width='10%', x='40%', fill='#95b464')
+            rect(height='100%', width='10%', x='50%', fill='#2e9b97')
+            rect(height='100%', width='10%', x='60%', fill='#db7723')
+            rect(height='100%', width='10%', x='70%', fill='#6f85bf')
+            rect(height='100%', width='10%', x='80%', fill='#3d80b9')
+            rect(height='100%', width='10%', x='90%', fill='#72778c')
     header#page-header
       .container
         block page_header_content
