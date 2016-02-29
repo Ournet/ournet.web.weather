@@ -2,7 +2,6 @@ if (report)
   .weather-table
     each day, ri in report.days
       - var dayDate = util.moment.tz(day.times[day.times.length-1].from, config.timezone).locale(currentCulture.language);
-      // - console.log(dayDate.toDate(), config.timezone, day.date);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
       - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
       - var minTime = day.times.reduce(function(min, c){return c.t.value<min.t.value?c:min;});
@@ -70,7 +69,7 @@ if (report)
           .wt-footer
             each item in todayHolidays
               div= item.name
-      if (ri === 1)
+      if (ri === 0)
         .text-center
           // Ournet weather middle
           ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1389535435', data-ad-format='auto')
