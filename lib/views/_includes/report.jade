@@ -1,7 +1,7 @@
 if (report)
   .weather-table
     each day, ri in report.days
-      - var dayDate = util.moment(day.times[day.times.length-1].from).tz(config.timezone).locale(currentCulture.language);
+      - var dayDate = util.moment.tz(day.times[day.times.length-1].from, config.timezone).locale(currentCulture.language);
       // - console.log(dayDate.toDate(), config.timezone, day.date);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
       - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
@@ -9,7 +9,7 @@ if (report)
       - var totalPrecipitation = day.times.reduce(function(t,b){return t + b.p.value;},0);
       - var isWeekend = [6, 7].indexOf(dayDate.isoWeekday()) > -1;
       - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
-      - var todayHolidays = holidays[dayDate.format('YYYY-MM-DD')];
+      - var todayHolidays = holidays[day.date];
 
       .report-details(class=(ri===0 ? 'opened' : null))
         .wt-body
@@ -24,8 +24,7 @@ if (report)
           //- .table
           each item in day.times
             - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
-            - var date = util.moment.tz(item.from, config.timezone);
-            - date = date.locale(currentCulture.language);
+            - var date = util.moment.tz(item.from, config.timezone).locale(currentCulture.language);
             - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
             .wt-row
               .wt-col.wt-date= date.format('HH:mm')
@@ -71,6 +70,12 @@ if (report)
           .wt-footer
             each item in todayHolidays
               div= item.name
+      if (ri === 1)
+        .text-center
+          // Ournet weather middle
+          ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1389535435', data-ad-format='auto')
+          script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
     //- #weather-source-footer
       span#yr-logo
       = __('weather_cright')
