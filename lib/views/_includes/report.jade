@@ -1,7 +1,8 @@
 if (report)
   .weather-table
     each day, ri in report.days
-      - var dayDate = util.moment.tz(day.times[day.times.length-1].from, config.timezone).locale(currentCulture.language);
+      - var timezone = report.timezone || config.timezone;
+      - var dayDate = util.moment.tz(day.times[day.times.length-1].from, timezone).locale(currentCulture.language);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
       - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
       - var minTime = day.times.reduce(function(min, c){return c.t.value<min.t.value?c:min;});
@@ -23,7 +24,7 @@ if (report)
           //- .table
           each item in day.times
             - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
-            - var date = util.moment.tz(item.from, config.timezone).locale(currentCulture.language);
+            - var date = util.moment.tz(item.from, timezone).locale(currentCulture.language);
             - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
             .wt-row
               .wt-col.wt-date= date.format('HH:mm')
