@@ -11,7 +11,7 @@ if (report)
       - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
       - var todayHolidays = holidays[day.date];
 
-      .report-details(class=(ri===0 ? 'opened' : null))
+      .report-details(class=(ri<3 ? 'opened' : null))
         .wt-body
           //- .wt-caption
           //-   .date= dayDate.format('D MMMM')
@@ -46,7 +46,7 @@ if (report)
           .wt-footer
             each item in todayHolidays
               div= item.name
-      .report-summary(class=(ri===0 ? 'closed' : null))
+      .report-summary(class=(ri<3 ? 'closed' : null))
         .wt-body
           .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
             .wday= dayDate.format('dddd')
