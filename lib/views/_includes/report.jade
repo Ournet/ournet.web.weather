@@ -1,15 +1,16 @@
 if (report)
   .weather-table
-    each day, ri in report.days
+    //- each day, ri in report.days
+    - for (var ri=0;ri<10&ri<report.days.length;ri++)
+      - var day = report.days[ri];
       - var timezone = report.timezone || config.timezone;
-      - var dayDate = util.moment.tz(day.times[day.times.length-1].from, timezone).locale(currentCulture.language);
+      - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
       - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
       - var minTime = day.times.reduce(function(min, c){return c.t.value<min.t.value?c:min;});
-      - var totalPrecipitation = day.times.reduce(function(t,b){return t + b.p.value;},0);
       - var isWeekend = [6, 7].indexOf(dayDate.isoWeekday()) > -1;
       - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
-      - var todayHolidays = holidays[day.date];
+      - var todayHolidays = holidays[dayDate.format('YYYY-MM-DD')];
 
       .report-details(class=(ri<3 ? 'opened' : null))
         .wt-body
@@ -19,24 +20,24 @@ if (report)
             .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
               .date= dayDate.format('D MMMM')
             .wt-temp.wt-col= __('temperature')
-            .wt-precip.wt-col
+            //- .wt-precip.wt-col
             .wt-wind.wt-col= __('wind')
           //- .table
           each item in day.times
             - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
-            - var date = util.moment.tz(item.from, timezone).locale(currentCulture.language);
+            - var date = util.moment.tz(item.time, timezone).locale(currentCulture.language);
             - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
             .wt-row
-              .wt-col.wt-date= date.format('HH:mm')
+              .wt-col.wt-date= date.format('HH:00')
               .wt-col.wt-temp
                 i.w-icon(class='wi-' + item.symbol.number, title=symbol_name)
                 span.temp= item.t.value
                   | &deg;
                 span.name= symbol_name
-              .wt-col.wt-precip
-                if (item.p.value)
-                  //- i.wi.wi-raindrops
-                  span.value= item.p.value + ' ' + __('mm')
+              //- .wt-col.wt-precip
+              //-   if (item.p.value)
+              //-     //- i.wi.wi-raindrops
+              //-     span.value= item.p.value + ' ' + __('mm')
               .wt-col.wt-wind
                 //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
                 span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
@@ -58,10 +59,10 @@ if (report)
             if (day.times.length>1)
               span.temp-night= minTime.t.value
                 | &deg;
-          .wt-col.wt-precip
-            if (totalPrecipitation)
-              //- i.wi.wi-raindrops
-              span.value= totalPrecipitation + ' ' + __('mm')
+          //- .wt-col.wt-precip
+          //-   if (totalPrecipitation)
+          //-     //- i.wi.wi-raindrops
+          //-     span.value= totalPrecipitation + ' ' + __('mm')
           .wt-col.wt-wind
             span.wind-speed(class='beaufort-'+dayTime.wind.speed.beaufort)= dayTime.wind.speed.mps
             = ' ' + __('item_wind_speed_ms')
