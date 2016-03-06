@@ -45,8 +45,7 @@ block page_header_content
           if (weatherWidget && weatherWidget.forecast)
             #widget-weather
               //- .shadow
-              span.symbol
-                img(alt='', src='http://assets.ournetcdn.net/root/img/icons/weather/48/'+weatherWidget.forecast.symbol.id+'.png', title=weatherWidget.forecast.symbol.name)
+              span.symbol.w-icon(class='wi-'+weatherWidget.forecast.symbol.id, title=weatherWidget.forecast.symbol.name)
               span.name
                 a(href=weatherWidget.place.url)= weatherWidget.place.name
                 span.no= weatherWidget.forecast.temperature + '°C'
