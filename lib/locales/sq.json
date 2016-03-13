@@ -24,7 +24,7 @@
 	"share_on_format": "Share on %s",
 	"item_conditions": "Kushtet",
 	"item_temperatire": "Temperatura, °C",
-	"item_pressure": "Presion, hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Erë",
 	"item_wind_speed": " ",
 	"item_wind_speed_ms": "m/s",

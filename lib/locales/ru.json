@@ -13,7 +13,7 @@
 	"share_on_format": "Отправить на %s",
 	"item_conditions": "Состояние атмосферы",
 	"item_temperatire": "Температура, °C",
-	"item_pressure": "Атм. давл. hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Направление ветра",
 	"item_wind_speed": "Скорость ветра",
 	"item_wind_speed_ms": "м/с",

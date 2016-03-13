@@ -25,7 +25,7 @@
 	"places": "Местата",
 	"item_conditions": "Климатик",
 	"item_temperatire": "Температура на въздуха, °C",
-	"item_pressure": "Атмосфери. hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Посока на вятъра",
 	"item_wind_speed": "Скоростта на вятъра",
 	"item_wind_speed_ms": "м/с",

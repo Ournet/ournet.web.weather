@@ -39,7 +39,7 @@
 	"html_code": "HTML",
 	"item_conditions": "Stan atmosfery",
 	"item_temperatire": "Temperatura, °C",
-	"item_pressure": "Ciśnienie, hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Kierunek wiatru",
 	"item_wind_speed": "Wiatr, m/s",
 	"item_wind_speed_ms": "m/s",

@@ -24,7 +24,7 @@
 	"share_on_format": "Share on %s",
 	"item_conditions": "Air Condition",
 	"item_temperatire": "Air temperature, ° C",
-	"item_pressure": "Fr atmospheres. hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Wind direction",
 	"item_wind_speed": "Wind speed",
 	"item_wind_speed_ms": "m/s",

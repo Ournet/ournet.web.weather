@@ -24,7 +24,7 @@
 	"places": "Luoghi",
 	"item_conditions": "Tempo",
 	"item_temperatire": "Temp., °C",
-	"item_pressure": "Pressione, hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Vento",
 	"item_wind_speed": "Vento, m/s",
 	"search_place_in_cn": "Cerca villaggio in %s",

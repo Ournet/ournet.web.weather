@@ -12,7 +12,7 @@ if (report)
       - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
       - var todayHolidays = holidays[dayDate.format('YYYY-MM-DD')];
 
-      .report-details(class=(ri<3 ? 'opened' : null))
+      .report-details(class=(ri<2 ? 'opened' : null))
         .wt-body
           //- .wt-caption
           //-   .date= dayDate.format('D MMMM')
@@ -21,6 +21,7 @@ if (report)
               .date= dayDate.format('D MMMM')
             .wt-temp.wt-col= __('temperature')
             //- .wt-precip.wt-col
+            .wt-pressure.wt-col= __('item_pressure')
             .wt-wind.wt-col= __('wind')
           //- .table
           each item in day.times
@@ -34,6 +35,8 @@ if (report)
                 span.temp= item.t.value
                   | &deg;
                 span.name= symbol_name
+              .wt-col.wt-pressure
+                span.value= util.weather.pressureTommHg(item.pressure.value)
               //- .wt-col.wt-precip
               //-   if (item.p.value)
               //-     //- i.wi.wi-raindrops
@@ -41,13 +44,13 @@ if (report)
               .wt-col.wt-wind
                 //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
                 span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
-                = ' ' + __('item_wind_speed_ms')
+                = __('item_wind_speed_ms')
                 span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
         if (todayHolidays)
           .wt-footer
             each item in todayHolidays
               div= item.name
-      .report-summary(class=(ri<3 ? 'closed' : null))
+      .report-summary(class=(ri<2 ? 'closed' : null))
         .wt-body
           .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
             .wday= dayDate.format('dddd')
@@ -59,13 +62,15 @@ if (report)
             if (day.times.length>1)
               span.temp-night= minTime.t.value
                 | &deg;
+          .wt-col.wt-pressure
+            span.value= util.weather.pressureTommHg(dayTime.pressure.value)
           //- .wt-col.wt-precip
           //-   if (totalPrecipitation)
           //-     //- i.wi.wi-raindrops
           //-     span.value= totalPrecipitation + ' ' + __('mm')
           .wt-col.wt-wind
             span.wind-speed(class='beaufort-'+dayTime.wind.speed.beaufort)= dayTime.wind.speed.mps
-            = ' ' + __('item_wind_speed_ms')
+            = __('item_wind_speed_ms')
             span.wind-dir(title=dayWindCode, class='wind-dir-' + dayWindCode) &rarr;
         if (todayHolidays)
           .wt-footer

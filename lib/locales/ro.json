@@ -7,7 +7,7 @@
 	"weather": "Vremea",
 	"item_conditions": "Condiţia atmosferică",
 	"item_temperatire": "Temperatura aerului, °C",
-	"item_pressure": "Pr. atmosf., hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Directia vîntului",
 	"item_wind_speed": "Viteza vînt. m/s",
 	"item_wind_speed_ms": "m/s",

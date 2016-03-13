@@ -28,7 +28,7 @@
 	"weather_title_format": "Předpověď počasí pro %s",
 	"item_conditions": "Klimatizace",
 	"item_temperatire": "Teplota vzduchu, °C",
-	"item_pressure": "Fr prostředí. hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Směr větru",
 	"item_wind_speed": "Rychlost větru",
 	"latest_news": "Poslední novinky",

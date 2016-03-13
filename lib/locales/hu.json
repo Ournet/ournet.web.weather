@@ -25,7 +25,7 @@
 	"places": "Helyeken",
 	"item_conditions": "Légkondicionáló",
 	"item_temperatire": "A levegő hőmérséklete, °C",
-	"item_pressure": "Fr légkör. hPa",
+	"item_pressure": "mmHg",
 	"item_wind_dir": "Szélirány",
 	"item_wind_speed": "Szélsebesség",
 	"latest_news": "Legfrissebb hírek",
