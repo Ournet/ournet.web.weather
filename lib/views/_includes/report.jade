@@ -1,5 +1,6 @@
 if (report)
   .weather-table
+    - var openedDays = 5;
     //- each day, ri in report.days
     - for (var ri=0;ri<10&ri<report.days.length;ri++)
       - var day = report.days[ri];
@@ -12,45 +13,53 @@ if (report)
       - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
       - var todayHolidays = holidays[dayDate.format('YYYY-MM-DD')];
 
-      .report-details(class=(ri<2 ? 'opened' : null))
-        .wt-body
+      if (ri === openedDays)
+        .center-block
+          // Ournet links
+          ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3039125031', data-ad-format='link')
+          script.
+            (adsbygoogle = window.adsbygoogle || []).push({});
+      .report-details(class=(ri<openedDays ? 'opened' : null))
+        div
           //- .wt-caption
           //-   .date= dayDate.format('D MMMM')
           .wt-head
             .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
-              .date= dayDate.format('D MMMM')
+              .date= dayDate.format('dddd')
+                | , 
+                = dayDate.format('D MMMM')
             .wt-temp.wt-col= __('temperature')
             //- .wt-precip.wt-col
             .wt-pressure.wt-col= __('item_pressure')
             .wt-wind.wt-col= __('wind')
-          //- .table
-          each item in day.times
-            - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
-            - var date = util.moment.tz(item.time, timezone).locale(currentCulture.language);
-            - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
-            .wt-row
-              .wt-col.wt-date= date.format('HH:00')
-              .wt-col.wt-temp
-                i.w-icon(class='wi-' + item.symbol.number, title=symbol_name)
-                span.temp= item.t.value
-                  | &deg;
-                span.name= symbol_name
-              .wt-col.wt-pressure
-                span.value= util.weather.pressureTommHg(item.pressure.value)
-              //- .wt-col.wt-precip
-              //-   if (item.p.value)
-              //-     //- i.wi.wi-raindrops
-              //-     span.value= item.p.value + ' ' + __('mm')
-              .wt-col.wt-wind
-                //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
-                span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
-                = __('item_wind_speed_ms')
-                span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
+          .table
+            each item in day.times
+              - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
+              - var date = util.moment.tz(item.time, timezone).locale(currentCulture.language);
+              - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
+              .wt-row
+                .wt-col.wt-date= date.format('HH:00')
+                .wt-col.wt-temp
+                  i.w-icon(class='wi-' + item.symbol.number, title=symbol_name)
+                  span.temp= item.t.value
+                    | &deg;
+                  span.name= symbol_name
+                .wt-col.wt-pressure
+                  span.value= util.weather.pressureTommHg(item.pressure.value)
+                //- .wt-col.wt-precip
+                //-   if (item.p.value)
+                //-     //- i.wi.wi-raindrops
+                //-     span.value= item.p.value + ' ' + __('mm')
+                .wt-col.wt-wind
+                  //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
+                  span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
+                  = __('item_wind_speed_ms')
+                  span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
         if (todayHolidays)
           .wt-footer
             each item in todayHolidays
               div= item.name
-      .report-summary(class=(ri<2 ? 'closed' : null))
+      .report-summary(class=(ri<openedDays ? 'closed' : null))
         .wt-body
           .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
             .wday= dayDate.format('dddd')
