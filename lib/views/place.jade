@@ -23,6 +23,7 @@ block right_content_top
                       img.media-object(alt='', src=(story.imageSrc))
                     .media-body= story.title
                       //- .details= util.moment(new Date(story.date)).format('LT')
+block right_content_bottom
   if (currentCulture.country === 'ro')
     .group
       .group-title
