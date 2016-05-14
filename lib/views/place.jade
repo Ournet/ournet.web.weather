@@ -54,7 +54,7 @@ block right_content_top
           #mauticform_weathernewsletterro_message.mauticform-message
           .mauticform-innerform
             p Vremea in 
-              = place.name
+              = place.getName(currentCulture.language)
               |  pe email.
             #mauticform_weathernewsletterro_email.mauticform-row.mauticform-email.mauticform-required(data-validate='email', data-validation-type='email')
               input#mauticform_input_weathernewsletterro_email.mauticform-input(name='mauticform[email]', value='', placeholder='Email', type='email')
