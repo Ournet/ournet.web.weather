@@ -24,10 +24,10 @@ block right_content_top
                     .media-body= story.title
                       //- .details= util.moment(new Date(story.date)).format('LT')
 block right_content_bottom
-  if (currentCulture.country === 'ro')
+  if (~['ro', 'ru'].indexOf(currentCulture.language))
     .group
       .group-title
-        h4 Abonare meteo
+        h4= __('weather_subscribe')
       style(type='text/css', scoped='').
         .mauticform_wrapper {padding: 10px 10px 1px 10px; background: #dfdacb;}
         .mauticform-innerform {}
@@ -54,18 +54,16 @@ block right_content_bottom
           #mauticform_weathernewsletterro_error.mauticform-error
           #mauticform_weathernewsletterro_message.mauticform-message
           .mauticform-innerform
-            p Vremea in 
-              = place.getName(currentCulture.language)
-              |  pe email.
+            p= util.format(__('forecast_on_email_place'),place.getName(currentCulture.language))
             #mauticform_weathernewsletterro_email.mauticform-row.mauticform-email.mauticform-required(data-validate='email', data-validation-type='email')
               input#mauticform_input_weathernewsletterro_email.mauticform-input(name='mauticform[email]', value='', placeholder='Email', type='email')
-              span.mauticform-errormsg(style='display: none;') Email invalid!
+              span.mauticform-errormsg(style='display: none;')= __('invalid_email')
             input#mauticform_input_weathernewsletterro_cityid.mauticform-hidden(name='mauticform[cityid]', value=place.id, type='hidden')
             input#mauticform_input_weathernewsletterro_city.mauticform-hidden(name='mauticform[city]', value=place.name, type='hidden')
             input#mauticform_input_weathernewsletterro_language.mauticform-hidden(name='mauticform[language]', value=currentCulture.language, type='hidden')
             input#mauticform_input_weathernewsletterro_country.mauticform-hidden(name='mauticform[country]', value=currentCulture.country, type='hidden')
             #mauticform_weathernewsletterro_submit.mauticform-row.mauticform-button-wrapper
-              button#mauticform_input_weathernewsletterro_submit.mauticform-button(type='submit', name='mauticform[submit]', value='') Abonare
+              button#mauticform_input_weathernewsletterro_submit.mauticform-button(type='submit', name='mauticform[submit]', value='')= __('subscribe')
             input#mauticform_weathernewsletterro_id(type='hidden', name='mauticform[formId]', value='1')
             input#mauticform_weathernewsletterro_return(type='hidden', name='mauticform[return]', value='')
             input#mauticform_weathernewsletterro_name(type='hidden', name='mauticform[formName]', value='weathernewsletterro')
