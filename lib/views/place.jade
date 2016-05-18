@@ -23,50 +23,6 @@ block right_content_top
                       img.media-object(alt='', src=(story.imageSrc))
                     .media-body= story.title
                       //- .details= util.moment(new Date(story.date)).format('LT')
-block right_content_bottom
-  if (~['ro', 'ru'].indexOf(currentCulture.language))
-    .group
-      .group-title
-        h4= __('weather_subscribe')
-      style(type='text/css', scoped='').
-        .mauticform_wrapper {padding: 10px 10px 1px 10px; background: #dfdacb;}
-        .mauticform-innerform {}
-        .mauticform-post-success {}
-        .mauticform-name { font-weight: bold; font-size: 1.5em; margin-bottom: 3px; }
-        .mauticform-description { margin-top: 2px; margin-bottom: 10px; }
-        .mauticform-error {color: red; }
-        .mauticform-message {color: green; }
-        .mauticform-row { display: block; margin-bottom: 10px; }
-        .mauticform-label { font-size: 1.1em; display: block; font-weight: bold; margin-bottom: 5px; }
-        .mauticform-row.mauticform-required .mauticform-label:after { color: #e32; content: " *"; display: inline; }
-        .mauticform-helpmessage { display: block; font-size: 0.9em; margin-bottom: 3px; }
-        .mauticform-errormsg { display: block; color: red; margin-top: 2px; }
-        .mauticform-selectbox, .mauticform-input, .mauticform-textarea { width: 99%;}
-        .mauticform-checkboxgrp-row {}
-        .mauticform-checkboxgrp-label { font-weight: normal; }
-        .mauticform-checkboxgrp-checkbox {}
-        .mauticform-radiogrp-row {}
-        .mauticform-radiogrp-label { font-weight: normal; }
-        .mauticform-radiogrp-radio {}
-        .mauticform-button {background-color: #cb5800; color: #fff; border-radius: 3px; border: none;padding: 3px 10px;}
-      #mauticform_wrapper_weathernewsletterro.mauticform_wrapper
-        form#mauticform_weathernewsletterro(autocomplete='false', role='form', method='post', action='https://ournet.mautic.net/form/submit?formId=1', data-mautic-form='weathernewsletterro')
-          #mauticform_weathernewsletterro_error.mauticform-error
-          #mauticform_weathernewsletterro_message.mauticform-message
-          .mauticform-innerform
-            p= util.format(__('forecast_on_email_place'),place.getName(currentCulture.language))
-            #mauticform_weathernewsletterro_email.mauticform-row.mauticform-email.mauticform-required(data-validate='email', data-validation-type='email')
-              input#mauticform_input_weathernewsletterro_email.mauticform-input(name='mauticform[email]', value='', placeholder='Email', type='email')
-              span.mauticform-errormsg(style='display: none;')= __('invalid_email')
-            input#mauticform_input_weathernewsletterro_cityid.mauticform-hidden(name='mauticform[cityid]', value=place.id, type='hidden')
-            input#mauticform_input_weathernewsletterro_city.mauticform-hidden(name='mauticform[city]', value=place.name, type='hidden')
-            input#mauticform_input_weathernewsletterro_language.mauticform-hidden(name='mauticform[language]', value=currentCulture.language, type='hidden')
-            input#mauticform_input_weathernewsletterro_country.mauticform-hidden(name='mauticform[country]', value=currentCulture.country, type='hidden')
-            #mauticform_weathernewsletterro_submit.mauticform-row.mauticform-button-wrapper
-              button#mauticform_input_weathernewsletterro_submit.mauticform-button(type='submit', name='mauticform[submit]', value='')= __('subscribe')
-            input#mauticform_weathernewsletterro_id(type='hidden', name='mauticform[formId]', value='1')
-            input#mauticform_weathernewsletterro_return(type='hidden', name='mauticform[return]', value='')
-            input#mauticform_weathernewsletterro_name(type='hidden', name='mauticform[formName]', value='weathernewsletterro')
 
 block left_content
   .group
@@ -76,20 +32,22 @@ block left_content
       (adsbygoogle = window.adsbygoogle || []).push({});
 
 block append scripts
-  script.
-    /** This section is only needed once per page if manually copying **/
-    if (typeof MauticSDKLoaded == 'undefined') {
-        var MauticSDKLoaded = true;
-        var head            = document.getElementsByTagName('head')[0];
-        var script          = document.createElement('script');
-        script.type         = 'text/javascript';
-        script.src          = 'https://ournet.mautic.net/mautic/media/js/mautic-form.js';
-        script.onload       = function() {
-            MauticSDK.onLoad();
-        };
-        head.appendChild(script);
-        var MauticDomain = 'https://ournet.mautic.net';
-        var MauticLang   = {
-            'submittingMessage': "Please wait..."
-        }
-    }
+  if (~['ro', 'ru'].indexOf(currentCulture.language))
+    script.
+      /** This section is only needed once per page if manually copying **/
+      if (typeof MauticSDKLoaded == 'undefined') {
+          var MauticSDKLoaded = true;
+          var head            = document.getElementsByTagName('head')[0];
+          var script          = document.createElement('script');
+          script.type         = 'text/javascript';
+          script.src          = 'https://ournet.mautic.net/mautic/media/js/mautic-form.js';
+          script.onload       = function() {
+              MauticSDK.onLoad();
+          };
+          head.appendChild(script);
+          var MauticDomain = 'https://ournet.mautic.net';
+          var MauticLang   = {
+              'submittingMessage': "Please wait..."
+          }
+      }
+    img(src='http:///ournet.mautic.net/mtracking.gif',width=1,height=1,alt='')
