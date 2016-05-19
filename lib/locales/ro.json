@@ -70,5 +70,6 @@
 	"weather_subscribe": "Abonare meteo",
 	"subscribe": "Abonare",
 	"invalid_email": "Invalid Email!",
-	"forecast_on_email_place": "Vremea in %s pe email."
+	"forecast_on_email_place": "Vremea in %s pe email.",
+	"subscribe_info": "Această funcție este în perioadă de dezvoltare. În curând va fi activă."
 }

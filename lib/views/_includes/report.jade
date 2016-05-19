@@ -88,19 +88,19 @@ if (report)
         .group
           style(type='text/css', scoped='').
             .mauticform_wrapper {padding: 10px 10px 1px 10px; background-color: #dfdacb;
-            background-image: url('https://c2.staticflickr.com/8/7724/26987380802_dc156534d3_z.jpg'); background-position: center center; background-size: cover;}
+            background-image: url('https://c2.staticflickr.com/8/7724/26987380802_dc156534d3_z.jpg'); background-position: center center; background-size: cover;color: #fff;}
             .mauticform-innerform {}
             .mauticform-title{color: #fff;text-shadow: 0 1px 4px rgba(0, 0, 0, .6);font-size:140%;font-weight: bold;}
             .mauticform-post-success {}
             .mauticform-name { font-weight: bold; font-size: 1.5em; margin-bottom: 3px; }
             .mauticform-description { margin-top: 2px; margin-bottom: 10px; }
-            .mauticform-error {color: red; }
-            .mauticform-message {color: green; }
+            .mauticform-error {font-weight: bold; }
+            .mauticform-message {font-weight: bold; }
             .mauticform-row { display: block; margin-bottom: 10px; }
             .mauticform-label { font-size: 1.1em; display: block; font-weight: bold; margin-bottom: 5px; }
             .mauticform-row.mauticform-required .mauticform-label:after { color: #e32; content: " *"; display: inline; }
             .mauticform-helpmessage { display: block; font-size: 0.9em; margin-bottom: 3px; }
-            .mauticform-errormsg { display: block; color: red; margin-top: 2px; }
+            .mauticform-errormsg { display: block; font-weight: bold; color: red; margin-top: 2px; }
             .mauticform-selectbox, .mauticform-input, .mauticform-textarea { width: 99%;}
             .mauticform-checkboxgrp-row {}
             .mauticform-checkboxgrp-label { font-weight: normal; }
@@ -108,7 +108,7 @@ if (report)
             .mauticform-radiogrp-row {}
             .mauticform-radiogrp-label { font-weight: normal; }
             .mauticform-radiogrp-radio {}
-            .mauticform-button {background-color: #cb5800; color: #fff; border-radius: 3px; border: none;padding: 3px 10px;}
+            .mauticform-button {background-color: #cb5800; color: #fff; border-radius: 3px; border: none;padding: 3px 10px;font-weight: bold;}
           #mauticform_wrapper_weathernewsletterro.mauticform_wrapper
             form#mauticform_weathernewsletterro(autocomplete='false', role='form', method='post', action='https://ournet.mautic.net/form/submit?formId=1', data-mautic-form='weathernewsletterro')
               #mauticform_weathernewsletterro_error.mauticform-error
@@ -127,6 +127,8 @@ if (report)
                 input#mauticform_weathernewsletterro_id(type='hidden', name='mauticform[formId]', value='1')
                 input#mauticform_weathernewsletterro_return(type='hidden', name='mauticform[return]', value='')
                 input#mauticform_weathernewsletterro_name(type='hidden', name='mauticform[formName]', value='weathernewsletterro')
+                p
+                  small= __('subscribe_info')
     //- #weather-source-footer
       span#yr-logo
       = __('weather_cright')
