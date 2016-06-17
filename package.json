@@ -37,13 +37,14 @@
     "moment-timezone": "^0.5.1",
     "morgan": "^1.5.1",
     "ournet.data": "^0.1.1",
-    "ournet.data.places": "^0.3.0",
+    "ournet.data.places": "^0.3.1",
     "ournet.data.weather": "^0.5.1",
     "ournet.logger": "^0.1.0",
     "ournet.utils": "^0.1.0",
     "request": "^2.67.0",
     "response-time": "^2.2.0",
-    "urlset": "^0.4.0"
+    "urlset": "^0.4.0",
+    "viewdata": "^0.1.1"
   },
   "devDependencies": {}
 }

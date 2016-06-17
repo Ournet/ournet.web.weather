@@ -1,5 +1,5 @@
 .weather-summary
-  each item in placesWeather
+  each item in placesForecast
     - var dayWindCode = item.weather.wind.dir.code.length>2?item.weather.wind.dir.code.substr(1):item.weather.wind.dir.code;
     - var symbol_name = util.weather.symbolName(item.weather.symbol, currentCulture.language)
     .wt-body
