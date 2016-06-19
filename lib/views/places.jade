@@ -8,6 +8,6 @@ block weather_content
       each item in (places.Items || places)
         .list-item
           .item
-            a(href=links.weather.place(item.id, {ul: currentCulture.language}))= item.getName(currentCulture.language)
+            a(href=links.weather.place(item.id, {ul: currentCulture.language}))= util.Place.getName(item, currentCulture.language)
             if (item.region)
-              div= item.region.getName(currentCulture.language)
+              div= util.Place.getName(item.region, currentCulture.language)

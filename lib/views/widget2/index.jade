@@ -14,7 +14,7 @@ block content
               td
                 label(style='min-width: inherit', for='conf_place')= __('place')+ ':'
               td
-                input#widget-conf-place(type='text', style='width: 140px; font-weight: bold; background: #f5f5f5;', name='place', value=place.getName(currentCulture.language))
+                input#widget-conf-place(type='text', style='width: 140px; font-weight: bold; background: #f5f5f5;', name='place', value=util.Place.getName(place, currentCulture.language))
                 input#widget-conf-placeid.conf-input(name="id" type='hidden', value=place.id)
             tr
               td(colspan='2')

@@ -1,6 +1,6 @@
 {
   "name": "ournet.web.weather",
-  "version": "5.2.4",
+  "version": "5.2.5",
   "private": true,
   "description": "ournet weather web server",
   "main": "./lib/app.js",
@@ -37,7 +37,7 @@
     "moment-timezone": "^0.5.1",
     "morgan": "^1.5.1",
     "ournet.data": "^0.1.1",
-    "ournet.data.places": "^0.3.1",
+    "ournet.data.places": "^0.4.0",
     "ournet.data.weather": "^0.5.1",
     "ournet.logger": "^0.1.0",
     "ournet.utils": "^0.1.0",

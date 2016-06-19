@@ -15,7 +15,7 @@ block page_header_content
         form#search-form(method='get', action=links.weather.search())
           if (currentCulture.language!==config.language)
             input(type='hidden', name='ul', value=currentCulture.language)
-          input#q(name='q', type='text', placeholder= place && place.getName(currentCulture.language) || __('search_text'))
+          input#q(name='q', type='text', placeholder= place && util.Place.getName(place,currentCulture.language) || __('search_text'))
           a#search-btn
             i.icon
     .col-sm-6.col-md-7.hidden-xs

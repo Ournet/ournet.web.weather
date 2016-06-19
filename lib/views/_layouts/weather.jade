@@ -12,7 +12,7 @@ block content
           ul.main-menu
             each item in mainPlaces
               li
-                a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=item_name, class=(place && place.id && item.id == place.id ? 'selected': ''))= item.getName(currentCulture.language)
+                a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=item_name, class=(place && place.id && item.id == place.id ? 'selected': ''))= util.Place.getName(item, currentCulture.language)
             li
               a(href=links.weather.places({ul:currentCulture.language}))= util.format(__('other_n_places_format'), config.placesCount)
       block left_content
@@ -23,8 +23,9 @@ block content
         .group-content
           ul
             each item in latestPlaces
+              - var itemName = util.Place.getName(item, currentCulture.language);
               li
-                a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=item.getName(currentCulture.language))= item.getName(currentCulture.language)
+                a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=itemName)= itemName
     //- center content
     .col-xs-12.col-sm-9.col-md-6
       if (location && location.length>1)

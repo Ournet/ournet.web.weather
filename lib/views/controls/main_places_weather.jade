@@ -4,7 +4,7 @@
     - var symbol_name = util.weather.symbolName(item.weather.symbol, currentCulture.language)
     .wt-body
       .wt-col.wt-name
-        a(href=links.weather.place(item.place.id, {ul: currentCulture.language}))= item.place.getName(currentCulture.language)
+        a(href=links.weather.place(item.place.id, {ul: currentCulture.language}))= util.Place.getName(item.place, currentCulture.language)
       .wt-col.wt-temp
         i.w-icon(class='wi-' + item.weather.symbol.number, title=symbol_name)
         span.temp= item.weather.t.value
