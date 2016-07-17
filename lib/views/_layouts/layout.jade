@@ -47,7 +47,7 @@ block page_header_content
               //- .shadow
               span.symbol.w-icon(class='wi-'+weatherWidget.forecast.symbol.id, title=weatherWidget.forecast.symbol.name)
               span.name
-                a(href=weatherWidget.place.url)= weatherWidget.place.name
+                a(href=links.weather.place(weatherWidget.place.id, {utm_source:'weather',utm_medium:'link',utm_campaign:'header-weather'}))= weatherWidget.place.name
                 span.no= weatherWidget.forecast.temperature + '°C'
 
 block page_main_content
