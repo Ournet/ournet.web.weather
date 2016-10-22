@@ -1,6 +1,10 @@
 extends ./_layouts/weather
 
 block weather_content
+  if (userPlace)
+    include ./controls/place_summary.jade
+    br
+    br
   .page-title
     h1= title
     h2.sub-title
