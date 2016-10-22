@@ -1,7 +1,7 @@
 .place-summary
   .clearfix
     h2
-      a(href=links.weather.place(userPlace.id, {ul: currentCulture.language}))= util.Place.getName(userPlace, currentCulture.language)
+      a(href=links.weather.place(userPlace.id, {ul: currentCulture.language, utm_source: 'weather', utm_medium: 'link', utm_campaign: 'user-place'}))= util.Place.getName(userPlace, currentCulture.language)
         |  ›
   .body
     - for (var i=0;i<3;i++)

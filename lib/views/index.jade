@@ -22,3 +22,15 @@ block weather_content
   #w-summary-content.content-box
     include ./controls/main_places_weather.jade
   br
+
+block append scripts
+  if (userPlace)
+    script.
+      $(document).ready(function() {
+        ga('send', 'event', 'user', 'has-place', '#{userPlace.name}');
+      });
+  else
+    script.
+      $(document).ready(function() {
+        ga('send', 'event', 'user', 'no-place');
+      });
