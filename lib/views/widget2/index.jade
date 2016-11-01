@@ -69,6 +69,12 @@ block content
         //- else if (currentCulture.country == "md")
         //-   iframe(width='300', height='225', src='//www.youtube.com/embed/cI1yc9TxWb8?rel=0', frameborder='0', allowfullscreen='')
       br
+      .text-center
+        .social-likes(data-url=site.head.canonical)
+          each item in config.shareDataServices
+            div(class=item)
+      br
+      br
     .col-sm-7.col-xs-12
       div#widget-preview
         h2= __('preview')

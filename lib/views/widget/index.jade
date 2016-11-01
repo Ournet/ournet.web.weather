@@ -56,6 +56,12 @@ block content
               td
                 button#widget-conf-generate.btn.btn-danger(type='button')= __('generate')
       br
+      .text-center
+        .social-likes(data-url=site.head.canonical)
+          each item in config.shareDataServices
+            div(class=item)
+      br
+      br
     .col-sm-7.col-xs-12
       div#widget-preview
         h2= __('preview')
