@@ -7,7 +7,6 @@ html(lang=currentCulture.language)
     title= (site.head.title || site.title)
     meta(name='description', content=site.head.description)
     meta(name='keywords', content=site.head.keywords)
-    //- link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:300,400,700%7CRoboto+Slab:300,400,700')
     block styles
     if (NODE_ENV==='production')
       if (site.platform === 'mobile')
@@ -18,7 +17,8 @@ html(lang=currentCulture.language)
       link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/'+site.platform+'/main.css')
     if (site.head.canonical)
       link(rel='canonical', href=site.head.canonical)
-    link(rel='shortcut icon', href=config.favicon)
+    //- link(rel='shortcut icon', href=config.favicon)
+    include ../_includes/favicons.jade
 
     if (config.fbId)
       meta(property='fb:app_id', content=config.fbId)
