@@ -60,5 +60,10 @@
 	"useful": "Užitečný",
 	"temperature": "Teplota",
 	"mm": "mm",
-	"wind": "Vítr"
+	"wind": "Vítr",
+
+	"subscribe": "Upsat",
+	"invalid_email": "Neplatný e-mail!",
+	"forecast_on_email_place": "Počasí na e-mail pro %s",
+	"total_subscribers_format": "Celkový počet odběratelů: %d"
 }

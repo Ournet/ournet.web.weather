@@ -58,5 +58,10 @@
 	"useful": "Przydatny",
 	"temperature": "Temperatura",
 	"mm": "mm",
-	"wind": "Wiatr"
+	"wind": "Wiatr",
+
+	"subscribe": "Subskrybować",
+	"invalid_email": "Niepoprawny email!",
+	"forecast_on_email_place": "Pogoda na e-mail do %s",
+	"total_subscribers_format": "Wszystkich abonentów: %d"
 }

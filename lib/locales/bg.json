@@ -62,5 +62,10 @@
 	"useful": "Полезен",
 	"temperature": "Температура",
 	"mm": "мм",
-	"wind": "Вятър"
+	"wind": "Вятър",
+
+	"subscribe": "Абонирай се",
+	"invalid_email": "Грешен имейл!",
+	"forecast_on_email_place": "Времето на имейл за %s",
+	"total_subscribers_format": "Общо абонатите: %d"
 }

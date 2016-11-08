@@ -60,5 +60,10 @@
 	"useful": "Hasznos",
 	"temperature": "Hőmérséklet",
 	"mm": "mm",
-	"wind": "Szél"
+	"wind": "Szél",
+
+	"subscribe": "Előfizet",
+	"invalid_email": "Érvénytelen e-mail!",
+	"forecast_on_email_place": "Időjárási email %s",
+	"total_subscribers_format": "Összesen előfizetők: %d"
 }

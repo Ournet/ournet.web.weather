@@ -65,5 +65,10 @@
 	"useful": "Useful",
 	"temperature": "Temperature",
 	"mm": "mm",
-	"wind": "Wind"
+	"wind": "Wind",
+
+	"subscribe": "Subscribe",
+	"invalid_email": "Invalid email!",
+	"forecast_on_email_place": "Weather on email for %s",
+	"total_subscribers_format": "Total subscribers: %d"
 }
