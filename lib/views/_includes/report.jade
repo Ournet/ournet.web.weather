@@ -1,9 +1,8 @@
 if (report)
   .weather-table
-    - var openedDays = 5;
-    //- each day, ri in report.days
-    - for (var ri=0;ri<10&ri<report.days.length;ri++)
-      - var day = report.days[ri];
+    - var currentDateTime = currentDate.toDate().getTime();
+    - var rows=-1;
+    each day, ri in report.days
       - var timezone = report.timezone || config.timezone;
       - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
@@ -12,89 +11,71 @@ if (report)
       - var isWeekend = [6, 7].indexOf(dayDate.isoWeekday()) > -1;
       - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
       - var todayHolidays = holidays[dayDate.format('YYYY-MM-DD')];
-      .report-details(class=(ri<openedDays ? 'opened' : null))
-        div
-          //- .wt-caption
-          //-   .date= dayDate.format('D MMMM')
-          .wt-head
-            .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
-              .date= dayDate.format('dddd')
-                | , 
-                = dayDate.format('D MMMM')
-            .wt-temp.wt-col= __('temperature')
-            //- .wt-precip.wt-col
-            .wt-pressure.wt-col= __('item_pressure')
-            .wt-wind.wt-col= __('wind')
-          .table
-            each item in day.times
-              - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
-              - var date = util.moment.tz(item.time, timezone).locale(currentCulture.language);
-              - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
-              .wt-row
-                .wt-col.wt-date= date.format('HH:00')
-                .wt-col.wt-temp
-                  i.w-icon(class='wi-' + item.symbol.number, title=symbol_name)
-                  span.temp= item.t.value
-                    | &deg;
-                  span.name= symbol_name
-                .wt-col.wt-pressure
-                  span.value= util.weather.pressureTommHg(item.pressure.value)
-                //- .wt-col.wt-precip
-                //-   if (item.p.value)
-                //-     //- i.wi.wi-raindrops
-                //-     span.value= item.p.value + ' ' + __('mm')
-                .wt-col.wt-wind
-                  //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
-                  span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
-                  = __('item_wind_speed_ms')
-                  span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
-        if (todayHolidays)
-          .wt-footer
-            each item in todayHolidays
-              div= item.name
-      .report-summary(class=(ri<openedDays ? 'closed' : null))
-        .wt-body
-          .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
-            .wday= dayDate.format('dddd')
-            .date= dayDate.format('D MMMM')
-          .wt-col.wt-temp
-            i.w-icon(class='wi-' + dayTime.symbol.number)
-            span.temp= maxTime.t.value
-              | &deg;
-            if (day.times.length>1)
-              span.temp-night= minTime.t.value
-                | &deg;
-          .wt-col.wt-pressure
-            span.value= util.weather.pressureTommHg(dayTime.pressure.value)
-          //- .wt-col.wt-precip
-          //-   if (totalPrecipitation)
-          //-     //- i.wi.wi-raindrops
-          //-     span.value= totalPrecipitation + ' ' + __('mm')
-          .wt-col.wt-wind
-            span.wind-speed(class='beaufort-'+dayTime.wind.speed.beaufort)= dayTime.wind.speed.mps
-            = __('item_wind_speed_ms')
-            span.wind-dir(title=dayWindCode, class='wind-dir-' + dayWindCode) &rarr;
-        if (todayHolidays)
-          .wt-footer
-            each item in todayHolidays
-              div= item.name
-      if (ri === 0)
-        .text-center
-          // Ournet weather middle
-          ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='1389535435', data-ad-format='auto')
-          script.
-            (adsbygoogle = window.adsbygoogle || []).push({});
-      if (ri === openedDays-1)
-        .cocoshelform(data-url='/newsletter/subscribe')
-          .cocoshel-header
-            .cocoshel-title= util.format(__('forecast_on_email_place'),util.Place.getName(place, currentCulture.language))
-          .row
-            .col-xs-8.cocoshel-inputs
-              input.cocoshel-email(type=email, name='email', placeholder='Email')
-              input(type='hidden', name='placeId', value=place.id)
-            .col-xs-4.text-center
-              button.cocoshel-button= __('subscribe')
-          .cocoshel-footer= util.format(__('total_subscribers_format'), totalSubscribers)
+      if (day.times[day.times.length-1].time > currentDateTime)
+        - rows++
+        .report-details
+          div
+            //- .wt-caption
+            //-   .date= dayDate.format('D MMMM')
+            .wt-head
+              .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
+                .date= dayDate.format('dddd')
+                  | , 
+                  = dayDate.format('D MMMM')
+              .wt-temp.wt-col= __('temperature')
+              //- .wt-precip.wt-col
+              .wt-pressure.wt-col= __('item_pressure')
+              .wt-wind.wt-col= __('wind')
+            .table
+              each item in day.times
+                if (item.time > currentDateTime)
+                  - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
+                  - var date = util.moment.tz(item.time, timezone).locale(currentCulture.language);
+                  - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
+                  .wt-row
+                    .wt-col.wt-date= date.format('HH:00')
+                    .wt-col.wt-temp
+                      i.w-icon(class='wi-' + item.symbol.number, title=symbol_name)
+                      span.temp= item.t.value
+                        | &deg;
+                      span.name= symbol_name
+                    .wt-col.wt-pressure
+                      span.value= util.weather.pressureTommHg(item.pressure.value)
+                    //- .wt-col.wt-precip
+                    //-   if (item.p.value)
+                    //-     //- i.wi.wi-raindrops
+                    //-     span.value= item.p.value + ' ' + __('mm')
+                    .wt-col.wt-wind
+                      //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
+                      span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
+                      = __('item_wind_speed_ms')
+                      span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
+          if (todayHolidays)
+            .wt-footer
+              each item in todayHolidays
+                div= item.name
+        if (rows === 0)
+          .text-center
+            // Ournet weather report top
+            ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='2239682634', data-ad-format='auto')
+            script.
+              (adsbygoogle = window.adsbygoogle || []).push({});
+        if (rows === 4)
+          .cocoshelform(data-url='/newsletter/subscribe')
+            .cocoshel-header
+              .cocoshel-title= util.format(__('forecast_on_email_place'),util.Place.getName(place, currentCulture.language))
+            .row
+              .col-xs-8.cocoshel-inputs
+                input.cocoshel-email(type=email, name='email', placeholder='Email')
+                input(type='hidden', name='placeId', value=place.id)
+              .col-xs-4.text-center
+                button.cocoshel-button= __('subscribe')
+            .cocoshel-footer= util.format(__('total_subscribers_format'), totalSubscribers)
+          .text-center
+            // Ournet weather report middle
+            ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3716415837', data-ad-format='auto')
+            script.
+              (adsbygoogle = window.adsbygoogle || []).push({});
 
     //- #weather-source-footer
       span#yr-logo
