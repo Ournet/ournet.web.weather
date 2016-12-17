@@ -18,6 +18,7 @@
 	"weather_cright": "Source - yr.no",
 	"international": "Internazionale",
 	"weather_item_head_title_format": "Meteo %s, previsioni meteo %s",
+	"weather_item_head_title_format_10days": "Meteo %s, previsioni meteo %s, 10 giorni",
 	"weather_item_head_description_format": "Previsioni meteo di %s, %s tempo - oggi, domani, 10 giorni",
 	"place_weather_details_info": "Previsioni del tempo in %s, meteo %s oggi, domani, dopodomani, 3 giorni, 7 giorni, 10 giorni, in questi giorni. Meteo %s.",
 	"weather_title_format": "Previsioni meteo %s",
@@ -33,7 +34,7 @@
 	"weather_on_your_site_info": "Previsioni meteo sul tuo sito Web per qualsiasi località in %s.",
 	"configuration": "Configurazione",
 	"place": "Posizione",
-	"days": "No. giorni",
+	"no_days": "No. giorni",
 	"border_color": "Colore di bordi",
 	"back_color": "Colore di sfondo",
 	"head_back_color": "Titolo colore di sfondo",
@@ -64,5 +65,8 @@
 	"subscribe": "Abbonarsi",
 	"invalid_email": "E-mail non valido!",
 	"forecast_on_email_place": "Meteo sul e-mail per %s",
-	"total_subscribers_format": "Abbonati totali: %d"
+	"total_subscribers_format": "Abbonati totali: %d",
+
+	"weather_for_10days": "Meteo per 10 giorni",
+	"days": "giorni"
 }

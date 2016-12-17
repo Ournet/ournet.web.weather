@@ -8,6 +8,7 @@
     },
     "search": "/places",
     "place": "/${0}",
+    "placeDays": "/${0}/${1}days",
     "places": {
       "$url": "/places",
       "byAdm1": "/${0}"

@@ -1,8 +1,9 @@
 if (report)
   .weather-table
     - var currentDateTime = currentDate.toDate().getTime();
-    - var rows=-1;
-    each day, ri in report.days
+    - var rows=0;
+    - for (var ri=0;rows<reportDays&&ri<report.days.length;ri++)
+      - var day = report.days[ri];
       - var timezone = report.timezone || config.timezone;
       - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
@@ -54,13 +55,13 @@ if (report)
             .wt-footer
               each item in todayHolidays
                 div= item.name
-        if (rows === 0)
+        if (rows === 1)
           .text-center
             // Ournet weather report top
             ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='2239682634', data-ad-format='auto')
             script.
               (adsbygoogle = window.adsbygoogle || []).push({});
-        if (rows === 4)
+        if (rows === 5)
           .cocoshelform(data-url='/newsletter/subscribe')
             .cocoshel-header
               .cocoshel-title= util.format(__('forecast_on_email_place'),util.Place.getName(place, currentCulture.language))
@@ -71,11 +72,12 @@ if (report)
               .col-xs-4.text-center
                 button.cocoshel-button= __('subscribe')
             .cocoshel-footer= util.format(__('total_subscribers_format'), totalSubscribers)
-          .text-center
-            // Ournet weather report middle
-            ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3716415837', data-ad-format='auto')
-            script.
-              (adsbygoogle = window.adsbygoogle || []).push({});
+          if (reportDays > 5)
+            .text-center
+              // Ournet weather report middle
+              ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3716415837', data-ad-format='auto')
+              script.
+                (adsbygoogle = window.adsbygoogle || []).push({});
 
     //- #weather-source-footer
       span#yr-logo

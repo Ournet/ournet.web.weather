@@ -19,6 +19,7 @@
 	"weather_cright": "Forrás - yr.no",
 	"international": "Nemzetközi",
 	"weather_item_head_title_format": "Időjárás %s, időjárás-előrejelzés %s",
+	"weather_item_head_title_format_10days": "Időjárás %s, időjárás-előrejelzés %s, 10 napos",
 	"weather_item_head_description_format": "Időjárás előrejelzés %s %s - ma, holnap, 10 napos, 15 napos, 7 napos",
 	"place_weather_details_info": "Időjárás %s %s időjárás ma, holnap, 3 napos, 7 napos, 10 napos, ezekben a napokban. Előrejelzés %s.",
 	"weather_title_format": "Időjárás %s",
@@ -37,7 +38,7 @@
 
 	"configuration": "Konfiguráció",
 	"place": "Hely",
-	"days": "nap",
+	"no_days": "nap",
 	"border_color": "Színes határokat",
 	"back_color": "Háttérszín",
 	"head_back_color": "Cím háttérszín",
@@ -65,5 +66,8 @@
 	"subscribe": "Előfizet",
 	"invalid_email": "Érvénytelen e-mail!",
 	"forecast_on_email_place": "Időjárási email %s",
-	"total_subscribers_format": "Összesen előfizetők: %d"
+	"total_subscribers_format": "Összesen előfizetők: %d",
+
+	"weather_for_10days": "Időjárás 10 napig",
+	"days": "nap"
 }

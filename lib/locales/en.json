@@ -18,6 +18,7 @@
 	"international": "International",
 	"search_place_in_cn_format": "Find city in %s, %s",
 	"weather_item_head_title_format": "%s Weather Forecast in %s",
+	"weather_item_head_title_format_10days": "%s Weather Forecast in %s, 10 days",
 	"weather_item_head_description_format": "Weather Forecast for %s, %s - today, tomorrow, 10 days, 7 days",
 	"place_weather_details_info": "Weather in %s, %s weather today, tomorrow, 3 days, 7 days, 10 days, 15 days, these days. Forecast for %s.",
 	"weather_title_format": "%s Weather Forecast",
@@ -34,7 +35,7 @@
 	"weather_on_your_site_info": "Weather forecast on your website for any place in %s.",
 	"configuration": "Configuration",
 	"place": "Place",
-	"days": "Days",
+	"no_days": "Days",
 	"border_color": "Border color",
 	"back_color": "Back color",
 	"head_back_color": "Head back color",
@@ -70,5 +71,8 @@
 	"subscribe": "Subscribe",
 	"invalid_email": "Invalid email!",
 	"forecast_on_email_place": "Weather on email for %s",
-	"total_subscribers_format": "Total subscribers: %d"
+	"total_subscribers_format": "Total subscribers: %d",
+
+	"weather_for_10days": "Weather for 10 days",
+	"days": "days"
 }

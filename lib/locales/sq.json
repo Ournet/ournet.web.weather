@@ -18,6 +18,7 @@
 	"international": "Ndërkombëtar",
 	"search_place_in_cn_format": "Gjej qytet në %s, %s",
 	"weather_item_head_title_format": "Moti në %s, parashikimi i motit %s",
+	"weather_item_head_title_format_10days": "Moti në %s, parashikimi i motit %s, 10 ditë",
 	"weather_item_head_description_format": "Parashikimi i motit në %s, %s - sot, nesër, 10 ditë, 7 ditë",
 	"place_weather_details_info": "Moti në %s, %s motit sot, nesër, 3 ditë, 7 ditë, 10 ditë, 15 ditë, këto ditë. Parashikimi për %s.",
 	"weather_title_format": "Moti ne %s",
@@ -34,7 +35,7 @@
 	"weather_on_your_site_info": "Moti parashikohet në web faqen tuaj për çdo vend në %s.",
 	"configuration": "Konfigurimi",
 	"place": "Vend",
-	"days": "Ditët",
+	"no_days": "Ditët",
 	"border_color": "Border color",
 	"back_color": "Back color",
 	"head_back_color": "Head back color",
@@ -70,5 +71,8 @@
 	"subscribe": "Pajtohem",
 	"invalid_email": "Email i pavlefshem!",
 	"forecast_on_email_place": "Moti në email për %s",
-	"total_subscribers_format": "Gjithsej abonentë: %d"
+	"total_subscribers_format": "Gjithsej abonentë: %d",
+
+	"weather_for_10days": "Moti për 10 ditë",
+	"days": "ditë"
 }

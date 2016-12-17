@@ -8,20 +8,31 @@ extends ./_layouts/weather
 //-       (adsbygoogle = window.adsbygoogle || []).push({});
 
 block weather_content
+  .row
+    .col-xs-6
+      .r-days
+        span.a
+          a(href=links.weather.place(place.id,{ul:currentCulture.language}), class=reportDays===5?'selected':null) 5
+          a(href=links.weather.placeDays(place.id, 10,{ul:currentCulture.language}), class=reportDays===10?'selected':null) 10
+        span.b= __('days')
+    .col-xs-6.text-right
+      .social-likes(data-url=site.head.canonical)
+        each item in config.shareDataServices
+          div(class=item)
   .page-title
     h1= title
-    .row
-      .col-xs-7
-        h2.sub-title= site.head.description
-      .col-xs-5.text-right
-        .social-likes(data-url=site.head.canonical)
-          each item in config.shareDataServices
-            div(class=item)
+    h2.sub-title= site.head.description
   include _includes/report.jade
 
-  .social-likes(data-url=site.head.canonical)
-    each item in config.shareDataServices
-      div(class=item)
+  if (reportDays!==10)
+    p.text-center
+      strong
+        a(href=links.weather.placeDays(place.id,10,{ul:currentCulture.language}))= __('weather_for_10days')
+          |   »
+  else
+    .social-likes(data-url=site.head.canonical)
+      each item in config.shareDataServices
+        div(class=item)
   br
 
 

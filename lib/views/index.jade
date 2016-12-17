@@ -4,20 +4,17 @@ block weather_content
   if (userPlace)
     include ./controls/place_summary.jade
     br
-    br
 
+  .text-right
+    .social-likes(data-url=site.head.canonical)
+      each item in config.shareDataServices
+        div(class=item)
   .page-title
     h1= title
-    .row
-      .col-xs-7
-        h2.sub-title
-          = subTitle+' ('
-          a(href=links.weather.places({ul: currentCulture.language}))= util.format(__('other_n_places_format'),config.placesCount)
-          | )
-      .col-xs-5.text-right
-        .social-likes(data-url=site.head.canonical)
-          each item in config.shareDataServices
-            div(class=item)
+    h2.sub-title
+      = subTitle+' ('
+      a(href=links.weather.places({ul: currentCulture.language}))= util.format(__('other_n_places_format'),config.placesCount)
+      | )
     br
 
   - var date = util.moment(new Date()), datenow = util.moment(new Date())

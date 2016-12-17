@@ -5,6 +5,7 @@
 	"exchange": "Курс валют",
 	"home": "Главная",
 	"weather_item_head_title_format": "Погода в %s, прогноз погоды - %s",
+	"weather_item_head_title_format_10days": "Погода в %s, прогноз погоды - %s, 10 дней",
 	"weather_item_head_description_format": "Погода в %s, прогноз погоды в %s на сегодня, завтра, 10 дней",
 	"weather_title_format": "Погода в %s",
 	"weather2": "Прогноз погоды",
@@ -38,7 +39,7 @@
 	"weather_on_your_site_info": "Вставьте погодные информеры на вашем сайте для любого города/нас. пункта в %s.",
 	"configuration": "Конфигурация",
 	"weather_on_your_site": "Погода на вашем сайте",
-	"days": "Дни",
+	"no_days": "Дни",
 	"border_color": "Цвет краев",
 	"back_color": "Цвет фона",
 	"head_back_color": "название, цвет фона",
@@ -69,5 +70,8 @@
 	"invalid_email": "Неверный адрес электронной почты!",
 	"forecast_on_email_place": "Прогноз погоды на вашу электронную почту: %s.",
 	"subscribe_info": "Эта функция в периоде развития.",
-	"total_subscribers_format": "Общее число абонентов: %d"
+	"total_subscribers_format": "Общее число абонентов: %d",
+
+	"weather_for_10days": "Прогноз погоды на 10 дней",
+	"days": "дней"
 }

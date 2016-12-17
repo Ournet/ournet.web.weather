@@ -19,6 +19,7 @@
 	"weather_cright": "Източник - yr.no",
 	"international": "Международен",
 	"weather_item_head_title_format": "Времето в %s, прогноза - %s",
+	"weather_item_head_title_format_10days": "Времето в %s, прогноза - %s, 10 дни",
 	"weather_item_head_description_format": "Прогноза за времето в %s %s - днес, утре, 10 дни, 7 дни",
 	"place_weather_details_info": "Прогноза за времето в %s %s Времето днес, утре, 3 дни, 7 дни, 10 дни, 15 дни, тези дни. Прогноза за времето за %s.",
 	"weather_title_format": "Времето в %s",
@@ -39,7 +40,7 @@
 	"weather_on_your_site": "Времето на вашия сайт",
 	"weather_on_your_site_info": "Прогноза за времето на вашия сайт за всяко място в %s.",
 	"configuration": "Конфигурация",
-	"days": "# дни",
+	"no_days": "# дни",
 	"border_color": "Цвят граници",
 	"back_color": "Цвят на фона",
 	"head_back_color": "Цвят Заглавие фон",
@@ -67,5 +68,8 @@
 	"subscribe": "Абонирай се",
 	"invalid_email": "Грешен имейл!",
 	"forecast_on_email_place": "Времето на имейл за %s",
-	"total_subscribers_format": "Общо абонатите: %d"
+	"total_subscribers_format": "Общо абонатите: %d",
+
+	"weather_for_10days": "Времето за 10 дни",
+	"days": "дни"
 }

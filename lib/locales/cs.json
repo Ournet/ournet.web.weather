@@ -23,6 +23,7 @@
 	"search_place_in_cn_format": "Najít město v %s, %s",
 	"search_place_format": "Výsledky hledání pro: %s",
 	"weather_item_head_title_format": "Počasí %s, předpověď počasí %s",
+	"weather_item_head_title_format_10days": "Počasí %s, předpověď počasí %s, 10 dní",
 	"weather_item_head_description_format": "Předpověď počasí pro %s, %s - dnes, zítra, 10 dnů, 7 dnů",
 	"place_weather_details_info": "Počasí %s, %s počasí dnes, zítra, 3 dny, 7 dní, 10 dní, 15 den, v těchto dnech. Předpověď počasí pro %s.",
 	"weather_title_format": "Předpověď počasí pro %s",
@@ -37,7 +38,7 @@
 
 	"weather_on_your_site_info": "Předpověď počasí na vašem webu a pro každé místo v %s.",
 	"configuration": "Konfigurace",
-	"days": "Počet dní",
+	"no_days": "Počet dní",
 	"border_color": "Barevné hranice",
 	"back_color": "Barva pozadí",
 	"head_back_color": "Název barvu pozadí",
@@ -65,5 +66,8 @@
 	"subscribe": "Upsat",
 	"invalid_email": "Neplatný e-mail!",
 	"forecast_on_email_place": "Počasí na e-mail pro %s",
-	"total_subscribers_format": "Celkový počet odběratelů: %d"
+	"total_subscribers_format": "Celkový počet odběratelů: %d",
+
+	"weather_for_10days": "Počasí po dobu 10 dnů",
+	"days": "dnů"
 }
