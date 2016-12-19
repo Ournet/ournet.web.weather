@@ -72,12 +72,12 @@ if (report)
               .col-xs-4.text-center
                 button.cocoshel-button= __('subscribe')
             .cocoshel-footer= util.format(__('total_subscribers_format'), totalSubscribers)
-          if (rows === 7 && reportDays > 7)
-            .text-center
-              // Ournet weather report middle
-              ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3716415837', data-ad-format='auto')
-              script.
-                (adsbygoogle = window.adsbygoogle || []).push({});
+        if (rows === 7 && reportDays > 7)
+          .text-center
+            // Ournet weather report middle
+            ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3716415837', data-ad-format='auto')
+            script.
+              (adsbygoogle = window.adsbygoogle || []).push({});
 
     //- #weather-source-footer
       span#yr-logo
