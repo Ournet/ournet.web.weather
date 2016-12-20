@@ -5,11 +5,11 @@ block weather_content
     include ./controls/place_summary.jade
     br
 
-  .text-right
-    .social-likes(data-url=site.head.canonical)
-      each item in config.shareDataServices
-        div(class=item)
   .page-title
+    .pull-right
+      .social-likes(data-url=site.head.canonical)
+        each item in config.shareDataServices
+          div(class=item)
     h1= title
     h2.sub-title
       = subTitle+' ('
