@@ -25,7 +25,8 @@ block weather_content
     li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
     li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
   #w-summary-content.content-box
-    include ./controls/main_places_weather.jade
+    if (placesForecast)
+      include ./controls/main_places_weather.jade
   br
 
 block append scripts
