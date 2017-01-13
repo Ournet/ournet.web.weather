@@ -2,9 +2,10 @@
   each item in placesForecast
     - var dayWindCode = item.weather.wind.dir.code.length>2?item.weather.wind.dir.code.substr(1):item.weather.wind.dir.code;
     - var symbol_name = util.weather.symbolName(item.weather.symbol, currentCulture.language)
+    - var placeName = util.Place.getName(item.place, currentCulture.language);
     .wt-body
       .wt-col.wt-name
-        a(href=links.weather.place(item.place.id, {ul: currentCulture.language}))= util.Place.getName(item.place, currentCulture.language)
+        a(href=links.weather.place(item.place.id, {ul: currentCulture.language}), title=placeName)= placeName
       .wt-col.wt-temp
         i.w-icon(class='wi-' + item.weather.symbol.number, title=symbol_name)
         span.temp= item.weather.t.value
