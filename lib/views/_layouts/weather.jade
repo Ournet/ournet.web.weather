@@ -7,25 +7,26 @@ block content
       .group
         .group-title
           h4
-            a(href=links.home({ul:currentCulture.language}))= __('country_'+currentCulture.country)
+            a(href=links.weather.home({ul:currentCulture.language}))= __('country_'+currentCulture.country)
         .group-content
           ul.main-menu
             each item in mainPlaces
+              - var placeName = util.Place.getName(item, currentCulture.language)
               li
-                a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=item_name, class=(place && place.id && item.id == place.id ? 'selected': ''))= util.Place.getName(item, currentCulture.language)
+                a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=placeName, class=(place && place.id && item.id == place.id ? 'selected': ''))= placeName
             li
               a(href=links.weather.places({ul:currentCulture.language}))= util.format(__('other_n_places_format'), config.placesCount)
       block left_content
       //- recent search
-      .group
-        .group-title
-          h4= __('recent_search')
-        .group-content
-          ul
-            each item in latestPlaces
-              - var itemName = util.Place.getName(item, currentCulture.language);
-              li
-                a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=itemName)= itemName
+      //- .group
+      //-   .group-title
+      //-     h4= __('recent_search')
+      //-   .group-content
+      //-     ul
+      //-       each item in latestPlaces
+      //-         - var itemName = util.Place.getName(item, currentCulture.language);
+      //-         li
+      //-           a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=itemName)= itemName
     //- center content
     .col-xs-12.col-sm-9.col-md-6
       if (location && location.length>1)

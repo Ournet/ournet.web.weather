@@ -5,8 +5,8 @@
         |  ›
   .body
     - for (var i=0;i<3;i++)
-      - var day = userReport.days[i];
-      - var timezone = userReport.timezone || config.timezone;
+      - var day = userPlace.forecast.days[i];
+      - var timezone = userPlace.forecast.timezone || config.timezone;
       - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
       - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});

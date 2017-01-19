@@ -75,5 +75,7 @@
 	"total_subscribers_format": "Total abonați: %d",
 
 	"weather_for_10days": "Prognoza meteo pentru 10 zile",
-	"days": "zile"
+	"days": "zile",
+
+	"horoscope": "Horoscop"
 }

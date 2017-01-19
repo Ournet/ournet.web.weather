@@ -4,7 +4,7 @@ block page_header_content
   .row
     .col-xs-5.col-sm-2
       #header-logo
-        a#logo(title=__(project.name), href=links.home({ul: currentCulture.language}))
+        a#logo(title=__(project.name), href=links.weather.home({ul: currentCulture.language}))
         if (config.projects.length > 1)
           ul#header-projects
             each host, key in config.projects
@@ -21,34 +21,34 @@ block page_header_content
     .col-sm-6.col-md-7.hidden-xs
       #header-widgets
         .col-md-6.hidden-sm
-          if (exchangeWidget && exchangeWidget.rates)
+          if (mainExchangeRates && mainExchangeSource)
             #widget-exchange
-              each item, i in exchangeWidget.rates
+              each item, i in mainExchangeRates
                 if (i<2)
-                  - var value = item.buy
-                  - var diff = value - item.buy1d
+                  - var value = item.rate
+                  - var diff = value - item.rate1d
                   - var diffCss = diff>0 ? "view-plus": "view-minus"
                   - diffCss = diff==0 || diff==NaN?'view-no-change': diffCss
                   div(class="item "+diffCss)
                     .symbol= item.currency.symbol
                     span(class="value")= util.numberFormat(value, 2, currentCulture.language)
                     .popover
-                      small(class="details")= util.moment(exchangeWidget.date).locale(currentCulture.language).format(config.monthFormat)
-                      .item-source(title=exchangeWidget.source.name)= exchangeWidget.source.abbr
+                      small(class="details")= currentDate.format(config.monthFormat)
+                      .item-source(title=mainExchangeSource.name)= mainExchangeSource.abbr
                       .item-value= util.numberFormat(value, 4, currentCulture.language)
                       if(diff)
                         small(class="item-diff")= util.numberFormat(diff, 4, currentCulture.language)
                       .item-details
-                        a(href=exchangeWidget.url)= __('exchange_rates')
+                        a(href='//'+links.exchange.host)= __('exchange_rates')
                           |  ›
         .col-md-6.col-sm-12
-          if (weatherWidget && weatherWidget.forecast)
+          if (capitalCity && capitalCity.currentForecast)
             #widget-weather
               //- .shadow
-              span.symbol.w-icon(class='wi-'+weatherWidget.forecast.symbol.id, title=weatherWidget.forecast.symbol.name)
+              span.symbol.w-icon(class='wi-'+capitalCity.currentForecast.symbol.number, title=util.weather.symbolName(capitalCity.currentForecast.symbol, currentCulture.language))
               span.name
-                a(href=links.weather.place(weatherWidget.place.id, {utm_source:'weather',utm_medium:'link',utm_campaign:'header-weather'}))= weatherWidget.place.name
-                span.no= weatherWidget.forecast.temperature + '°C'
+                a(href=links.weather.place(capitalCity.id, {utm_source:'weather',utm_medium:'link',utm_campaign:'header-weather'}))= util.Place.getName(capitalCity, currentCulture.language)
+                span.no= capitalCity.currentForecast.t.value + '°C'
 
 block page_main_content
   section#page-content

@@ -1,10 +1,10 @@
-if (report)
+if (place.forecast)
   .weather-table
     - var currentDateTime = currentDate.toDate().getTime();
     - var rows=0;
-    - for (var ri=0;rows<reportDays&&ri<report.days.length;ri++)
-      - var day = report.days[ri];
-      - var timezone = report.timezone || config.timezone;
+    - for (var ri=0;rows<reportDays&&ri<place.forecast.days.length;ri++)
+      - var day = place.forecast.days[ri];
+      - var timezone = place.forecast.timezone || config.timezone;
       - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
       - var dayTime = day.times[parseInt((day.times.length-1)/2)];
       - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});

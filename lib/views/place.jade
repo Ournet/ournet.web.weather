@@ -16,6 +16,7 @@ block weather_content
     h1= title
     h2.sub-title= site.head.description
   include _includes/report.jade
+  #content-bottom
 
   if (reportDays!==10)
     p.text-center
@@ -27,6 +28,12 @@ block weather_content
       each item in config.shareDataServices
         div(class=item)
   br
+  if (config.projects.horoscope)
+    .group
+      .group-title
+        h4= __('horoscope')
+      .group-content
+        include ./_includes/zodiac-list
 
 
 block prepend right_content_top
@@ -40,8 +47,8 @@ block prepend right_content_top
             if (i < 4)
               .list-item
                 .item.ot-news.clearfix
-                  a.media(href=story.url)
+                  a.media(href='//'+links.news.host+ links.news.story(story.uniqueName, story.id))
                     .media-left
-                      img.media-object(alt='', src=(story.imageSrc))
+                      img.media-object(alt='', src=(Links.cdn.wi.stories('square', story.imageId)))
                     .media-body= story.title
                       //- .details= util.moment(new Date(story.date)).format('LT')
