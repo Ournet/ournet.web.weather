@@ -27,15 +27,14 @@ block weather_content
   #w-summary-content.content-box
     if (placesForecast)
       include ./controls/main_places_weather.jade
+  #content-bottom
   br
+  if (config.projects.horoscope)
+    include ./_includes/zodiac-list
+    br
 
 block append scripts
-  if (userPlace)
-    script.
-      $(document).ready(function() {
-        ga('send', 'event', 'user', 'has-place', '#{userPlace.name}');
-      });
-  else
+  if (!userPlace)
     script.
       $(document).ready(function() {
         ga('send', 'event', 'user', 'no-place');
