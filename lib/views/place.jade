@@ -47,7 +47,7 @@ block prepend right_content_top
             if (i < 4)
               .list-item
                 .item.ot-news.clearfix
-                  a.media(href='//'+links.news.host+ links.news.story(story.uniqueName, story.id))
+                  a.media(href='http://'+links.news.host+ links.news.story(story.uniqueName, story.id))
                     .media-left
                       img.media-object(alt='', src=(Links.cdn.wi.stories('square', story.imageId)))
                     .media-body= story.title

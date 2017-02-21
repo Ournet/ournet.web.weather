@@ -2,12 +2,12 @@ extends ./layout
 
 block append styles
   if (NODE_ENV==='production')
-    link(type='text/css', rel='stylesheet', href='http://assets.ournetcdn.net/ournet/css/weather/page-widget-'+ config.assets.css.pageWidget +'.min.css')
+    link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/weather/page-widget-'+ config.assets.css.pageWidget +'.min.css')
   else
     link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/weather/page-widget.css')
 
 block append scripts
   if (NODE_ENV==='production')
-    script(type='text/javascript', src='http://assets.ournetcdn.net/ournet/js/weather/page-widget-'+ config.assets.js.pageWidget +'.min.js')
+    script(type='text/javascript', src='//assets.ournetcdn.net/ournet/js/weather/page-widget-'+ config.assets.js.pageWidget +'.min.js')
   else
     script(type='text/javascript', src='http://localhost:8044/js/weather/page-widget.js')

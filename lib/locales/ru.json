@@ -73,5 +73,7 @@
 	"total_subscribers_format": "Общее число абонентов: %d",
 
 	"weather_for_10days": "Прогноз погоды на 10 дней",
-	"days": "дней"
+	"days": "дней",
+
+	"horoscope": "Гороскоп"
 }
