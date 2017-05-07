@@ -23,6 +23,11 @@ block content
                 input#conf_days.conf-input(type='text', style='width:40px;', maxlength='1', name='days', value='5')
             tr
               td.label
+                label(for='conf_textcolor')= __('text_color') + ':'
+              td
+                input#conf_textcolor.conf-input(type='text', style='width:70px;', maxlength='6', name='textcolor', placeholder='848484')
+            tr
+              td.label
                 label(for='conf_bcolor')= __('border_color') + ':'
               td
                 input#conf_bcolor.conf-input(type='text', style='width:70px;', maxlength='6', name='bcolor', placeholder='CA0000')
@@ -68,5 +73,6 @@ block content
         br
         #widget-iframe
         h2= __('html_code')
+        br
         div
           textarea#widget-script
