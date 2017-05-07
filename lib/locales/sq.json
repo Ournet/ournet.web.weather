@@ -74,5 +74,8 @@
 	"total_subscribers_format": "Gjithsej abonentë: %d",
 
 	"weather_for_10days": "Moti për 10 ditë",
-	"days": "ditë"
+	"days": "ditë",
+
+	"share_with_your_friends": "Ndani me miqtë tuaj",
+	"no_thanks": "Jo faleminderit"
 }

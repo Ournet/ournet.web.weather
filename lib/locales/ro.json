@@ -68,14 +68,13 @@
 	"temperature": "Temperatura",
 	"mm": "mm",
 	"wind": "Vânt",
-
 	"subscribe": "Abonare",
 	"invalid_email": "Invalid Email!",
 	"forecast_on_email_place": "Vremea în %s pe email.",
 	"total_subscribers_format": "Total abonați: %d",
-
 	"weather_for_10days": "Prognoza meteo pentru 10 zile",
 	"days": "zile",
-
-	"horoscope": "Horoscop"
+	"horoscope": "Horoscop",
+	"share_with_your_friends": "Împarte cu pritenii tăi",
+	"no_thanks": "Nu muțumesc"
 }

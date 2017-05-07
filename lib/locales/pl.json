@@ -67,5 +67,8 @@
 	"total_subscribers_format": "Wszystkich abonentów: %d",
 
 	"weather_for_10days": "Pogoda na 10 dni",
-	"days": "dni"
+	"days": "dni",
+
+	"share_with_your_friends": "Podziel się z przyjaciółmi",
+	"no_thanks": "Nie, dziękuję"
 }

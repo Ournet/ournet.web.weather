@@ -121,11 +121,6 @@ html(lang=currentCulture.language)
       ga('set', 'dimension1', '#{project.name}');
       ga('send', 'pageview');
 
-    script.
-      $(document).ready(function() {
-        userLocation.get();
-      });
-      
     if (_events && _events.length > 0)
       script
         each a in _events

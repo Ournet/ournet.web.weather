@@ -75,5 +75,8 @@
 	"weather_for_10days": "Прогноз погоды на 10 дней",
 	"days": "дней",
 
-	"horoscope": "Гороскоп"
+	"horoscope": "Гороскоп",
+
+	"share_with_your_friends": "Поделись с друзьями",
+	"no_thanks": "Нет, спасибо"
 }

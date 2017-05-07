@@ -69,5 +69,8 @@
 	"total_subscribers_format": "Celkový počet odběratelů: %d",
 
 	"weather_for_10days": "Počasí po dobu 10 dnů",
-	"days": "dnů"
+	"days": "dnů",
+
+	"share_with_your_friends": "Sdílejte s přáteli",
+	"no_thanks": "Ne, díky"
 }

@@ -71,5 +71,8 @@
 	"total_subscribers_format": "Общо абонатите: %d",
 
 	"weather_for_10days": "Времето за 10 дни",
-	"days": "дни"
+	"days": "дни",
+
+	"share_with_your_friends": "Сподели с приятели",
+	"no_thanks": "Не благодаря"
 }

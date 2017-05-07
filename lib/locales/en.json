@@ -74,5 +74,8 @@
 	"total_subscribers_format": "Total subscribers: %d",
 
 	"weather_for_10days": "Weather for 10 days",
-	"days": "days"
+	"days": "days",
+
+	"share_with_your_friends": "Share with your friends",
+	"no_thanks": "No thanks"
 }

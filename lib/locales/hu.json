@@ -69,5 +69,8 @@
 	"total_subscribers_format": "Összesen előfizetők: %d",
 
 	"weather_for_10days": "Időjárás 10 napig",
-	"days": "nap"
+	"days": "nap",
+
+	"share_with_your_friends": "Ossza meg barátaival",
+	"no_thanks": "Nem, köszönöm"
 }
