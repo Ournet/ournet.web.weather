@@ -63,6 +63,7 @@ block append scripts
         aggressive: false,
         sitewide: true,
         timer: 0,
+        cookieExpire: 30,
         cookieName: 'modal-place-#{place.id}',
         callback: function() { ga("send","event","campaign","weather-modal","show-modal") }
       });

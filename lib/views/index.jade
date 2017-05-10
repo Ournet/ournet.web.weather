@@ -32,10 +32,3 @@ block weather_content
       .group-content
         include ./_includes/zodiac-list
     br
-
-block append scripts
-  if (!userPlace)
-    script.
-      $(document).ready(function() {
-        ga('send', 'event', 'user', 'no-place');
-      });
