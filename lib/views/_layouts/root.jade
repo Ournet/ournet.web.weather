@@ -84,10 +84,11 @@ html(lang=currentCulture.language)
             h4= __('international')
             each id in config.internationalIds
               - var item = config.international[id]
-              div
-                a(href=item.url, target='_blank')
-                  i.flag-icon(class='flag-'+id)
-                  = item[currentCulture.language]
+              if (item)
+                div
+                  a(href=item.url, target='_blank')
+                    i.flag-icon(class='flag-'+id)
+                    = item[currentCulture.language]
           .col-sm-4.col-xs-12
             h4= __('useful')
             div
