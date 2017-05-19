@@ -1,15 +1,15 @@
 extends ../_layouts/widget
 
 block content
-  input#widget-type(type="hidden", value="widget")
+  input#widget-type(type="hidden", value="widget2") 
   .row
     .col-sm-5.col-xs-12
       .page-title
         h1= __('weather_on_your_site')
         h2.sub-title= site.head.description
       #widget-tabs.box-tabs(data-ref='#widget-box fieldset')
-        .box-tab.active Widget 1
-        .box-tab Widget 2
+        .box-tab Widget 1
+        .box-tab.active Widget 2
       #widget-box.content-box
         table.form-table
           tr
@@ -20,7 +20,7 @@ block content
               input#widget-conf-placeid.conf-input(name="id" type='hidden', value=place.id)
           tr
             td(colspan=2)
-              fieldset#widget-conf.form
+              fieldset.form.hidden
                 table.form-table
                   tr
                     td.label
@@ -63,7 +63,7 @@ block content
                     td
                       input#conf_w.conf-input(type='text', style='width:70px;', maxlength='3', name='w', value='200')
 
-              fieldset.form.hidden
+              fieldset#widget-conf.form
                 table.form-table
                   tr
                     td(colspan='2')
