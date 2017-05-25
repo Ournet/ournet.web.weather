@@ -55,3 +55,53 @@ block prepend right_content_top
                       img.media-object(alt='', src=(Links.cdn.wi.stories('square', story.imageId)))
                     .media-body= story.title
                       //- .details= util.moment(new Date(story.date)).format('LT')
+
+block append scripts
+  script.
+    $( document ).ready(function() {
+      var isDesktop = (function() {
+        return !('ontouchstart' in window) // works on most browsers 
+        || !('onmsgesturechange' in window); // works on ie10
+      })();
+
+      if(!isDesktop){
+        return;
+      }
+      (function() {
+        var e = document.createElement('script'); e.type = 'text/javascript'; e.async = true;
+        e.src = 'https://cdnjs.cloudflare.com/ajax/libs/ouibounce/0.0.12/ouibounce.min.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(e, s);
+      })();
+
+      setTimeout(function(){
+        var ouib = ouibounce(document.getElementById('ouib'), {
+          aggressive: false,
+          sitewide: true,
+          timer: 0,
+          cookieExpire: 30,
+          cookieName: 'modal-place-#{place.id}',
+          callback: function() { ga("send","event","campaign","weather-modal","show-modal") }
+        });
+        ouib.fire();
+      }, 1000 * 10);
+    });
+    function closeOuib() {
+      $('#ouib').hide();
+      ga("send","event","campaign","weather-modal","close-modal")
+    }
+
+  #ouib(style='display: none;')
+    .underlay(onclick="closeOuib()")
+    .ouib-m
+      .ouib-m-title
+        h3= __('share_with_your_friends')
+      .ouib-m-body
+        div.text-center
+          .social-likes(data-url=site.head.canonical)
+            each item in config.shareDataServices
+              div(class=item)
+        div
+          br
+          p.text-center= util.format(__('forecast_on_email_place'),util.Place.getName(place, currentCulture.language))
+          include ./_includes/cocoshelform
+      .ouib-m-footer(onclick="closeOuib()")= __('no_thanks')
