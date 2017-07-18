@@ -21,15 +21,9 @@ block weather_content
   include _includes/report.jade
   #content-bottom
 
-  if (reportDays!==10)
-    p.text-center
-      strong
-        a(href=links.weather.placeDays(place.id,10,{ul:currentCulture.language}))= __('weather_for_10days')
-          |   »
-  else
-    .social-likes(data-url=site.head.canonical)
-      each item in config.shareDataServices
-        div(class=item)
+  .social-likes(data-url=site.head.canonical)
+    each item in config.shareDataServices
+      div(class=item)
   br
   if (config.projects.horoscope)
     .group

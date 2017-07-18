@@ -2,7 +2,7 @@ if (place.forecast)
   .weather-table
     - var currentDateTime = currentDate.toDate().getTime();
     - var rows=0;
-    - for (var ri=0;rows<reportDays&&ri<place.forecast.days.length;ri++)
+    - for (var ri=0;ri<place.forecast.days.length;ri++)
       - var day = place.forecast.days[ri];
       - var timezone = place.forecast.timezone || config.timezone;
       - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
@@ -63,7 +63,7 @@ if (place.forecast)
               (adsbygoogle = window.adsbygoogle || []).push({});
         if (rows === 5)
           include ./cocoshelform
-        if (rows === 7 && reportDays > 7)
+        if (rows === 7)
           .text-center
             // Ournet weather report middle
             ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3716415837', data-ad-format='auto')
