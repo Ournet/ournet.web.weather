@@ -92,7 +92,7 @@ html(lang=currentCulture.language)
           .col-sm-4.col-xs-12
             h4= __('useful')
             div
-              a(href=links.weather.widget(), title=__('weather_on_your_site'))= __('weather_on_your_site')
+              a(href=links.weather.widget({ul:currentCulture.language}), title=__('weather_on_your_site'))= __('weather_on_your_site')
             each host, key in config.projects
               div
                 a(href='http://'+host)= __(key)
