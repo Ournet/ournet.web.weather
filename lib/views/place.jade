@@ -59,12 +59,7 @@ block prepend right_content_top
 block append scripts
   script.
     $( document ).ready(function() {
-      var isDesktop = (function() {
-        return !('ontouchstart' in window) // works on most browsers 
-        || !('onmsgesturechange' in window); // works on ie10
-      })();
-
-      if(!isDesktop){
+      if($(window).width() < 600){
         return;
       }
       (function() {
