@@ -127,6 +127,14 @@ block content
         br
         #widget-iframe
         h2= __('html_code')
-        br
+        .row
+          .col-xs-6.text-right
+            label
+              input.scripttype(type='radio', checked, name='scripttype', value='iframe')
+              | IFRAME
+          .col-xs-6.text-left
+            label
+              input.scripttype(type='radio', name='scripttype', value='script')
+              | JS
         div
           textarea#widget-script
