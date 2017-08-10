@@ -77,5 +77,7 @@
 	"days": "ditë",
 
 	"share_with_your_friends": "Ndani me miqtë tuaj",
-	"no_thanks": "Jo faleminderit"
+	"no_thanks": "Jo faleminderit",
+	"error_title": "Gabim",
+	"error_description": "Ndodhi një gabim."
 }

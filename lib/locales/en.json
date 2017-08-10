@@ -77,5 +77,7 @@
 	"days": "days",
 
 	"share_with_your_friends": "Share with your friends",
-	"no_thanks": "No thanks"
+	"no_thanks": "No thanks",
+	"error_title": "Error",
+	"error_description": "An error occurred."
 }

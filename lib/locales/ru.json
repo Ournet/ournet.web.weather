@@ -78,5 +78,7 @@
 	"horoscope": "Гороскоп",
 
 	"share_with_your_friends": "Поделись с друзьями",
-	"no_thanks": "Нет, спасибо"
+	"no_thanks": "Нет, спасибо",
+	"error_title": "Ошибка",
+	"error_description": "Произошла ошибка."
 }

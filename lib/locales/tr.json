@@ -67,5 +67,7 @@
 	"weather_for_10days": "10 günlük hava tahmini",
 	"days": "günler",
 	"share_with_your_friends": "Arkadaşlarınla paylaş",
-	"no_thanks": "Hayır teşekkürler"
+	"no_thanks": "Hayır teşekkürler",
+	"error_title": "Hata",
+	"error_description": "Bir hata oluştu."
 }

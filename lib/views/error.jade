@@ -1,0 +1,36 @@
+extends ./_layouts/root
+
+block styles
+  if (NODE_ENV==='production')
+    link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/error-page-'+ config.assets.css.errorPage +'.min.css')
+  else
+    link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/error-page.css')
+
+block page_header_content
+  .row
+    .col-xs-6.col-sm-5
+      #header-logo
+        a#logo(title=__(project.name), href=links.weather.home({ul: currentCulture.language}))
+        if (config.projects.length > 1)
+          ul#header-projects
+            each host, key in config.projects
+              li
+                a(target='_blank', href='http://'+host)= __(key)
+    .col-xs-6.col-sm-7
+      #header-search
+        form#search-form(method='get', action=links.weather.search())
+          if (currentCulture.language!==config.language)
+            input(type='hidden', name='ul', value=currentCulture.language)
+          input#q(name='q', type='text', placeholder=__('search_text'))
+          a#search-btn
+            i.icon
+block page_main_content
+  section#page-content
+    #error-box
+      h1= data.title
+        |:  
+        span= data.statusCode
+      h4= data.description
+      p
+        strong
+          a(title=__(project.name), href=links.weather.home({ul: currentCulture.language}))= __('home')

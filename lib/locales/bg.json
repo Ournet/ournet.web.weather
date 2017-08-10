@@ -74,5 +74,7 @@
 	"days": "дни",
 
 	"share_with_your_friends": "Сподели с приятели",
-	"no_thanks": "Не благодаря"
+	"no_thanks": "Не благодаря",
+	"error_title": "Грешка",
+	"error_description": "Имаше грешка"
 }

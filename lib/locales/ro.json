@@ -76,5 +76,7 @@
 	"days": "zile",
 	"horoscope": "Horoscop",
 	"share_with_your_friends": "Împarte cu pritenii tăi",
-	"no_thanks": "Nu muțumesc"
+	"no_thanks": "Nu muțumesc",
+	"error_title": "Eroare",
+	"error_description": "A apărut o eroare. Căutăm vinovații..."
 }

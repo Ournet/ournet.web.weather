@@ -8,13 +8,6 @@ html(lang=currentCulture.language)
     meta(name='description', content=site.head.description)
     meta(name='keywords', content=site.head.keywords)
     block styles
-    if (NODE_ENV==='production')
-      if (site.platform === 'mobile')
-        link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/mobile/main-'+ config.assets.css.mainMobile +'.min.css')
-      else
-        link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/desktop/main-'+ config.assets.css.main +'.min.css')
-    else
-      link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/'+site.platform+'/main.css')
     if (site.head.canonical)
       link(rel='canonical', href=site.head.canonical)
     //- link(rel='shortcut icon', href=config.favicon)
@@ -97,20 +90,6 @@ html(lang=currentCulture.language)
               div
                 a(href='http://'+host)= __(key)
 
-    if (!noGoogleAds)
-      script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
-    script.
-      window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
-    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
-    if (NODE_ENV==='production')
-      if (site.platform === 'mobile')
-        script(type='text/javascript', src='//assets.ournetcdn.net/ournet/js/' + project.name + '/mobile/main-'+ config.assets.js.mainMobile +'.min.js')
-      else
-        script(type='text/javascript', src='//assets.ournetcdn.net/ournet/js/' + project.name + '/desktop/main-'+ config.assets.js.main +'.min.js')
-      //- script(type='text/javascript', src='//assets.ournetcdn.net/ournet/js/user-location-cd3b5217e1.min.js')
-    else
-      script(type='text/javascript', src='http://localhost:8044/js/' + project.name + '/'+site.platform+'/main.js')
-      //- script(type='text/javascript', src='http://localhost:8044/js/user-location.js')
     block scripts
     
     script.
