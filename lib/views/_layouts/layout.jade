@@ -1,7 +1,13 @@
 extends ./root
 
 block styles
-  style!=site.head.headCss
+  if (NODE_ENV==='production')
+    if (site.platform === 'mobile')
+      link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/mobile/main-'+ config.assets.css.mainMobile +'.min.css')
+    else
+      link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/desktop/main-'+ config.assets.css.main +'.min.css')
+  else
+    link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/'+site.platform+'/main.css')
 
 block page_header_content
   .row
@@ -58,10 +64,6 @@ block page_main_content
     block content
 
 block scripts
-  if (NODE_ENV==='production')
-    link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/main-body-'+ config.assets.css.mainBody +'.min.css')
-  else
-    link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/main-body.css')
   if (!noGoogleAds)
     script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
   script.
