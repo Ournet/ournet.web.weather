@@ -48,7 +48,7 @@ block page_header_content
                       if(diff)
                         small(class="item-diff")= util.numberFormat(diff, 4, currentCulture.language)
                       .item-details
-                        a(href='//'+links.exchange.host)= __('exchange_rates')
+                        a(href=links.exchange.$schema+'//'+links.exchange.$host)= __('exchange_rates')
                           |  ›
         .col-md-6.col-sm-12
           if (capitalCity && capitalCity.currentForecast)
@@ -65,7 +65,7 @@ block page_main_content
 
 block scripts
   if (!noGoogleAds)
-    script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+    script(async='', src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
   script.
     window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
   script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')

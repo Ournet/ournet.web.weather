@@ -79,7 +79,7 @@ html(lang=currentCulture.language)
               - var item = config.international[id]
               if (item)
                 div
-                  a(href=item.url, target='_blank')
+                  a(href=Links.getSchema(project.name, id)+'//'+Links.getHost(project.name, id), target='_blank')
                     i.flag-icon(class='flag-'+id)
                     = item[currentCulture.language]
           .col-sm-4.col-xs-12
@@ -88,7 +88,7 @@ html(lang=currentCulture.language)
               a(href=links.weather.widget({ul:currentCulture.language}), title=__('weather_on_your_site'))= __('weather_on_your_site')
             each host, key in config.projects
               div
-                a(href='http://'+host)= __(key)
+                a(href=Links.getSchema(key, currentCulture.country)+'//'+host)= __(key)
 
     block scripts
     
