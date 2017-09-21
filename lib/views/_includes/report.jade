@@ -1,6 +1,6 @@
 if (place.forecast)
   .weather-table
-    - var currentDateTime = currentDate.toDate().getTime();
+    - var currentDateTime = currentDate.toDate().getTime()-1000*60*60*2;
     - var rows=0;
     - for (var ri=0;rows<reportDays&&ri<place.forecast.days.length;ri++)
       - var day = place.forecast.days[ri];
