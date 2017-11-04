@@ -1,0 +1,51 @@
+
+mixin simpleDailyReport(data, place)
+    - var timezone = place.forecast.timezone || config.timezone;
+    - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
+    - var dayTime = day.times[parseInt((day.times.length-1)/2)];
+    - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
+    - var minTime = day.times.reduce(function(min, c){return c.t.value<min.t.value?c:min;});
+    - var isWeekend = [6, 7].indexOf(dayDate.isoWeekday()) > -1;
+    - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
+    - var todayHolidays = holidays[dayDate.format('YYYY-MM-DD')];
+    .report-details
+        div
+            //- .wt-caption
+            //-   .date= dayDate.format('D MMMM')
+            .wt-head
+                .wt-col.wt-date(class=isWeekend ? 'weekend' : null)
+                    .date= dayDate.format('dddd')
+                        | , 
+                        = dayDate.format('D MMMM')
+                .wt-temp.wt-col= __('temperature')
+                //- .wt-precip.wt-col
+                .wt-pressure.wt-col= __('item_pressure')
+                .wt-wind.wt-col= __('wind')
+            .table
+                each item in day.times
+                    if (item.time > currentDateTime)
+                        - var symbol_name = util.weather.symbolName(item.symbol, currentCulture.language)
+                        - var date = util.moment.tz(item.time, timezone).locale(currentCulture.language);
+                        - var windCode = item.wind.dir.code.length>2?item.wind.dir.code.substr(1):item.wind.dir.code;
+                        .wt-row
+                            .wt-col.wt-date= date.format('HH:00')
+                            .wt-col.wt-temp
+                                i.w-icon(class='wi-' + item.symbol.number, title=symbol_name)
+                                span.temp= item.t.value
+                                | &deg;
+                                span.name= symbol_name
+                            .wt-col.wt-pressure
+                                span.value= util.weather.pressureTommHg(item.pressure.value)
+                            //- .wt-col.wt-precip
+                            //-   if (item.p.value)
+                            //-     //- i.wi.wi-raindrops
+                            //-     span.value= item.p.value + ' ' + __('mm')
+                            .wt-col.wt-wind
+                                //- i.wi.wi-wind(class='wi-towards-' + item.wind.dir.code.toLowerCase())
+                                span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
+                                = __('item_wind_speed_ms')
+                                span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
+        if (todayHolidays)
+            .wt-footer
+                each item in todayHolidays
+                    div= item.name

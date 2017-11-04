@@ -64,8 +64,8 @@ block page_main_content
     block content
 
 block scripts
-  if (!noGoogleAds)
-    script(async, src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
+  //- if (!noGoogleAds)
+    //- script(async, src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
   script.
     window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
   script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
