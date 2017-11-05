@@ -22,7 +22,7 @@ block weather_content
     li(data-date=date.add(1, 'd').format('YYYY-MM-DD'))= date.format("dddd, D MMMM")
   #w-summary-content.content-box
     if (placesForecast)
-      include ./controls/main_places_weather.jade
+      include ./controls/main_places_weather
   #content-bottom
   br
   if (config.projects.horoscope)

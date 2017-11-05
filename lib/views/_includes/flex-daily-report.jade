@@ -9,8 +9,8 @@ mixin simpleDailyReport(data, place)
     - var dayWindCode = dayTime.wind.dir.code.length>2?dayTime.wind.dir.code.substr(1):dayTime.wind.dir.code;
     - var todayHolidays = holidays[dayDate.format('YYYY-MM-DD')];
     .daily-report
-        .dr-caption
-            .dr-c-date(class=isWeekend ? 'weekend' : null)
+        .dr-caption(class=isWeekend ? 'weekend' : null)
+            .dr-c-date
                 = dayDate.format('dddd')
                 | , 
                 = dayDate.format('D MMMM')
@@ -18,7 +18,8 @@ mixin simpleDailyReport(data, place)
             .dr-h.dr-h-date= __('report_hour')
             .dr-h.dr-h-temp= __('temperature')
                 |  &degC
-            .dr-h.dr-h-wind= __('wind') + ' ' + __('item_wind_speed_ms')
+            .dr-h.dr-h-wind= __('wind')
+            .dr-h.dr-h-hum= __('humidity')
         .dr-body
             each item in day.times
                 if (item.time > currentDateTime)
@@ -34,9 +35,12 @@ mixin simpleDailyReport(data, place)
                             span.symbol-name= symbol_name
                         .dr-r.dr-r-wind
                             span.wind-speed(class='beaufort-'+item.wind.speed.beaufort)= item.wind.speed.mps
+                            = __('item_wind_speed_ms')
                             span.wind-dir(title=windCode, class='wind-dir-'+windCode) &rarr;
+                        .dr-r.dr-r-hum= parseInt(item.humidity.percent)
+                            |  %
 
         if (todayHolidays)
             .dr-footer
                 each item in todayHolidays
-                    div= item.name
+                    div= item.summary
