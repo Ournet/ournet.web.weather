@@ -73,5 +73,7 @@
 	"share_with_your_friends": "Condividi con i tuoi amici",
 	"no_thanks": "No grazie",
 	"error_title": "Errore",
-	"error_description": "C'è stato un errore."
+	"error_description": "C'è stato un errore.",
+	"report_hour": "Ora",
+	"humidity": "Umidità"
 }

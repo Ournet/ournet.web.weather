@@ -79,5 +79,7 @@
 	"share_with_your_friends": "Share with your friends",
 	"no_thanks": "No thanks",
 	"error_title": "Error",
-	"error_description": "An error occurred."
+	"error_description": "An error occurred.",
+	"report_hour": "Hour",
+	"humidity": "Humidity"
 }

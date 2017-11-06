@@ -71,14 +71,13 @@
 	"forecast_on_email_place": "Прогноз погоды на вашу электронную почту: %s.",
 	"subscribe_info": "Эта функция в периоде развития.",
 	"total_subscribers_format": "Общее число абонентов: %d",
-
 	"weather_for_10days": "Прогноз погоды на 10 дней",
 	"days": "дней",
-
 	"horoscope": "Гороскоп",
-
 	"share_with_your_friends": "Поделись с друзьями",
 	"no_thanks": "Нет, спасибо",
 	"error_title": "Ошибка",
-	"error_description": "Произошла ошибка."
+	"error_description": "Произошла ошибка.",
+	"report_hour": "Время",
+	"humidity": "Влажность"
 }

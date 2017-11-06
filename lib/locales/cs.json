@@ -74,5 +74,7 @@
 	"share_with_your_friends": "Sdílejte s přáteli",
 	"no_thanks": "Ne, díky",
 	"error_title": "Chyba",
-	"error_description": "Došlo k chybě."
+	"error_description": "Došlo k chybě.",
+	"report_hour": "Hodina",
+	"humidity": "Vlhkost"
 }

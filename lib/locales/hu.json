@@ -74,5 +74,7 @@
 	"share_with_your_friends": "Ossza meg barátaival",
 	"no_thanks": "Nem, köszönöm",
 	"error_title": "Error",
-	"error_description": "Hiba lépett fel."
+	"error_description": "Hiba lépett fel.",
+	"report_hour": "Óra",
+	"humidity": "Páratartalom"
 }

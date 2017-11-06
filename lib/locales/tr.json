@@ -69,5 +69,7 @@
 	"share_with_your_friends": "Arkadaşlarınla paylaş",
 	"no_thanks": "Hayır teşekkürler",
 	"error_title": "Hata",
-	"error_description": "Bir hata oluştu."
+	"error_description": "Bir hata oluştu.",
+	"report_hour": "Saat",
+	"humidity": "Nem"
 }
