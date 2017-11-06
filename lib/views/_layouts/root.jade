@@ -27,6 +27,22 @@ html(lang=currentCulture.language)
     link(rel='dns-prefetch', href='//tpc.googlesyndication.com')
     link(rel='dns-prefetch', href='//pagead2.googlesyndication.com')
 
+    if (!noGoogleAds)
+      script(async='async', src='https://www.googletagservices.com/tag/js/gpt.js')
+      script.
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+      script.
+        googletag.cmd.push(function() {
+          //- googletag.defineSlot('/19379494/weather_report_top', [[300, 250], [480, 320], [336, 280], [320, 50], [468, 60], [320, 480], [300, 100]], 'div-gpt-ad-1509973209030-0')
+            //- .addService(googletag.pubads());
+          googletag.defineSlot('/19379494/weather_right', [[300, 600], [320, 480], [336, 280], [300, 250]], 'div-gpt-ad-1509974476781-0')
+            .addService(googletag.pubads());
+          googletag.pubads().enableSingleRequest();
+          googletag.enableServices();
+        });
+
+
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform + ' '+(site.pageLayoutCss||'')))
     #fb-root
 
