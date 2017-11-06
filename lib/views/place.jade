@@ -10,12 +10,14 @@ block append styles
 //-     script.
 //-       (adsbygoogle = window.adsbygoogle || []).push({});
 
+block top_weather_content
+  .pull-right
+    .social-likes(data-url=site.head.canonical)
+      each item in config.shareDataServices
+        div(class=item)
+
 block weather_content
   .page-title
-    .pull-right
-      .social-likes(data-url=site.head.canonical)
-        each item in config.shareDataServices
-          div(class=item)
     h1= title
     h2.sub-title= site.head.description
   include _includes/flex-report

@@ -29,6 +29,7 @@ block content
       //-           a(href=links.weather.place(item.id, {ul: currentCulture.language}), title=itemName)= itemName
     //- center content
     .col-xs-12.col-sm-9.col-md-6
+      block top_weather_content
       if (location && location.length>1)
         #user-location
           for item, i in location
