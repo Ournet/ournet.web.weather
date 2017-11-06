@@ -1,6 +1,6 @@
 
 mixin simpleDailyReport(data, place)
-    - var timezone = place.forecast.timezone || config.timezone;
+    - var timezone = place.forecast.timezone || place.timezone || config.timezone;
     - var dayDate = util.moment.tz(day.times[day.times.length-1].time, timezone).locale(currentCulture.language);
     - var dayTime = day.times[parseInt((day.times.length-1)/2)];
     - var maxTime = day.times.reduce(function(max, c){return c.t.value>max.t.value?c:max;});
