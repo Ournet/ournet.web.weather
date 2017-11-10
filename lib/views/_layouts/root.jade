@@ -27,10 +27,6 @@ html(lang=currentCulture.language)
     link(rel='dns-prefetch', href='//tpc.googlesyndication.com')
     link(rel='dns-prefetch', href='//pagead2.googlesyndication.com')
 
-    if (!noGoogleAds)
-      script(async, src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
-
-
   body(class=('country-'+currentCulture.country+' project-'+project.name+' language-'+currentCulture.language + ' '+site.platform + ' '+(site.pageLayoutCss||'')))
     #fb-root
 
@@ -91,6 +87,8 @@ html(lang=currentCulture.language)
               div
                 a(href=Links.getSchema(key, currentCulture.country)+'//'+host)= __(key)
 
+    if (!noGoogleAds)
+      script(async, src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
     block scripts
     
     script.
