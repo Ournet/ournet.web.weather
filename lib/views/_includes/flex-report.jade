@@ -5,13 +5,13 @@ if (forecast)
   .weather-report
     - var currentDateTime = util.moment.tz(Date.now(), place.timzone || forecast.timzone).toDate().getTime()-1000*60*60*3;
     - var rows=0;
-    - var topAdPosition = forecast.days[0].times.filter(item=>item.time>currentDateTime).length>2 ? 1 : 2;
+    //- - var topAdPosition = forecast.days[0].times.filter(item=>item.time>currentDateTime).length>2 ? 1 : 2;
     - for (var ri=0;rows<reportDays&&ri<forecast.days.length;ri++)
       - var day = forecast.days[ri];
       if (day.times[day.times.length-1].time > currentDateTime)
         - rows++
         +simpleDailyReport(day, place)
-        if (rows === topAdPosition)
+        if (rows === 1)
           .text-center
             // Ournet weather report top
             ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='2239682634', data-ad-format='auto')
