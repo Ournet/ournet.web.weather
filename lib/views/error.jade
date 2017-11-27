@@ -2,7 +2,7 @@ extends ./_layouts/root
 
 block styles
   if (NODE_ENV==='production')
-    link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/error-page-'+ config.assets.css.errorPage +'.min.css')
+    link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/error-page-'+ config.assets.css.errorPage +'.css')
   else
     link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/error-page.css')
 
