@@ -32,13 +32,6 @@ block weather_content
     .social-likes(data-url=site.head.canonical)
       each item in config.shareDataServices
         div(class=item)
-  br
-  if (config.projects.horoscope)
-    .group
-      .group-title
-        h4= __('horoscope')
-      .group-content
-        include ./_includes/zodiac-list
 
 
 block prepend right_content_top

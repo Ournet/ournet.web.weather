@@ -16,6 +16,19 @@ block content
                 a(href=links.weather.place(item.id,{ul:currentCulture.language}), title=placeName, class=(place && place.id && item.id == place.id ? 'selected': ''))= placeName
             li
               a(href=links.weather.places({ul:currentCulture.language}))= util.format(__('other_n_places_format'), config.placesCount)
+      if (config.lists)
+        each list in config.lists
+          .group
+            .group-title
+              h4
+                a(href=links.weather.place(list.id, {ul:currentCulture.language}), title=list.name[currentCulture.language])= list.name[currentCulture.language]
+            .group-content
+              ul.main-menu
+                - var places = locals['places_'+list.id.replace(/-/g, '_')]
+                each item in places
+                  - var placeName = util.Place.getName(item, currentCulture.language)
+                  li
+                    a(href=links.weather.place(item.id, {ul:currentCulture.language}), title=placeName)= placeName
       block left_content
       //- recent search
       //- .group
@@ -41,7 +54,15 @@ block content
         br
         .ads-block.text-center
           include ../_includes/ad-bottom
-      br
+      #content-bottom
+        br
+        if (config.projects.horoscope)
+          .group
+            .group-title
+              h4= __('horoscope')
+            .group-content
+              include ../_includes/zodiac-list
+          br
     //- right content
     #page-content-right.col-xs-12.col-md-4.hidden-sm
       block right_content_top
