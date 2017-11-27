@@ -90,6 +90,18 @@ html(lang=currentCulture.language)
     if (!noGoogleAds)
       script(async, src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
     block scripts
+      script.
+        window.globalInitData={cn: '#{config.country}',ul:'#{currentCulture.language}'};
+      script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js')
+      if (NODE_ENV==='production')
+        if (site.platform === 'mobile')
+          script(type='text/javascript', src='//assets.ournetcdn.net/ournet/js/' + project.name + '/mobile/main-'+ config.assets.js.mainMobile +'.js')
+        else
+          script(type='text/javascript', src='//assets.ournetcdn.net/ournet/js/' + project.name + '/desktop/main-'+ config.assets.js.main +'.js')
+        //- script(type='text/javascript', src='//assets.ournetcdn.net/ournet/js/user-location-cd3b5217e1.min.js')
+      else
+        script(type='text/javascript', src='http://localhost:8044/js/' + project.name + '/'+site.platform+'/main.js')
+        //- script(type='text/javascript', src='http://localhost:8044/js/user-location.js')
     
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -101,6 +113,9 @@ html(lang=currentCulture.language)
       ga('send', 'pageview');
     script.
       OURNET.Counters.init('#{currentCulture.country}','#{project.name}');
+      if(!Modernizr.flexbox) {
+        ga('send', 'event', 'Browser', 'flexbox', 'not-supported');
+      }
     if (_events && _events.length > 0)
       script
         each a in _events
