@@ -2,12 +2,9 @@ extends ./root
 
 block styles
   if (NODE_ENV==='production')
-    if (site.platform === 'mobile')
-      link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/mobile/main-'+ config.assets.css.mainMobile +'.css')
-    else
-      link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/desktop/main-'+ config.assets.css.main +'.css')
+    link(type='text/css', rel='stylesheet', href='//assets.ournetcdn.net/ournet/css/' + project.name + '/main-'+ config.assets.css.main +'.css')
   else
-    link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/'+site.platform+'/main.css')
+    link(type='text/css', rel='stylesheet', href='http://localhost:8044/css/' + project.name + '/main.css')
 
 block page_header_content
   .row
