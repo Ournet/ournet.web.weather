@@ -78,5 +78,7 @@
 	"error_title": "Грешка",
 	"error_description": "Имаше грешка",
 	"report_hour": "Час",
-	"humidity": "Влажност"
+	"humidity": "Влажност",
+
+	"horoscope": "Хороскопи"
 }
