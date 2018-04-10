@@ -130,11 +130,11 @@ block content
         .row
           .col-xs-6.text-right
             label
-              input.scripttype(type='radio', checked, name='scripttype', value='iframe')
+              input.scripttype(type='radio', name='scripttype', value='iframe')
               | IFRAME
           .col-xs-6.text-left
             label
-              input.scripttype(type='radio', name='scripttype', value='script')
+              input.scripttype(type='radio', checked, name='scripttype', value='script')
               | JS
         div
           textarea#widget-script
