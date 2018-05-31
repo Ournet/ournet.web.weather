@@ -4,11 +4,10 @@ import * as express from 'express';
 import logger from './logger';
 import * as path from 'path';
 const bodyParser = require('body-parser');
-import initi18n from './i18n';
 import catchError from './catch';
 import mountRoutes from './routes';
 import { Response } from 'express';
-import boot from './boot';
+import initViewData from './view-data/init';
 const ms = require('ms');
 const cookieParser = require('cookie-parser');
 
@@ -42,8 +41,7 @@ function startApp() {
     }));
 
 
-    app.use(boot);
-    app.use(initi18n);
+    app.use(initViewData);
 
     mountRoutes(app);
 

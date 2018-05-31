@@ -7,7 +7,7 @@ import ListComponent from './list-component';
 export default class HomeComponent extends React.Component<PageViewData, any> {
     render() {
         const props = this.props;
-        const headNodes = props.head.elements = props.head.elements || [];
+        const headNodes = props.page.headerElements = props.page.headerElements || [];
         headNodes.push(<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui" />);
         const rows: any[] = [];
         for (let i = 0; i < 100; i++) {

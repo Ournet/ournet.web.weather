@@ -4,17 +4,11 @@ import { PageViewData } from './page';
 
 export function getViewData<T extends RootViewData>(res: Response): T {
     if (!res.locals.viewData) {
-        const viewData: RootViewData = {
-            __: res.__,
-            locale: null,
-            config: null,
-            links: null,
-        };
-        res.locals.viewData = viewData;
+        throw new Error(`You must init view-data first!`);
     }
     return res.locals.viewData as T;
 }
 
-export function getPageViewData<T extends PageViewData>(res: Response): T {
-    return getViewData<T>(res);
+export function getPageViewData<DT={}>(res: Response): PageViewData<DT> {
+    return getViewData<PageViewData<DT>>(res);
 }

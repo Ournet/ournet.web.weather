@@ -1,11 +1,11 @@
-import { RootViewData } from "./root";
+import { DataViewData } from "./data";
 
-export interface PageViewData extends RootViewData {
-    head: PageViewDataHead
+export interface PageViewData<DT={}> extends DataViewData<DT> {
+    page: PageViewDataInfo
 }
 
-export type PageViewDataHead = {
+export type PageViewDataInfo = {
     title: string
     description?: string
-    elements?: any[]
+    headerElements?: any[]
 }
