@@ -1,12 +1,9 @@
-#
-#
-#
 
 .DS_Store
-.env
-node_modules/
-Gruntfile.js
-config.json
-temp/
+.env*
+node_modules
 npm-debug.log
 *.tgz
+lib
+types
+package-lock.json
