@@ -1,12 +1,6 @@
-import { Locale } from './root';
-const Links = require('ournet.links');
 
+import { sitemap } from 'ournet.links';
 
-const LINKS: { [index: string]: any } = {};
-
-export function initLinks({ lang, country }: Locale) {
-    if (!LINKS[country]) {
-        LINKS[country] = Links.country(country, lang);
-    }
-    return LINKS[country];
+export function initLinks(defaultLanguage: string) {
+    return sitemap(defaultLanguage);
 }

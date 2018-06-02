@@ -1,12 +1,13 @@
 import { AppConfig } from "../config";
-import { ViewDataHelpers } from "./helpers";
+import { ClientInfo } from "./client";
+import { Sitemap } from "ournet.links";
 
 export interface RootViewData {
     locale: Locale
     config: AppConfig
-    links: any
+    links: Sitemap
     __: (...params: any[]) => string
-    helpers: ViewDataHelpers
+    client: ClientInfo
 }
 
 export function buildRootViewData<T extends RootViewData>(viewData: T): T {
@@ -15,7 +16,7 @@ export function buildRootViewData<T extends RootViewData>(viewData: T): T {
         config: viewData.config,
         links: viewData.links,
         __: viewData.__,
-        helpers: viewData.helpers,
+        client: viewData.client,
     };
 
     return data as T;
