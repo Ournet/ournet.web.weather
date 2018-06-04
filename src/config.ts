@@ -27,6 +27,18 @@ export interface AppConfig {
 
     getAppleFavicon: () => string
     getFavicon: (filename?: string) => string
+
+    assets: {
+		css: {
+			main: string,
+			pageWidget: string,
+			errorPage: string,
+		},
+		js: {
+			main: string,
+			pageWidget: string,
+		}
+	}
 }
 
 function getFavicon(filename?: string) {

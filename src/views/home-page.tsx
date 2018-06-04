@@ -7,6 +7,7 @@ import * as util from 'util';
 import { PlaceHelper } from '../data/place-helper';
 // import Breadcrumb from './components/breadcrumb';
 import Header from './components/header';
+import Head from './components/default-head';
 
 export default class HomePage extends React.Component<PageViewData> {
     render() {
@@ -16,7 +17,9 @@ export default class HomePage extends React.Component<PageViewData> {
         const inCountryName = PlaceHelper.inCountryName(countryName, locale.lang);
         page.title = util.format(__(LocalesNames.home_title_format), inCountryName);
         page.description = util.format(__(LocalesNames.weather_in_cn_summary), inCountryName);
-        // const headerElements = page.headerElements = page.headerElements || [];
+
+        page.headerElements = [<Head {...props} />];
+
         return (
             <PageLayout {...props}>
                 <Header {...props} />

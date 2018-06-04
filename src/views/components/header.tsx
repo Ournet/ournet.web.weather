@@ -9,10 +9,10 @@ export default class HeaderComponent extends React.Component<RootViewData> {
         const props=this.props;
         return (
             <header className='c-header o-layout'>
-                <div className='o-layout__item o-1/2 o-1/5@desktop'>
+                <div className='o-layout__item u-1/2 u-1/5@desktop'>
                     <Logo {...props} />
                 </div>
-                <div className='o-layout__item o-1/2 o-2/5@desktop'>
+                <div className='o-layout__item u-1/2 u-2/5@desktop'>
                     <Search {...props} />
                 </div>
             </header>

@@ -5,7 +5,7 @@ import { PageViewData } from '../view-data/page';
 export default class PageLayout extends React.Component<PageViewData, any> {
     render() {
         const props = this.props;
-        const page = props.page;
+        const { page, locale } = props;
 
         return (
             <html lang={props.locale.lang}>
@@ -16,8 +16,10 @@ export default class PageLayout extends React.Component<PageViewData, any> {
                     {page.description && <meta name="description" content={page.description} />}
                     {page.headerElements}
                 </head>
-                <body>
-                    {props.children}
+                <body className={`proj-weather country-${locale.country}`}>
+                    <div className='o-wrapper'>
+                        {props.children}
+                    </div>
                 </body>
             </html>
         )
