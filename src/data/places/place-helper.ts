@@ -1,6 +1,6 @@
 import { Place } from "./place";
 import { PlaceHelpers as DomainPlaceHelpers } from '@ournet/places-domain';
-import { startWithUpperCase } from "../utils";
+import { startWithUpperCase } from "../../utils";
 
 export class PlaceHelper {
     static getName(place: Place, lang: string) {
