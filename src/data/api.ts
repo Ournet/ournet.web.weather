@@ -1,11 +1,14 @@
-import { GraphQLClient } from "./api-client/graphql-client";
-import { GraphQLQueryExecutor } from "./api-client/graphql-query";
-import { OurnetQueryApi } from "./api-client/ournet-query-api";
-import { OurnetMutationApi } from "./api-client/ournet-mutation-api";
 
-const executor = new GraphQLQueryExecutor(process.env.OURNET_API_HOST || 'ournetapi.com');
+import { GraphQLQueryExecutor, OurnetQueryApi } from '@ournet/api-client';
 
-export const api = new GraphQLClient(
-    new OurnetQueryApi(executor),
-    new OurnetMutationApi(executor),
-);
+const executor = new GraphQLQueryExecutor(process.env.OURNET_API_HOST || 'http://ournetapi.com/graphql');
+
+export function createApiClient<QT>(): OurnetApi<QT> {
+    return {
+        query: new OurnetQueryApi<QT>(executor)
+    }
+}
+
+export type OurnetApi<QT> = {
+    query: OurnetQueryApi<QT>
+}
