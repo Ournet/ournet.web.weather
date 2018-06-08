@@ -1,4 +1,4 @@
-import { Place } from "./place";
+import { Place } from "@ournet/api-client";
 import { PlaceHelpers as DomainPlaceHelpers } from '@ournet/places-domain';
 import { startWithUpperCase } from "../../utils";
 

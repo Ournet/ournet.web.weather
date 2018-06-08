@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 import { Response } from 'express';
 import { PageViewData } from './view-data/page';
 
-export function render<P extends PageViewData>(Page: ReactElement<P>) {
+function render<P extends PageViewData>(Page: ReactElement<P>) {
     const stream = renderToStaticNodeStream(Page);
     return stream;
 }

@@ -1,9 +1,9 @@
-import { DataViewData } from "./data";
-import { OurnetApi } from "../data/api";
+import { DataViewData, BaseViewData } from "./data";
+import { OurnetQueryApi } from "@ournet/api-client";
 
-export interface PageViewData<DT={}> extends DataViewData<DT> {
+export interface PageViewData<DT extends BaseViewData=BaseViewData> extends DataViewData<DT> {
     page: PageViewDataInfo
-    api: OurnetApi<DT>
+    api: OurnetQueryApi<DT>
 }
 
 export type PageViewDataInfo = {

@@ -8,14 +8,18 @@ import { PlaceHelper } from '../data/places/place-helper';
 // import Breadcrumb from './components/breadcrumb';
 import Header from './components/header';
 import Head from './components/default-head';
-import { Place } from '../data/places/place';
+import { NextFunction, Response, Request } from 'express';
+import { getPageViewData } from '../view-data';
+import { renderPage } from '../renderer';
+import { BaseViewData } from '../view-data/data';
 
-export type HomePageData = {
-    capital: Place
+interface HomePageData extends BaseViewData {
+
 }
 
 export default class HomePage extends React.Component<PageViewData<HomePageData>> {
     render() {
+        // console.log(this.props);
         const props = this.props;
         const { page, __, locale, data } = props;
         const countryName = __('country_' + locale.country);
@@ -40,5 +44,21 @@ export default class HomePage extends React.Component<PageViewData<HomePageData>
                 </main>
             </PageLayout>
         )
+    }
+
+
+    static render(_req: Request, res: Response, next: NextFunction) {
+        const viewData = getPageViewData<HomePageData>(res);
+        const { api } = viewData;
+
+        Header.fillData(viewData)
+            .then(() => {
+                return api.execute()
+                    .then(result => {
+                        viewData.data = { ...viewData.data, ...result.data };
+
+                        renderPage(res, <HomePage {...viewData} />);
+                    })
+            }).catch(next);
     }
 }
