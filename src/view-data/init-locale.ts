@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 
 import * as i18n from 'i18n';
 import { AppConfig } from "../config";
-import { Locale } from "./root";
+import { Locale } from "./page";
 
 i18n.configure({
     locales: ['en', 'ro', 'ru', 'hu', 'cs', 'bg', 'it', 'pl', 'sq', 'tr'],

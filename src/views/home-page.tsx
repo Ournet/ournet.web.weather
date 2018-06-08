@@ -9,11 +9,11 @@ import { PlaceHelper } from '../data/places/place-helper';
 import Header from './components/header';
 import Head from './components/default-head';
 import { NextFunction, Response, Request } from 'express';
-import { getPageViewData } from '../view-data';
+import { getViewData } from '../view-data';
 import { renderPage } from '../renderer';
-import { BaseViewData } from '../view-data/data';
+import { ViewDataData } from '@ournet/view-data';
 
-interface HomePageData extends BaseViewData {
+interface HomePageData extends ViewDataData {
 
 }
 
@@ -47,8 +47,8 @@ export default class HomePage extends React.Component<PageViewData<HomePageData>
     }
 
 
-    static render(_req: Request, res: Response, next: NextFunction) {
-        const viewData = getPageViewData<HomePageData>(res);
+    static render(req: Request, res: Response, next: NextFunction) {
+        const viewData = getViewData<HomePageData>(req, res);
         const { api } = viewData;
 
         Header.fillData(viewData)

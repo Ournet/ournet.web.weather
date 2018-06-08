@@ -1,9 +1,9 @@
 
 import * as React from 'react';
-import { RootViewData } from '../../view-data/root';
 import env from '../../env';
+import { PageViewData } from '../../view-data/page';
 
-export default class DefaultHeadComponent extends React.Component<RootViewData> {
+export default class DefaultHeadComponent extends React.Component<PageViewData> {
     render() {
         const props = this.props;
         const { config } = props;

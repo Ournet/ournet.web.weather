@@ -1,16 +1,13 @@
 import { NextFunction, Response, Request } from "express";
-import { getPageViewData } from "../view-data";
-import { createQueryApiClient } from "../data/api";
+import { getViewData } from "../view-data";
+import { PageViewData } from "../view-data/page";
 
-export default function (_req: Request, res: Response, next: NextFunction) {
-    const viewData = getPageViewData(res);
-    viewData.data = {};
+export default function (req: Request, res: Response, next: NextFunction) {
+    const viewData = getViewData<PageViewData>(req, res);
 
     viewData.page = {
         title: viewData.config.name,
     };
-
-    viewData.api = createQueryApiClient();
 
     next()
 }

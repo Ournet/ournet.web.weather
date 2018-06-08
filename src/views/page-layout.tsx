@@ -1,9 +1,8 @@
 
 import * as React from 'react';
 import { PageViewData } from '../view-data/page';
-import { BaseViewData } from '../view-data/data';
 
-export default class PageLayout extends React.Component<PageViewData<BaseViewData>, any> {
+export default class PageLayout extends React.Component<PageViewData, any> {
     render() {
         const props = this.props;
         const { page, locale } = props;

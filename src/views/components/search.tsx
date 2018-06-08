@@ -1,9 +1,9 @@
 
 import * as React from 'react';
-import { RootViewData } from '../../view-data/root';
 import { LocalesNames } from '../../locales';
+import { PageViewData } from '../../view-data/page';
 
-export default class HeaderSearchComponent extends React.Component<RootViewData> {
+export default class HeaderSearchComponent extends React.Component<PageViewData> {
     render() {
         const { links, __, locale } = this.props;
         return (

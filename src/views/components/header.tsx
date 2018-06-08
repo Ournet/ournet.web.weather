@@ -3,10 +3,10 @@ import * as React from 'react';
 import Logo from './logo';
 import Search from './search';
 import { PageViewData } from '../../view-data/page';
-import { BaseViewData } from '../../view-data/data';
 import HeaderPlaceForecast from './header-place-forecast';
+import { ViewDataData } from '@ournet/view-data';
 
-export default class HeaderComponent extends React.Component<PageViewData<BaseViewData>> {
+export default class HeaderComponent extends React.Component<PageViewData> {
     render() {
         const props = this.props;
         return (
@@ -24,7 +24,7 @@ export default class HeaderComponent extends React.Component<PageViewData<BaseVi
         )
     }
 
-    static fillData<T extends BaseViewData>(root: PageViewData<T>): Promise<any> {
+    static fillData<T extends ViewDataData>(root: PageViewData<T>): Promise<any> {
         return Promise.all([
             HeaderPlaceForecast.fillData(root)
         ])

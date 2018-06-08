@@ -1,14 +1,21 @@
-import { Response } from 'express';
-import { RootViewData } from './root';
-import { PageViewData } from './page';
+import { Response, Request } from 'express';
 
-export function getViewData<T extends RootViewData>(res: Response): T {
-    if (!res.locals.viewData) {
-        throw new Error(`You must init view-data first!`);
-    }
-    return res.locals.viewData as T;
+import { ViewDataManager } from '@ournet/view-data';
+import initViewData from './init-view-data';
+import { PageViewData } from './page';
+import { NextFunction } from 'connect';
+import { OurnetQueryApi } from '@ournet/api-client';
+
+const viewDataManager = new ViewDataManager({
+    initViewData,
+})
+
+export function getViewData<T>(req: Request, res: Response): PageViewData<T> {
+    return viewDataManager.getViewData<T, OurnetQueryApi<T>, PageViewData<T>>(req, res);
 }
 
-export function getPageViewData<DT={}>(res: Response): PageViewData<DT> {
-    return getViewData<PageViewData<DT>>(res);
+
+export function expressInitViewData(req: Request, res: Response, next: NextFunction) {
+    viewDataManager.initViewData(req, res);
+    next();
 }

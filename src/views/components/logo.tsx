@@ -1,8 +1,8 @@
 
 import * as React from 'react';
-import { RootViewData } from '../../view-data/root';
+import { PageViewData } from '../../view-data/page';
 
-export default class HeaderLogoComponent extends React.Component<RootViewData> {
+export default class HeaderLogoComponent extends React.Component<PageViewData> {
     render() {
         const { config, links, locale } = this.props;
         return (

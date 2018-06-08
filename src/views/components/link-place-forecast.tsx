@@ -1,13 +1,13 @@
 
 import * as React from 'react';
-import { RootViewData } from '../../view-data/root';
 import { Place, HourlyForecastDataPoint } from '@ournet/api-client';
 import { PlaceHelper } from '../../data/places/place-helper';
 import ForecastTemp, { ForecastTempViewData } from './forecast-temp';
+import { PageViewData } from '../../view-data/page';
 
 
 export type LinkPlaceForecastViewData = {
-    root: RootViewData
+    root: PageViewData
     place: Place
     forecast: HourlyForecastDataPoint
 }

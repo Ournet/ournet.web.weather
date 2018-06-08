@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 import catchError from './catch';
 import mountRoutes from './routes';
 import { Response } from 'express';
-import initViewData from './view-data/init';
+import { expressInitViewData } from './view-data';
 const ms = require('ms');
 const cookieParser = require('cookie-parser');
 
@@ -41,7 +41,7 @@ function startApp() {
     }));
 
 
-    app.use(initViewData);
+    app.use(expressInitViewData);
 
     mountRoutes(app);
 
