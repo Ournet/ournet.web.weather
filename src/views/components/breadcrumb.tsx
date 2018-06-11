@@ -1,19 +1,23 @@
 
 import * as React from 'react';
 
-type LinkInfo = {
+export type BreadcrumbViewData = {
+    items: BreadcrumbItem[]
+}
+
+export type BreadcrumbItem = {
     url: string
     text: string
     title?: string
 }
 
-export default class BreadcrumbComponent extends React.Component<LinkInfo[]> {
+export default class BreadcrumbComponent extends React.Component<BreadcrumbViewData> {
     render() {
-        const items: any[] = this.props.map((link, index) => {
-            if (index === this.props.length - 1) {
-                return <li aria-current="page" className="c-breadcrumb__item"><a href={link.url} title={link.title}>{link.text}</a></li>
+        const items: any[] = this.props.items.map((link, index) => {
+            if (index === this.props.items.length - 1) {
+                return <li key={index} aria-current="page" className="c-breadcrumb__item"><a href={link.url} title={link.title}>{link.text}</a></li>
             } else {
-                return <li className="c-breadcrumb__item"><a href={link.url} title={link.title}>{link.text}</a>›</li>
+                return <li key={index} className="c-breadcrumb__item"><a href={link.url} title={link.title}>{link.text}</a>›</li>
             }
         });
         return (

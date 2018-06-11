@@ -10,7 +10,7 @@
         "sourceMap": false,
         "moduleResolution": "node",
         "declaration": false,
-        "noUnusedLocals": true,
+        "noUnusedLocals": false,
         "noUnusedParameters": true,
         "allowJs": false,
         "jsx": "react"
