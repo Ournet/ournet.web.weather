@@ -14,11 +14,11 @@ export type HoursForecastLineViewData = {
 
 export default class HoursForecastLine extends React.Component<HoursForecastLineViewData> {
     render() {
-        const { forecast, place } = this.props;
-        const date = moment.tz(forecast.time * 1000, place.timezone);
+        const { forecast, place, root } = this.props;
+        const date = moment.tz(forecast.time * 1000, place.timezone).locale(root.locale.lang);
         return (
             <div className='c-fc-hs-line'>
-                {date.format()}
+                <time dateTime={date.toISOString()}>{date.fromNow()}</time>
                 <ForecastIcon root={this.props.root} icon={forecast.icon} />
                 <ForecastTemp temperature={forecast.temperature} />
             </div>

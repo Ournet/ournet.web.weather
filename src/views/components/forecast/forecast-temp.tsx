@@ -9,8 +9,8 @@ export default class ForecastTemp extends React.Component<ForecastTempViewData> 
     render() {
         const { temperature } = this.props;
         return (
-            <span className='c-temp'>
-                <span className='c-temp__value'>{Math.round(temperature)}</span>
+            <span className='c-fc-temp'>
+                <span className='c-fc-temp__value'>{Math.round(temperature)}</span>
             </span>
         )
     }

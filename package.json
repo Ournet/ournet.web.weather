@@ -4,14 +4,14 @@
   "description": "Ournet weather-web-app",
   "main": "./lib/index.js",
   "watch": {
-    "dev": {
+    "start": {
       "patterns": [
-        "src"
+        "lib"
       ],
-      "extensions": "ts,tsx",
+      "extensions": "js",
       "quiet": true,
       "legacyWatch": true,
-      "delay": 2500
+      "delay": 2000
     }
   },
   "scripts": {
@@ -28,7 +28,7 @@
     "prepublishOnly": "npm run tsc && npm run clean-test-code",
     "clean": "rimraf ./lib",
     "clean-test-code": "rimraf ./lib/**/*.test.js",
-    "watch": "npm-watch dev"
+    "watch": "npm-watch start"
   },
   "engines": {
     "node": ">=4.0.0"

@@ -18,13 +18,8 @@ import { notFound } from 'boom';
 
 export default class PlacePage extends React.Component<PageViewData<PlacePageData>> {
     render() {
-        // console.log(this.props);
         const props = this.props;
-        const { page, __, locale } = props;
-        const countryName = __('country_' + locale.country);
-        const inCountryName = PlaceHelper.inCountryName(countryName, locale.lang);
-        page.title = util.format(__(LocalesNames.home_title_format), inCountryName);
-        page.description = util.format(__(LocalesNames.weather_in_cn_summary), inCountryName);
+        const { page } = props;
 
         page.headerElements = [<Head key='1' {...props} />];
 
@@ -44,7 +39,16 @@ export default class PlacePage extends React.Component<PageViewData<PlacePageDat
                 if (!result.data.place) {
                     throw notFound(`Not found place id=${placeId}`);
                 }
-                return root.data.place = result.data.place;
+                const place = result.data.place;
+                const { page, __, locale } = root;
+                const lang = locale.lang;
+                const placeName = PlaceHelper.getName(place, lang);
+                const inPlaceName = PlaceHelper.inPlaceName(place, lang);
+                
+                page.title = util.format(__(LocalesNames.weather_item_head_title_format), inPlaceName, placeName);
+                page.description = util.format(__(LocalesNames.weather_item_head_description_format), inPlaceName, placeName);
+
+                return root.data.place = place;
             });
 
         return queryPlace.then(place => Promise.all([

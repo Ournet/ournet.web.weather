@@ -6,13 +6,13 @@ import ForecastTemp, { ForecastTempViewData } from './forecast-temp';
 import { PageViewData } from '../../../view-data/page';
 
 
-export type LinkPlaceForecastViewData = {
+export type PlaceLinkForecastViewData = {
     root: PageViewData
     place: Place
     forecast: HourlyForecastDataPoint
 }
 
-export default class LinkPlaceForecast extends React.Component<LinkPlaceForecastViewData> {
+export default class LinkPlaceForecast extends React.Component<PlaceLinkForecastViewData> {
     render() {
         const { links, locale } = this.props.root;
         const { place, forecast } = this.props;
@@ -21,8 +21,8 @@ export default class LinkPlaceForecast extends React.Component<LinkPlaceForecast
             temperature: forecast.temperature,
         }
         return (
-            <a className='c-link-pfc' href={links.weather.place(place.id.toString(), { ul: locale.lang })}>
-                <span className='c-link-pfc_name'>{placeName}</span>
+            <a className='c-link-fc' href={links.weather.place(place.id.toString(), { ul: locale.lang })}>
+                <span className='c-link-fc_name'>{placeName}</span>
                 <ForecastTemp {...temp} />
             </a>
         )

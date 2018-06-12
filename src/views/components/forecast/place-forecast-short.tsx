@@ -2,9 +2,10 @@
 import * as React from 'react';
 import { PageViewData } from '../../../view-data/page';
 import { Place, ForecastReport } from '@ournet/api-client';
-// import { ForecastHelpers } from '@ournet/weather-domain';
-import HoursForecastLine from './hours-forecast-line';
-import { tz } from 'moment-timezone';
+import * as moment from 'moment-timezone';
+import ForecastIcon from './forecast-icon';
+import ForecastTemp from './forecast-temp';
+import { ForecastHelpers } from '@ournet/weather-domain';
 
 export type PageForecastShortViewData = {
     root: PageViewData
@@ -15,16 +16,31 @@ export type PageForecastShortViewData = {
 export default class PageForecastShort extends React.Component<PageForecastShortViewData> {
     render() {
         const { place, forecast, root } = this.props;
-        const tzStartDate = tz(new Date(), place.timezone);
+        const tzStartDate = moment(new Date()).tz(place.timezone);
         const tzStartTime = Math.round(tzStartDate.toDate().getTime() / 1000);
-        let startIndex = forecast.details.data.findIndex(item => item.time >= tzStartTime);
+        let startIndex = forecast.details.data.findIndex(item => item.time > tzStartTime);
         startIndex = startIndex > 0 ? startIndex : startIndex + 1;
-        const linesData = forecast.details.data.splice(startIndex, 6);
+        const data = forecast.details.data.splice(startIndex, 4);
+        const lang = root.locale.lang;
+        const items = data.map(item => {
+            const date = moment.tz(item.time * 1000, place.timezone).locale(lang);
+            const isWeekend = [6, 7].includes(date.isoWeekday())
+            return (
+                <li key={item.time} className={`c-fc-short__item${isWeekend ? ' c-fc-short--weekend' : ''}`}>
+                    <div className='c-fc-short__date'>{date.format('ddd D MMM')}</div>
+                    <div className='c-fc-short__body'>
+                        <ForecastIcon icon={item.icon} root={root} />
+                        <ForecastTemp temperature={item.temperatureHigh} />
+                        {item.temperatureLow ? <ForecastTemp temperature={item.temperatureLow} /> : null}
+                        <div className='c-fc-short__name'>{ForecastHelpers.iconName(item.icon, lang)}</div>
+                    </div>
+                </li>
+            );
+        });
         return (
-            <div className='c-fc-short'>
-                <div>{tzStartDate.format()}</div>
-                {linesData.map(item => <HoursForecastLine key={item.time} root={root} forecast={item} place={place} />)}
-            </div>
+            <ul className='c-fc-short'>
+                {items}
+            </ul>
         )
     }
 }

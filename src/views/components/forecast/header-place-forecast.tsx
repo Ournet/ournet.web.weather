@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import LinkPlaceForecast, { LinkPlaceForecastViewData } from './link-place-forecast';
+import LinkPlaceForecast, { PlaceLinkForecastViewData } from './place-link-forecast';
 import { PageViewData } from '../../../view-data/page';
 import { createQueryApiClient } from '../../../data/api';
 import { ForecastHelpers } from '@ournet/weather-domain';
@@ -9,7 +9,7 @@ import { ViewDataData } from '@ournet/view-data';
 
 export default class HeaderPlaceForecast extends React.Component<PageViewData> {
     render() {
-        const props: LinkPlaceForecastViewData = {
+        const props: PlaceLinkForecastViewData = {
             root: this.props,
             place: this.props.data.capital,
             forecast: this.props.data.capitalForecast,
