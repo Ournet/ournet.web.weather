@@ -80,5 +80,6 @@
 	"error_title": "Eroare",
 	"error_description": "A apărut o eroare. Căutăm vinovații...",
 	"report_hour": "Ora",
-	"humidity": "Umiditate"
+	"humidity": "Umiditate",
+	"notifications_subscribe_for_place": "Abonează-te la alerge meteo pentru %s"
 }

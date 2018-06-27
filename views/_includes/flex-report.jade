@@ -17,7 +17,8 @@ if (forecast)
             ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='2239682634', data-ad-format='auto')
             script.
               (adsbygoogle = window.adsbygoogle || []).push({});
-
+        if (rows === 2 && config.oneSignal)
+          include ./notifications-subscribe-bar
         if (rows === 5)
           include ./cocoshelform
         if (rows === 7 && reportDays > 7)

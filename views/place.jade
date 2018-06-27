@@ -50,3 +50,78 @@ block prepend right_content_top
                       img.media-object(alt='', src=(Links.cdn.wi.stories('square', story.imageId)))
                     .media-body= story.title
                       //- .details= util.moment(new Date(story.date)).format('LT')
+
+block append scripts
+  if (config.oneSignal)
+    script(src='https://cdn.onesignal.com/sdks/OneSignalSDK.js', async)
+    script.
+      var OneSignal = window.OneSignal || [];
+
+      $('.c-subscribe-bar__btn').click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        ga('send', 'event', 'notifications', 'click-subscribe-btn');
+        subscribeToNotifications();
+      });
+
+      function subscribeToNotifications() {
+        OneSignal.registerForPushNotifications();
+        ga('send', 'event', 'notifications', 'show-register-native');
+      }
+
+      function hideSubscribe() {
+        $('.c-subscribe-bar').addClass('hidden');
+      }
+      function showSubscribe() {
+        $('.c-subscribe-bar').removeClass('hidden');
+      }
+
+      OneSignal.push(['init', {
+        appId: "#{config.oneSignal.appId}",
+        autoRegister: false,
+        persistNotification: false,
+        notifyButton: {
+          enable: true,
+          showCredit: false,
+          prenotify: true
+        },
+        welcomeNotification: {
+          disable: true
+        },
+        safari_web_id: "#{config.oneSignal.safari_web_id}"
+      }]);
+      OneSignal.push(function() {
+        OneSignal.on('notificationPermissionChange', function(permissionChange) {
+          var currentPermission = permissionChange.to;
+          if (currentPermission === 'granted') {
+            OneSignal.sendTag('place-id', '#{place.id}');
+          }
+          ga('send', 'event', 'notifications', currentPermission);
+        });
+        // Occurs when the user's subscription changes to a new value.
+        OneSignal.on('subscriptionChange', function (isSubscribed) {
+          if (isSubscribed) {
+            hideSubscribe();
+            OneSignal.sendTag('place-id', '#{place.id}');
+          }else{
+            showSubscribe();
+          }
+        });
+
+        // If we're on an unsupported browser, do nothing
+        if (OneSignal.isPushNotificationsSupported()) {
+          showSubscribe();
+          ga('send', 'event', 'notifications', 'supported');
+        } else {
+          hideSubscribe();
+          ga('send', 'event', 'notifications', 'not-supported');
+        }
+        OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+          if (isEnabled) {
+            hideSubscribe();
+          } else {
+            showSubscribe();
+            //- setTimeout(subscribeToNotifications, 1000*2)
+          }
+        });
+      });
