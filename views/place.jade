@@ -56,17 +56,18 @@ block append scripts
     script(src='https://cdn.onesignal.com/sdks/OneSignalSDK.js', async)
     script.
       var OneSignal = window.OneSignal || [];
+      var category='notifications-weather';
 
       $('.c-subscribe-bar__btn').click(function(event) {
         event.preventDefault();
         event.stopPropagation();
-        ga('send', 'event', 'notifications', 'click-subscribe-btn');
+        ga('send', 'event', category, 'click-subscribe-btn');
         subscribeToNotifications();
       });
 
       function subscribeToNotifications() {
         OneSignal.registerForPushNotifications();
-        ga('send', 'event', 'notifications', 'show-register-native');
+        ga('send', 'event', category, 'show-register-native');
       }
 
       function hideSubscribe() {
@@ -96,7 +97,7 @@ block append scripts
           if (currentPermission === 'granted') {
             OneSignal.sendTag('place-id', '#{place.id}');
           }
-          ga('send', 'event', 'notifications', currentPermission);
+          ga('send', 'event', category, currentPermission);
         });
         // Occurs when the user's subscription changes to a new value.
         OneSignal.on('subscriptionChange', function (isSubscribed) {
@@ -111,10 +112,10 @@ block append scripts
         // If we're on an unsupported browser, do nothing
         if (OneSignal.isPushNotificationsSupported()) {
           showSubscribe();
-          ga('send', 'event', 'notifications', 'supported');
+          ga('send', 'event', category, 'supported');
         } else {
           hideSubscribe();
-          ga('send', 'event', 'notifications', 'not-supported');
+          ga('send', 'event', category, 'not-supported');
         }
         OneSignal.isPushNotificationsEnabled(function(isEnabled) {
           if (isEnabled) {
