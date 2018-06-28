@@ -79,13 +79,14 @@ block append scripts
         function initNotifications(permission) {
           var currentTags;
           var placeId = '#{place.id}';
+          var admin1Code = '#{place.admin1.admin1Code}';
 
           function subscribedToCurrentPlace() {
             return currentTags && currentTags['place-id'] == placeId;
           }
 
           function setPlaceId() {
-            OneSignal.sendTag('place-id', placeId);
+            OneSignal.sendTags({'place-id': placeId, 'admin1-code': admin1Code});
           }
 
           function subscribeToNotifications() {
@@ -105,6 +106,10 @@ block append scripts
               currentTags = tags;
               if (!subscribedToCurrentPlace()) {
                 showSubscribe();
+              } else {
+                if(!currentTags['admin1-code']){
+                  OneSignal.sendTag('admin1-code', admin1Code);
+                }
               }
             });
           } else {
