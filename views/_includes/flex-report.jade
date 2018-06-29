@@ -6,7 +6,7 @@ if (forecast)
     - var currentDateTime = util.moment.tz(Date.now(), place.timzone || forecast.timzone).toDate().getTime()-1000*60*60*3;
     - var rows=0;
     //- - var topAdPosition = forecast.days[0].times.filter(item=>item.time>currentDateTime).length>2 ? 1 : 2;
-    - for (var ri=0;rows<reportDays&&ri<forecast.days.length;ri++)
+    - for (var ri=0;ri<forecast.days.length;ri++)
       - var day = forecast.days[ri];
       if (day.times[day.times.length-1].time > currentDateTime)
         - rows++
@@ -20,14 +20,13 @@ if (forecast)
         if (rows === 2 && config.oneSignal)
           include ./notifications-subscribe-bar
         if (rows === 5)
-          include ./cocoshelform
-        if (rows === 7 && reportDays > 7)
           .text-center
             // Ournet weather report middle
             ins.adsbygoogle(style='display:block', data-ad-client='ca-pub-3959589883092051', data-ad-slot='3716415837', data-ad-format='auto')
             script.
               (adsbygoogle = window.adsbygoogle || []).push({});
 
+    include ./cocoshelform
     //- #weather-source-footer
       span#yr-logo
       = __('weather_cright')
