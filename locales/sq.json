@@ -81,5 +81,6 @@
 	"error_title": "Gabim",
 	"error_description": "Ndodhi një gabim.",
 	"report_hour": "Orë",
-	"humidity": "Lagështia"
+	"humidity": "Lagështia",
+	"notifications_subscribe_for_place": "Abonohuni për alarme motit: %s"
 }
