@@ -79,5 +79,6 @@
 	"error_title": "Ошибка",
 	"error_description": "Произошла ошибка.",
 	"report_hour": "Время",
-	"humidity": "Влажность"
+	"humidity": "Влажность",
+	"notifications_subscribe_for_place": "Подписаться на предупреждения о погоде: %s"
 }
