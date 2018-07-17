@@ -1,14 +1,13 @@
 
 import * as React from 'react';
-import { PageViewData } from '../../view-data/page';
 
-export type PageTitleViewData = {
-    root: PageViewData
+export type PageTitleViewModel = {
     title: string
     subTitle?: React.ReactNode
+    h?: 1 | 2 | 3 | 4
 }
 
-export default class PageTitleComponent extends React.Component<PageTitleViewData> {
+export default class PageTitleComponent extends React.Component<PageTitleViewModel> {
     render() {
         const { title, subTitle } = this.props;
         return (

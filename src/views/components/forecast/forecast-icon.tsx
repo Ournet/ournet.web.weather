@@ -1,17 +1,17 @@
 
 import * as React from 'react';
 import { ForecastHelpers } from '@ournet/weather-domain';
-import { PageViewData } from '../../../view-data/page';
+import { IRootViewModel } from '../../../view-models/root-view-model';
 
 export type ForecastIconViewData = {
-    root: PageViewData
+    root: IRootViewModel
     icon: number
 }
 
 export default class ForecastTemp extends React.Component<ForecastIconViewData> {
     render() {
         const { icon, root } = this.props;
-        const title = ForecastHelpers.iconName(icon, root.locale.lang);
+        const title = ForecastHelpers.iconName(icon, root.lang);
         return (
             <i className={`c-fc-icon c_fc-icon__${icon}`} title={title} />
         )

@@ -1,13 +1,13 @@
 
 import * as React from 'react';
-import { PageViewData } from '../../view-data/page';
+import { IRootViewModel } from '../../view-models/root-view-model';
 
-export default class HeaderLogoComponent extends React.Component<PageViewData> {
+export default class HeaderLogoComponent extends React.Component<IRootViewModel> {
     render() {
-        const { config, links, locale } = this.props;
+        const { config, links, lang } = this.props;
         return (
             <div className='c-logo'>
-                <a className='c-logo__link' href={links.weather.home({ ul: locale.lang })} title={config.name} />
+                <a className='c-logo__link' href={links.weather.home({ ul: lang })} title={config.name} />
             </div>
         )
     }

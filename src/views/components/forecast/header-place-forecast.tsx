@@ -1,36 +1,17 @@
 
 import * as React from 'react';
 import LinkPlaceForecast, { PlaceLinkForecastViewData } from './place-link-forecast';
-import { PageViewData } from '../../../view-data/page';
-import { createQueryApiClient } from '../../../data/api';
-import { ForecastHelpers } from '@ournet/weather-domain';
-import { Place, PlaceStringFields, HourlyForecastDataPointStringFields } from '@ournet/api-client';
-import { ViewDataData } from '@ournet/view-data';
+import { IWeatherViewModel } from '../../../view-models/weather-view-model';
 
-export default class HeaderPlaceForecast extends React.Component<PageViewData> {
+export default class HeaderPlaceForecast extends React.Component<IWeatherViewModel> {
     render() {
         const props: PlaceLinkForecastViewData = {
             root: this.props,
-            place: this.props.data.capital,
-            forecast: this.props.data.capitalForecast,
+            place: this.props.capital,
+            forecast: this.props.capitalForecast,
         }
         return (
             <LinkPlaceForecast {...props} />
         )
-    }
-
-    static initViewData<T extends ViewDataData>(root: PageViewData<T>): Promise<any> {
-        const api = createQueryApiClient<{ capital: Place }>();
-        return api.placesPlaceById('capital', { fields: PlaceStringFields }, { id: root.config.capitalId })
-            .execute()
-            .then(result => {
-                const capital = result.data.capital;
-                root.data.capital = capital;
-                root.api
-                    .weatherNowPlaceForecast('capitalForecast', { fields: HourlyForecastDataPointStringFields },
-                        {
-                            place: { timezone: capital.timezone, ...ForecastHelpers.normalizeReportId(capital) }
-                        });
-            });
     }
 }

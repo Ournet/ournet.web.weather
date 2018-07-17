@@ -1,12 +1,12 @@
 
 import * as React from 'react';
 import { Place, HourlyForecastDataPoint } from '@ournet/api-client';
-import { PageViewData } from '../../../view-data/page';
 import PlaceLinkForecast from './place-link-forecast';
+import { IRootViewModel } from '../../../view-models/root-view-model';
 
 
 export type ListPlaceLinkForecastViewData = {
-    root: PageViewData
+    root: IRootViewModel
     list: { place: Place, forecast: HourlyForecastDataPoint }[]
 }
 

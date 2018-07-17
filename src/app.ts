@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 import catchError from './catch';
 import mountRoutes from './routes';
 import { Response } from 'express';
-import { expressInitViewData } from './view-data';
 const ms = require('ms');
 const cookieParser = require('cookie-parser');
 
@@ -39,9 +38,6 @@ function startApp() {
     app.use(express.static(path.join(__dirname, '../public'), {
         maxAge: isProduction ? ms('10d') : 0
     }));
-
-
-    app.use(expressInitViewData);
 
     mountRoutes(app);
 

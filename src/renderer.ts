@@ -1,18 +1,18 @@
 
-import { renderToStaticNodeStream } from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { ReactElement } from 'react';
 import { Response } from 'express';
-import { PageViewData } from './view-data/page';
+import { IPageViewModel } from './view-models/page-view-model';
 
-function render<P extends PageViewData>(Page: ReactElement<P>) {
-    const stream = renderToStaticNodeStream(Page);
+function render<P extends IPageViewModel>(Page: ReactElement<P>) {
+    const stream = renderToStaticMarkup(Page);
     return stream;
 }
 
-export function renderPage<P extends PageViewData>(res: Response, node: ReactElement<P>) {
+export function renderPage<P extends IPageViewModel>(res: Response, node: ReactElement<P>) {
     // const html = `<!DOCTYPE html>${render(node)}`;
-    res.write('<!DOCTYPE html>');
-    const stream = render(node);
-    stream.pipe(res);
-    // res.send(html);
+    let result = render(node);
+    result = '<!DOCTYPE html>' + result;
+    // stream.pipe(res);
+    res.send(result);
 }

@@ -4,7 +4,9 @@ import { startWithUpperCase } from "../../utils";
 
 export class PlaceHelper {
     static getName(place: Place, lang: string) {
-        const name = DomainPlaceHelpers.parseNames(place.names).find(item => item.lang === lang);
+        const name = place.names ?
+            DomainPlaceHelpers.parseNames(place.names || '').find(item => item.lang === lang)
+            : null;
         if (name && name.name) {
             return name.name;
         }

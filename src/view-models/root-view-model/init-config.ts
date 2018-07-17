@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { getAppConfig, AppConfig } from '../config';
+import { getAppConfig, AppConfig } from '../../config';
 
 const hosts: { [index: string]: string } = {
     'meteo.click.md': 'md',

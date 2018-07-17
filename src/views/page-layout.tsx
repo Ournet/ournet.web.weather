@@ -1,24 +1,22 @@
 
 import * as React from 'react';
-import { PageViewData } from '../view-data/page';
+import PageHead from './components/page-head';
+import { IPageViewModel } from '../view-models/page-view-model';
 
-export default class PageLayout extends React.Component<PageViewData, any> {
+export default class PageLayout extends React.Component<IPageViewModel, any> {
     render() {
-        const props = this.props;
-        const { page, locale } = props;
+        const { lang, children, country } = this.props;
 
         return (
-            <html lang={props.locale.lang}>
+            <html lang={lang}>
                 <head>
                     <meta charSet="utf-8" />
                     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui" />
-                    <title>{page.title}</title>
-                    {page.description && <meta name="description" content={page.description} />}
-                    {page.headerElements}
+                    <PageHead {...this.props} />
                 </head>
-                <body className={`proj-weather country-${locale.country}`}>
+                <body className={`proj-weather country-${country}`}>
                     <div className='o-wrapper'>
-                        {props.children}
+                        {children}
                     </div>
                 </body>
             </html>

@@ -1,12 +1,12 @@
 
 import * as React from 'react';
-import { PageViewData } from '../../../view-data/page';
 import { Place, ForecastReport } from '@ournet/api-client';
 import PlaceForecastCard from './place-forecast-card';
 import PlaceForecastShort from './place-forecast-short';
+import { IRootViewModel } from '../../../view-models/root-view-model';
 
 export type PlaceForecastSummaryViewData = {
-    root: PageViewData
+    root: IRootViewModel
     place: Place
     forecast: ForecastReport
 }

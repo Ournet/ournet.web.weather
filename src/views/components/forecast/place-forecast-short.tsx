@@ -1,14 +1,14 @@
 
 import * as React from 'react';
-import { PageViewData } from '../../../view-data/page';
 import { Place, ForecastReport } from '@ournet/api-client';
 import * as moment from 'moment-timezone';
 import ForecastIcon from './forecast-icon';
 import ForecastTemp from './forecast-temp';
 import { ForecastHelpers } from '@ournet/weather-domain';
+import { IRootViewModel } from '../../../view-models/root-view-model';
 
 export type PageForecastShortViewData = {
-    root: PageViewData
+    root: IRootViewModel
     place: Place
     forecast: ForecastReport
 }
@@ -21,7 +21,7 @@ export default class PageForecastShort extends React.Component<PageForecastShort
         let startIndex = forecast.details.data.findIndex(item => item.time > tzStartTime);
         startIndex = startIndex > 0 ? startIndex : startIndex + 1;
         const data = forecast.details.data.splice(startIndex, 4);
-        const lang = root.locale.lang;
+        const lang = root.lang;
         const items = data.map(item => {
             const date = moment.tz(item.time * 1000, place.timezone).locale(lang);
             const isWeekend = [6, 7].includes(date.isoWeekday())
