@@ -36,8 +36,8 @@ export class WeatherViewModel<T extends IWeatherViewModel> extends RootViewModel
                 { id: this.model.config.capitalId })
             .execute();
 
-        if (result.error && result.error.length) {
-            logger.error(result.error[0]);
+        if (result.errors && result.errors.length) {
+            logger.error(result.errors[0]);
         }
 
         if (result.data && result.data.capital) {

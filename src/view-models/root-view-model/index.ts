@@ -7,6 +7,7 @@ import { initAppConfig } from "./init-config";
 import { initLinks } from "./init-links";
 // import { IViewModelBuilder } from "../model-builder";
 import { OurnetQueryApi, GraphQLRequestResult } from "@ournet/api-client";
+import { badImplementation } from "boom";
 
 export interface IRootViewModel {
     // locale: Locale
@@ -39,7 +40,11 @@ export class RootViewModel<T extends IRootViewModel> {
         return this.model;
     }
 
-    build(api: OurnetQueryApi<T>) {
-        return api.execute().then(data => this.formatModel(data));
+    async build(api: OurnetQueryApi<T>) {
+        const data = await api.execute();
+        if (data.errors) {
+            throw badImplementation(data.errors[0].message);
+        }
+        return this.formatModel(data);
     }
 }

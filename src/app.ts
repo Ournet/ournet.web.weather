@@ -6,9 +6,16 @@ import * as path from 'path';
 const bodyParser = require('body-parser');
 import catchError from './catch';
 import mountRoutes from './routes';
-import { Response } from 'express';
 const ms = require('ms');
 const cookieParser = require('cookie-parser');
+
+// fix dom Text
+declare global {
+    type Text = {
+        prototype: Text;
+        new(data?: string): Text;
+    }
+}
 
 // const cors = require('cors');
 const isProduction = process.env.NODE_ENV === 'production';
