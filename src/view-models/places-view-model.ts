@@ -8,6 +8,7 @@ import { IWeatherViewModel, WeatherViewModel } from "./weather-view-model";
 export interface IPlacesViewModel extends IWeatherViewModel {
     places: Place[]
     placesAdmin1?: Place
+    input: PlacesViewModelInput
 }
 
 export type PlacesViewModelInput = {
@@ -20,6 +21,7 @@ export class PlacesViewModel<T extends IPlacesViewModel> extends WeatherViewMode
 
     async build(api: OurnetQueryApi<T>, input?: PlacesViewModelInput) {
         const { country } = this.model;
+        this.model.input = input;
 
         if (input.admin1Code) {
             api.placesPlacesByAdmin1Code('places', { fields: 'id name names admin1Code featureClass' },
@@ -27,8 +29,13 @@ export class PlacesViewModel<T extends IPlacesViewModel> extends WeatherViewMode
             api.placesAdmin1('placesAdmin1', { fields: 'id name names admin1Code featureClass' },
                 { country, admin1Code: input.admin1Code });
         } else {
-            api.placesAdmin1s('places', { fields: 'id name names admin1Code featureClass' },
-                { country, limit: 90 });
+            if (input.q && input.q.trim().length > 1) {
+                api.placesSearchPlace('places', { fields: 'id name names admin1Code featureClass admin1 {id name names}' },
+                    { query: input.q, limit: 9, country });
+            } else {
+                api.placesAdmin1s('places', { fields: 'id name names admin1Code featureClass' },
+                    { country, limit: 90 });
+            }
         }
 
         return super.build(api);

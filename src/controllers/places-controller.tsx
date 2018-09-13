@@ -11,6 +11,9 @@ export function placesHandler(req: Request, res: Response, next: NextFunction, i
     const api = createQueryApiClient<IPlacesViewModel>();
 
     model.build(api, input).then(data => {
+        if (input.q && data.places.length === 1) {
+            return res.redirect(data.links.weather.place(data.places[0].id, { ul: data.lang }));
+        }
         renderPage(res, <PlacesPage {...data} />);
     }).catch(next);
 }

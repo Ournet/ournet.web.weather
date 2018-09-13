@@ -1,18 +1,27 @@
 
-const logger = require('ournet.logger');
+import { createLogger, format, transports } from 'winston';
 
-export interface ILogger {
-    error(message?: any, ...optionalParams: any[]): void;
-    info(message?: any, ...optionalParams: any[]): void;
-    warn(message?: any, ...optionalParams: any[]): void;
+const isProduction = process.env.NODE_ENV === 'production';
+
+const logglyLogger = createLogger({
+    level: isProduction ? 'warn' : 'info',
+    format: format.json(),
+});
+
+if (!isProduction) {
+    logglyLogger.add(new transports.Console({
+        format: format.simple()
+    }));
 }
 
-export default logger as ILogger
-
-if (process.env.NODE_ENV === 'production') {
-    logger.loggly({
-        tags: ['descopero'],
-        json: true
-    });
-    logger.removeConsole();
+export default {
+    info(...meta: any[]) {
+        logglyLogger.info(meta);
+    },
+    warn(...meta: any[]) {
+        logglyLogger.warn(meta);
+    },
+    error(...meta: any[]) {
+        logglyLogger.error(meta);
+    },
 }

@@ -7,7 +7,6 @@ import { initAppConfig } from "./init-config";
 import { initLinks } from "./init-links";
 // import { IViewModelBuilder } from "../model-builder";
 import { OurnetQueryApi, GraphQLRequestResult } from "@ournet/api-client";
-import { IViewModelBuilder } from "../model-builder";
 
 export interface IRootViewModel {
     // locale: Locale

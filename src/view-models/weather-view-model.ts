@@ -32,7 +32,8 @@ export class WeatherViewModel<T extends IWeatherViewModel> extends RootViewModel
         const localApiClient = createQueryApiClient<T>();
 
         const result = await localApiClient
-            .placesPlaceById('capital', { fields: 'id name names longitude latitude timezone' }, { id: this.model.config.capitalId })
+            .placesPlaceById('capital', { fields: 'id name names longitude latitude timezone' },
+                { id: this.model.config.capitalId })
             .execute();
 
         if (result.error && result.error.length) {
@@ -46,7 +47,8 @@ export class WeatherViewModel<T extends IWeatherViewModel> extends RootViewModel
                 latitude,
                 timezone, } = this.model.capital;
 
-            api.weatherNowPlaceForecast('capitalForecast', { fields: HourlyForecastDataPointStringFields }, { place: { longitude, latitude, timezone } });
+            api.weatherNowPlaceForecast('capitalForecast', { fields: HourlyForecastDataPointStringFields },
+                { place: { longitude, latitude, timezone } });
         }
 
         return super.build(api);

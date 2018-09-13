@@ -16,7 +16,7 @@ export interface IPlaceViewModel extends IWeatherViewModel {
 }
 
 export type PlaceViewModelInput = {
-    id: number
+    id: string
 }
 
 export class PlaceViewModel<T extends IPlaceViewModel> extends WeatherViewModel<T> {

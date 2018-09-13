@@ -18,7 +18,7 @@ export interface IPlacesDailyForecastViewModel extends IRootViewModel {
 }
 
 export class PlacesDailyForecastViewModel<T extends IPlacesDailyForecastViewModel> extends RootViewModel<T> {
-    constructor(req: Request, res: Response, private placesIds: number[], private date: number) {
+    constructor(req: Request, res: Response, private placesIds: string[], private date: number) {
         super(req, res);
     }
 

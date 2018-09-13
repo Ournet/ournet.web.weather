@@ -1,5 +1,5 @@
 import { Place } from "@ournet/api-client";
-import { PlaceHelpers as DomainPlaceHelpers } from '@ournet/places-domain';
+import { PlaceHelper as DomainPlaceHelpers } from '@ournet/places-domain';
 import { startWithUpperCase } from "../../utils";
 
 export class PlaceHelper {
@@ -76,7 +76,7 @@ export class PlaceHelper {
         return name;
     }
     static isBigCity(place: Place, minPopulation: number) {
-        return place.featureClass === 'P' && (place.featureCode === 'PPLC' || place.featureCode === 'PPLA' || (minPopulation && place.population >= minPopulation));
+        return place.featureClass === 'P' && (place.featureCode === 'PPLC' || place.featureCode === 'PPLA' || (minPopulation && (place.population && place.population >= minPopulation)));
     }
     static isMainCity(place: Place) {
         return place.featureCode === 'PPLC' || place.featureCode === 'PPLA';

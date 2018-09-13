@@ -28,8 +28,8 @@ export interface AppConfig {
     getAppleFavicon: () => string
     getFavicon: (filename?: string) => string
 
-    capitalId: number
-    mainPlaces: number[]
+    capitalId: string
+    mainPlaces: string[]
 
     assets: {
 		css: {

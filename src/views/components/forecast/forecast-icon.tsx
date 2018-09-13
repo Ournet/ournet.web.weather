@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { ForecastHelpers } from '@ournet/weather-domain';
+import { ForecastHelper } from '@ournet/weather-domain';
 import { IRootViewModel } from '../../../view-models/root-view-model';
 
 export type ForecastIconViewData = {
@@ -11,7 +11,7 @@ export type ForecastIconViewData = {
 export default class ForecastTemp extends React.Component<ForecastIconViewData> {
     render() {
         const { icon, root } = this.props;
-        const title = ForecastHelpers.iconName(icon, root.lang);
+        const title = ForecastHelper.iconName(icon, root.lang);
         return (
             <i className={`c-fc-icon c_fc-icon__${icon}`} title={title} />
         )

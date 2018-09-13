@@ -13,9 +13,10 @@ import WeatherLayout from '../weather-layout';
 export default class PlacesPage extends React.Component<IPlacesViewModel> {
     render() {
         const props = this.props;
-        const { __, lang, country, links, places, placesAdmin1, header } = props;
+        const { __, lang, country, links, places, placesAdmin1, header, input } = props;
         const localeParams = { ul: lang };
-        let title = util.format(__(LocalesNames.search_place_in_cn), PlaceHelper.inCountryName(__('country_' + country), lang));
+        let title = util.format(__(LocalesNames.search_place_in_cn),
+            PlaceHelper.inCountryName(__('country_' + country), lang));
 
         const breadcrumbData: BreadcrumbViewData = {
             items: [
@@ -25,9 +26,13 @@ export default class PlacesPage extends React.Component<IPlacesViewModel> {
         };
 
         if (placesAdmin1) {
-            breadcrumbData.items.push({ text: PlaceHelper.getName(placesAdmin1, lang), url: links.weather.places.byAdm1(placesAdmin1.admin1Code, localeParams) })
+            breadcrumbData.items.push({
+                text: PlaceHelper.getName(placesAdmin1, lang),
+                url: links.weather.places.byAdm1(placesAdmin1.admin1Code, localeParams)
+            })
 
-            title = util.format(__(LocalesNames.search_place_in_cn_format), PlaceHelper.getName(placesAdmin1, lang), __('country_' + country));
+            title = util.format(__(LocalesNames.search_place_in_cn_format),
+                PlaceHelper.getName(placesAdmin1, lang), __('country_' + country));
         }
 
         const pageTitle: PageTitleViewModel = {
@@ -40,12 +45,12 @@ export default class PlacesPage extends React.Component<IPlacesViewModel> {
             <WeatherLayout {...props}>
                 <main>
                     <div className='o-layout'>
-                        <div className='o-layout__item u-1/1 u-3/4@desktop'>
+                        <div className='o-layout__item u-3/4@desktop'>
                             <Breadcrumb {...breadcrumbData} />
                             <PageTitle {...pageTitle} />
                             <PlacesListComponent root={props} places={places} />
                         </div>
-                        <div className='o-layout__item u-1/1 u-1/4@desktop'>
+                        <div className='o-layout__item u-1/4@desktop'>
                             ADS
                         </div>
                     </div>

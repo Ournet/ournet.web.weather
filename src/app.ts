@@ -41,9 +41,9 @@ function startApp() {
 
     mountRoutes(app);
 
-    app.use(function (error: any, req: any, res: Response, _next: any) {
-        catchError(req, res, error);
-    });
+    // app.use(function (error: any, req: any, res: Response, _next: any) {
+    //     catchError(req, res, error);
+    // });
 
     app.all('*', function (req, res) {
         var error: any = new Error('Page not found');
@@ -56,13 +56,13 @@ function startApp() {
     });
 }
 
-process.on('unhandledRejection', function (error: Error) {
-    logger.error('unhandledRejection: ' + error.message, error);
-});
+// process.on('unhandledRejection', function (error: Error) {
+//     logger.error('unhandledRejection: ' + error.message, error);
+// });
 
-process.on('uncaughtException', function (error: Error) {
-    logger.error('uncaughtException: ' + error.message, error);
-});
+// process.on('uncaughtException', function (error: Error) {
+//     logger.error('uncaughtException: ' + error.message, error);
+// });
 
 
 startApp()

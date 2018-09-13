@@ -5,7 +5,7 @@ import ForecastIcon from './forecast-icon';
 // import { ForecastHelpers } from '@ournet/weather-domain';
 import { tz } from 'moment-timezone';
 import ForecastTemp from './forecast-temp';
-import { ForecastHelpers } from '@ournet/weather-domain';
+import { ForecastHelper } from '@ournet/weather-domain';
 import { IRootViewModel } from '../../../view-models/root-view-model';
 
 export type PlaceDailyForecastViewData = {
@@ -28,7 +28,7 @@ export default class PlaceDailyForecast extends React.Component<PlaceDailyForeca
                         <ForecastIcon icon={data.icon} root={root} />
                         <ForecastTemp temperature={data.temperatureHigh} />
                         {data.temperatureLow ? <ForecastTemp temperature={data.temperatureLow} /> : null}
-                        <div className='c-fc-daily__name'>{ForecastHelpers.iconName(data.icon, lang)}</div>
+                        <div className='c-fc-daily__name'>{ForecastHelper.iconName(data.icon, lang)}</div>
                     </div>
                 </a>
             );

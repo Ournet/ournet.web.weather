@@ -12,7 +12,7 @@ export default route;
 route.get('/', indexHandler);
 
 route.get('/:id(\\d+)', (req, res, next) => {
-    const id = parseInt(req.params.id);
+    const id = req.params.id;
     placeHandler(req, res, next, { id });
 });
 

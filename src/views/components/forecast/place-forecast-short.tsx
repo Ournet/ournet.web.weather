@@ -4,7 +4,7 @@ import { Place, ForecastReport } from '@ournet/api-client';
 import * as moment from 'moment-timezone';
 import ForecastIcon from './forecast-icon';
 import ForecastTemp from './forecast-temp';
-import { ForecastHelpers } from '@ournet/weather-domain';
+import { ForecastHelper } from '@ournet/weather-domain';
 import { IRootViewModel } from '../../../view-models/root-view-model';
 
 export type PageForecastShortViewData = {
@@ -32,7 +32,7 @@ export default class PageForecastShort extends React.Component<PageForecastShort
                         <ForecastIcon icon={item.icon} root={root} />
                         <ForecastTemp temperature={item.temperatureHigh} />
                         {item.temperatureLow ? <ForecastTemp temperature={item.temperatureLow} /> : null}
-                        <div className='c-fc-short__name'>{ForecastHelpers.iconName(item.icon, lang)}</div>
+                        <div className='c-fc-short__name'>{ForecastHelper.iconName(item.icon, lang)}</div>
                     </div>
                 </li>
             );
