@@ -1,19 +1,19 @@
 
 import * as React from 'react';
 import { PlaceHelper } from '../../data/places/place-helper';
-import { LocalesNames } from '../../locales';
+import { LocalesNames } from '../../locales-names';
 import Breadcrumb, { BreadcrumbViewData } from '../components/breadcrumb';
 import PageTitle, { PageTitleViewModel } from '../components/page-title';
 import * as util from 'util';
 import PlacesListComponent from './components/places-list';
-import { IPlacesViewModel } from '../../view-models/places-view-model';
+import { PlacesViewModel } from '../../view-models/places-view-model';
 import WeatherLayout from '../weather-layout';
 
 
-export default class PlacesPage extends React.Component<IPlacesViewModel> {
+export default class PlacesPage extends React.Component<PlacesViewModel> {
     render() {
         const props = this.props;
-        const { __, lang, country, links, places, placesAdmin1, header, input } = props;
+        const { __, lang, country, links, places, placesAdmin1, head } = props;
         const localeParams = { ul: lang };
         let title = util.format(__(LocalesNames.search_place_in_cn),
             PlaceHelper.inCountryName(__('country_' + country), lang));
@@ -39,7 +39,7 @@ export default class PlacesPage extends React.Component<IPlacesViewModel> {
             title: title,
         }
 
-        header.title = title;
+        head.title = title;
 
         return (
             <WeatherLayout {...props}>

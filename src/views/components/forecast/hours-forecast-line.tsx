@@ -4,10 +4,10 @@ import { HoursForecastDataPoint, Place } from '@ournet/api-client';
 import ForecastIcon from './forecast-icon';
 import ForecastTemp from './forecast-temp';
 import * as moment from 'moment-timezone';
-import { IRootViewModel } from '../../../view-models/root-view-model';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 export type HoursForecastLineViewData = {
-    root: IRootViewModel
+    root: RootViewModel
     place: Place
     forecast: HoursForecastDataPoint
 }

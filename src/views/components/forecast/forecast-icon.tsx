@@ -1,10 +1,10 @@
 
 import * as React from 'react';
 import { ForecastHelper } from '@ournet/weather-domain';
-import { IRootViewModel } from '../../../view-models/root-view-model';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 export type ForecastIconViewData = {
-    root: IRootViewModel
+    root: RootViewModel
     icon: number
 }
 

@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Place, ForecastReport } from '@ournet/api-client';
 import PlaceForecastCard from './place-forecast-card';
 import PlaceForecastShort from './place-forecast-short';
-import { IRootViewModel } from '../../../view-models/root-view-model';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 export type PlaceForecastSummaryViewData = {
-    root: IRootViewModel
+    root: RootViewModel
     place: Place
     forecast: ForecastReport
 }

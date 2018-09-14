@@ -1,16 +1,16 @@
 
 import * as React from 'react';
-import { NextFunction, Response, Request } from "express";
+import { NextFunction } from "express";
 import { createQueryApiClient } from "../data/api";
 import { renderPage } from "../renderer";
 import PlacePage from '../views/place/place-page';
-import { PlaceViewModel, IPlaceViewModel, PlaceViewModelInput } from '../view-models/place-view-model';
+import { PlaceViewModelInput, PlaceViewModelBuilder, PlaceViewModel } from '../view-models/place-view-model';
 
-export function placeHandler(req: Request, res: Response, next: NextFunction, input: PlaceViewModelInput) {
-    const model = new PlaceViewModel(req, res);
-    const api = createQueryApiClient<IPlaceViewModel>();
+export function placeHandler(input: PlaceViewModelInput, next: NextFunction) {
+    const api = createQueryApiClient<PlaceViewModel>();
 
-    model.build(api, input).then(data => {
-        renderPage(res, <PlacePage {...data} />);
-    }).catch(next);
+    new PlaceViewModelBuilder(input, api)
+        .build()
+        .then(data => renderPage(input.res, <PlacePage {...data} />))
+        .catch(next);
 }

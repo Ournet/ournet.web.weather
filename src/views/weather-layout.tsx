@@ -1,17 +1,17 @@
 import * as React from 'react';
-import { IWeatherViewModel } from '../view-models/weather-view-model';
+import { WeatherViewModel } from '../view-models/weather-view-model';
 import env from '../env';
 import PageLayout from './page-layout';
 import Header from './components/header';
 
-export default class WeatherLayout extends React.Component<IWeatherViewModel> {
+export default class WeatherLayout extends React.Component<WeatherViewModel> {
     render() {
-        const { header,config } = this.props;
-        
+        const { head, config } = this.props;
+
         if (env.isProduction) {
-            header.elements.push(<link type="text/css" rel="stylesheet" href={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.css.main}.css`} />);
+            head.elements.push(<link type="text/css" rel="stylesheet" href={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.css.main}.css`} />);
         } else {
-            header.elements.push(<link type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/main.css`} />)
+            head.elements.push(<link type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/main.css`} />)
         }
 
         return (

@@ -6,10 +6,10 @@ import ForecastIcon from './forecast-icon';
 import { tz } from 'moment-timezone';
 import ForecastTemp from './forecast-temp';
 import { ForecastHelper } from '@ournet/weather-domain';
-import { IRootViewModel } from '../../../view-models/root-view-model';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 export type PlaceDailyForecastViewData = {
-    root: IRootViewModel
+    root: RootViewModel
     place: Place
     forecast: DailyForecastDataBlock
 }

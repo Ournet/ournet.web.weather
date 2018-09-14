@@ -1,51 +1,46 @@
-import {
-    OurnetQueryApi,
-    Place,
-    ForecastReport,
-    PlaceStringFields,
-    ForecastReportStringFields,
-    GraphQLRequestResult,
-} from "@ournet/api-client";
-import { IWeatherViewModel, WeatherViewModel } from "./weather-view-model";
+import { WeatherViewModel, WeatherViewModelBuilder } from "./weather-view-model";
+import { Place, ForecastReport, PlaceStringFields, ForecastReportStringFields } from "@ournet/api-client";
+import { PageViewModelInput } from "./page-view-model";
 import { createQueryApiClient } from "../data/api";
 import { notFound } from "boom";
 
-export interface IPlaceViewModel extends IWeatherViewModel {
+
+export interface PlaceViewModel extends WeatherViewModel {
     place: Place
     placeForecast: ForecastReport
 }
 
-export type PlaceViewModelInput = {
+export interface PlaceViewModelInput extends PageViewModelInput {
     id: string
 }
 
-export class PlaceViewModel<T extends IPlaceViewModel> extends WeatherViewModel<T> {
+export class PlaceViewModelBuilder<T extends PlaceViewModel> extends WeatherViewModelBuilder<T, PlaceViewModelInput> {
 
-    async build(api: OurnetQueryApi<T>, input?: PlaceViewModelInput): Promise<T> {
+    async build() {
+        const id = this.input.id;
 
         const localeApi = createQueryApiClient<{ place: Place }>();
-        
         const result = await localeApi.placesPlaceById('place', {
             fields: PlaceStringFields,
-        }, input).execute();
+        }, { id }).execute();
 
         if (!result.data || !result.data.place) {
-            throw notFound(`Not found place=${input.id}`, input);
+            throw notFound(`Not found place=${id}`);
         }
 
         const place = this.model.place = result.data.place;
-        
-        api.weatherForecastReport('placeForecast', {
+
+        this.api.weatherForecastReport('placeForecast', {
             fields: ForecastReportStringFields,
         },
             { place: { longitude: place.longitude, latitude: place.latitude, timezone: place.timezone } });
 
-        return super.build(api);
+        return super.build();
     }
 
-    protected formatModel(result: GraphQLRequestResult<T>): T {
-        this.model.placeForecast = result.data.placeForecast;
-        
-        return super.formatModel(result);
+    protected formatModel(data: T) {
+        this.model.placeForecast = data.placeForecast;
+
+        return super.formatModel(data);
     }
 }

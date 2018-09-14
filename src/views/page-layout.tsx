@@ -1,9 +1,9 @@
 
 import * as React from 'react';
 import PageHead from './components/page-head';
-import { IPageViewModel } from '../view-models/page-view-model';
+import { PageViewModel } from '../view-models/page-view-model';
 
-export default class PageLayout extends React.Component<IPageViewModel, any> {
+export default class PageLayout extends React.Component<PageViewModel, any> {
     render() {
         const { lang, children, country } = this.props;
 

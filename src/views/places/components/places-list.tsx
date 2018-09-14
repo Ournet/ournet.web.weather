@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Place } from "@ournet/api-client";
 import { Component } from "react";
 import { PlaceHelper } from "../../../data/places/place-helper";
-import { IRootViewModel } from '../../../view-models/root-view-model';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 export type PlacesListViewData = {
-    root: IRootViewModel
+    root: RootViewModel
     places: Place[]
 }
 

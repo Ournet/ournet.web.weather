@@ -3,11 +3,11 @@ import * as React from 'react';
 import { Place, HourlyForecastDataPoint } from '@ournet/api-client';
 import { PlaceHelper } from '../../../data/places/place-helper';
 import ForecastTemp, { ForecastTempViewData } from './forecast-temp';
-import { IRootViewModel } from '../../../view-models/root-view-model';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 
 export type PlaceLinkForecastViewData = {
-    root: IRootViewModel
+    root: RootViewModel
     place: Place
     forecast: HourlyForecastDataPoint
 }

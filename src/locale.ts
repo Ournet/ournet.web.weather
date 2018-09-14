@@ -2,7 +2,7 @@ import { join } from "path";
 import { Request, Response } from 'express';
 
 import * as i18n from 'i18n';
-import { AppConfig } from "../config";
+import { AppConfig } from "./config";
 
 export type Locale = {
     lang: string

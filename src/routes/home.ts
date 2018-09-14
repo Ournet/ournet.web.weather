@@ -9,17 +9,14 @@ const route: Router = Router();
 export default route;
 
 //index
-route.get('/', indexHandler);
+route.get('/', (req, res, next) =>
+    indexHandler({ req, res }, next));
 
-route.get('/:id(\\d+)', (req, res, next) => {
-    const id = req.params.id;
-    placeHandler(req, res, next, { id });
-});
+route.get('/:id(\\d+)', (req, res, next) =>
+    placeHandler({ req, res, id: req.params.id }, next));
 
-route.get('/places', (req, res, next) => {
-    placesHandler(req, res, next, { q: req.query.q });
-});
+route.get('/places', (req, res, next) =>
+    placesHandler({ req, res, q: req.query.q }, next));
 
-route.get('/places/:admin1', (req, res, next) => {
-    placesHandler(req, res, next, { admin1Code: req.params.admin1 });
-});
+route.get('/places/:admin1', (req, res, next) =>
+    placesHandler({ req, res, admin1Code: req.params.admin1 }, next));

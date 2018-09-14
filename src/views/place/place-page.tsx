@@ -1,10 +1,10 @@
 
 import * as React from 'react';
-import { LocalesNames } from '../../locales';
+import { LocalesNames } from '../../locales-names';
 import * as util from 'util';
 import { PlaceHelper } from '../../data/places/place-helper';
 import WeatherLayout from '../weather-layout';
-import { IPlaceViewModel } from '../../view-models/place-view-model';
+import { PlaceViewModel } from '../../view-models/place-view-model';
 import { PageTitleViewModel } from '../components/page-title';
 import Breadcrumb, { BreadcrumbViewData } from '../components/breadcrumb';
 import PageTitle from '../components/page-title';
@@ -13,27 +13,30 @@ import PlaceForecastShort from '../components/forecast/place-forecast-short';
 import PlaceDailyForecast from '../components/forecast/place-daily-forecast';
 
 
-export default class PlacePage extends React.Component<IPlaceViewModel> {
+export default class PlacePage extends React.Component<PlaceViewModel> {
     render() {
         const props = this.props;
-        const { __, lang, links, header, place, placeForecast } = props;
+        const { __, lang, links, head, place, placeForecast } = props;
         const localeParams = { ul: lang };
-
-        const adm1Name = PlaceHelper.getName(place.admin1, lang);
-        const placeName = PlaceHelper.getName(place, lang);
-        const inPlaceName = PlaceHelper.inPlaceName(place, lang);
 
         const breadcrumbData: BreadcrumbViewData = {
             items: [
                 { text: __(LocalesNames.weather), url: links.weather.home(localeParams) },
-                { text: adm1Name, url: links.weather.places.byAdm1(place.admin1Code, localeParams) },
-                { text: placeName, url: links.weather.place(place.id.toString(), localeParams) },
             ]
         };
 
+        if (place.admin1) {
+            const adm1Name = PlaceHelper.getName(place.admin1, lang);
+            breadcrumbData.items.push({ text: adm1Name, url: links.weather.places.byAdm1(place.admin1Code, localeParams) });
+        }
+
+        const placeName = PlaceHelper.getName(place, lang);
+        const inPlaceName = PlaceHelper.inPlaceName(place, lang);
+        breadcrumbData.items.push({ text: placeName, url: links.weather.place(place.id.toString(), localeParams) });
+
         const pageTitle: PageTitleViewModel = {
             title: util.format(__(LocalesNames.weather_title_format, inPlaceName)),
-            subTitle: header.description,
+            subTitle: head.description,
         }
 
         return (

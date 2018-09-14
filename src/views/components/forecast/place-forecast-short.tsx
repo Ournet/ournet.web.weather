@@ -5,10 +5,10 @@ import * as moment from 'moment-timezone';
 import ForecastIcon from './forecast-icon';
 import ForecastTemp from './forecast-temp';
 import { ForecastHelper } from '@ournet/weather-domain';
-import { IRootViewModel } from '../../../view-models/root-view-model';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 export type PageForecastShortViewData = {
-    root: IRootViewModel
+    root: RootViewModel
     place: Place
     forecast: ForecastReport
 }

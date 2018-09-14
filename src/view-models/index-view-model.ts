@@ -1,16 +1,14 @@
 
-import {
-    OurnetQueryApi,
-} from "@ournet/api-client";
-import { IWeatherViewModel, WeatherViewModel } from "./weather-view-model";
+import { WeatherViewModel, WeatherViewModelBuilder } from "./weather-view-model";
+import { PageViewModelInput } from "./page-view-model";
 
-export interface IIndexViewModel extends IWeatherViewModel {
+export interface IndexViewModel extends WeatherViewModel {
 
 }
 
-export class IndexViewModel<T extends IIndexViewModel> extends WeatherViewModel<T> {
+export class IndexViewModelBuilder extends WeatherViewModelBuilder<IndexViewModel, PageViewModelInput> {
 
-    async build(api: OurnetQueryApi<T>): Promise<T> {
-        return super.build(api);
+    build() {
+        return super.build();
     }
 }
