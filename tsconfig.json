@@ -17,7 +17,8 @@
         "lib": [
             "es2017",
             "esnext.asynciterable"
-        ]
+        ],
+        "strict": true
     },
     "formatCodeOptions": {
         "indentSize": 2,

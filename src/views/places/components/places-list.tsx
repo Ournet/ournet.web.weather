@@ -18,7 +18,7 @@ export default class PlacesListComponent extends Component<PlacesListViewData> {
 
         const items = places.map(place => {
             let link: JSX.Element
-            let adm1: JSX.Element
+            let adm1: JSX.Element | null = null;
             if (place.featureClass === 'A') {
                 link = <a href={links.weather.places.byAdm1(place.admin1Code, linkParams)}>{PlaceHelper.getName(place, lang)}</a>
             } else {

@@ -4,7 +4,6 @@ import { badImplementation } from "boom";
 
 
 export class AsyncViewModelBuilder<T extends RootViewModel, I extends RootViewModelInput> extends RootModelBuilder<T, I> {
-    protected model: T;
 
     constructor(input: I, protected api: OurnetQueryApi<T>) {
         super(input);

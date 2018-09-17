@@ -6,7 +6,6 @@ import { PageViewModelInput } from "./page-view-model";
 export interface PlacesViewModel extends WeatherViewModel {
     places: Place[]
     placesAdmin1?: Place
-    input: PlacesViewModelInput
 }
 
 export interface PlacesViewModelInput extends PageViewModelInput {
@@ -18,7 +17,8 @@ export interface PlacesViewModelInput extends PageViewModelInput {
 export class PlacesViewModelBuilder extends WeatherViewModelBuilder<PlacesViewModel, PlacesViewModelInput> {
 
     async build() {
-        const { country, input } = this.model;
+        const { country } = this.model;
+        const input = this.input;
 
         if (input.admin1Code) {
             this.api.placesPlacesByAdmin1Code('places', { fields: 'id name names admin1Code featureClass' },
@@ -41,7 +41,7 @@ export class PlacesViewModelBuilder extends WeatherViewModelBuilder<PlacesViewMo
     protected formatModel(data: PlacesViewModel) {
         this.model.places = data.places;
         this.model.placesAdmin1 = data.placesAdmin1;
-        
+
         return super.formatModel(data);
     }
 }

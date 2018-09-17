@@ -26,7 +26,7 @@ export default class PlaceDailyForecast extends React.Component<PlaceDailyForeca
                     <div className='c-fc-daily__date'>{date.format('ddd D MMM')}</div>
                     <div className='c-fc-daily__body'>
                         <ForecastIcon icon={data.icon} root={root} />
-                        <ForecastTemp temperature={data.temperatureHigh} />
+                        {data.temperatureHigh ? <ForecastTemp temperature={data.temperatureHigh} /> : null}
                         {data.temperatureLow ? <ForecastTemp temperature={data.temperatureLow} /> : null}
                         <div className='c-fc-daily__name'>{ForecastHelper.iconName(data.icon, lang)}</div>
                     </div>

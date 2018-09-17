@@ -16,6 +16,9 @@ export type PageForecastShortViewData = {
 export default class PageForecastShort extends React.Component<PageForecastShortViewData> {
     render() {
         const { place, forecast, root } = this.props;
+        if (!forecast || !forecast.details) {
+            return null;
+        }
         const tzStartDate = moment(new Date()).tz(place.timezone);
         const tzStartTime = Math.round(tzStartDate.toDate().getTime() / 1000);
         let startIndex = forecast.details.data.findIndex(item => item.time > tzStartTime);
@@ -30,7 +33,7 @@ export default class PageForecastShort extends React.Component<PageForecastShort
                     <div className='c-fc-short__date'>{date.format('ddd D MMM')}</div>
                     <div className='c-fc-short__body'>
                         <ForecastIcon icon={item.icon} root={root} />
-                        <ForecastTemp temperature={item.temperatureHigh} />
+                        {item.temperatureHigh ? <ForecastTemp temperature={item.temperatureHigh} /> : null}
                         {item.temperatureLow ? <ForecastTemp temperature={item.temperatureLow} /> : null}
                         <div className='c-fc-short__name'>{ForecastHelper.iconName(item.icon, lang)}</div>
                     </div>

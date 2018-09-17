@@ -17,6 +17,9 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
     render() {
         const props = this.props;
         const { __, lang, links, head, place, placeForecast } = props;
+        if (!placeForecast || !placeForecast.daily) {
+            return null;
+        }
         const localeParams = { ul: lang };
 
         const breadcrumbData: BreadcrumbViewData = {
