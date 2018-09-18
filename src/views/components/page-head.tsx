@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { PageViewModel } from '../../view-models/page-view-model';
+import env from '../../env';
 
 export default class PageHeadComponent extends React.Component<PageViewModel> {
     render() {
@@ -15,6 +16,15 @@ export default class PageHeadComponent extends React.Component<PageViewModel> {
         ]
         if (head.description) {
             elements.push(<meta name="description" content={head.description} />)
+        }
+
+        if (env.isProduction) {
+            elements.push(<link type="text/css" rel="stylesheet" href={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.css.main}.css`} />);
+        } else {
+            elements.push(<link type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/main.css`} />)
+        }
+        if (head.canonical) {
+            elements.push(<link rel="canonical" href={head.canonical} />)
         }
 
         return elements.concat(head.elements);

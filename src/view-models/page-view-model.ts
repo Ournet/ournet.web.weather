@@ -9,7 +9,7 @@ export class PageViewModelBuilder<T extends PageViewModel, I extends PageViewMod
 
         this.model.head = {
             title: this.model.config.name,
-            elements: []
+            elements: [],
         };
     }
 }
@@ -26,4 +26,5 @@ export interface PageHeadViewData {
     title?: string
     description?: string
     elements: JSX.Element[]
+    canonical?: string
 }

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { LocalesNames } from '../../locales-names';
 import * as util from 'util';
 import { PlaceHelper } from '../../data/places/place-helper';
-import WeatherLayout from '../weather-layout';
+import CommonLayout from '../common-layout';
 import { PlaceViewModel } from '../../view-models/place-view-model';
 import { PageTitleViewModel } from '../components/page-title';
 import Breadcrumb, { BreadcrumbViewData } from '../components/breadcrumb';
@@ -43,7 +43,7 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
         }
 
         return (
-            <WeatherLayout {...props}>
+            <CommonLayout {...props}>
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item u-1/1 u-3/4@desktop'>
@@ -60,12 +60,12 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
                         </div>
                         <div className='o-layout__item u-1/1 u-1/4@desktop'>
                             ADS
-                    </div>
+                        </div>
                     </div>
                     <h2>Vremea pentru următoarele zile</h2>
                     <PlaceDailyForecast root={this.props} forecast={placeForecast.daily} place={place} />
                 </main>
-            </WeatherLayout>
+            </CommonLayout>
         )
     }
 }

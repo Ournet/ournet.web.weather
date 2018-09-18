@@ -1,9 +1,10 @@
 
 import * as React from 'react';
 import PageHead from './components/page-head';
-import { PageViewModel } from '../view-models/page-view-model';
+import { WeatherViewModel } from '../view-models/weather-view-model';
+import Header from './components/header';
 
-export default class PageLayout extends React.Component<PageViewModel, any> {
+export default class RootLayout extends React.Component<WeatherViewModel, any> {
     render() {
         const { lang, children, country } = this.props;
 
@@ -16,6 +17,7 @@ export default class PageLayout extends React.Component<PageViewModel, any> {
                 </head>
                 <body className={`proj-weather country-${country}`}>
                     <div className='o-wrapper'>
+                        <Header {...this.props} />
                         {children}
                     </div>
                 </body>

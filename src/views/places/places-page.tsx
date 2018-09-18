@@ -7,7 +7,7 @@ import PageTitle, { PageTitleViewModel } from '../components/page-title';
 import * as util from 'util';
 import PlacesListComponent from './components/places-list';
 import { PlacesViewModel } from '../../view-models/places-view-model';
-import WeatherLayout from '../weather-layout';
+import CommonLayout from '../common-layout';
 
 
 export default class PlacesPage extends React.Component<PlacesViewModel> {
@@ -42,7 +42,7 @@ export default class PlacesPage extends React.Component<PlacesViewModel> {
         head.title = title;
 
         return (
-            <WeatherLayout {...props}>
+            <CommonLayout {...props}>
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item u-3/4@desktop'>
@@ -55,7 +55,7 @@ export default class PlacesPage extends React.Component<PlacesViewModel> {
                         </div>
                     </div>
                 </main>
-            </WeatherLayout>
+            </CommonLayout>
         )
     }
 }

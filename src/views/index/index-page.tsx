@@ -4,7 +4,7 @@ import { LocalesNames } from '../../locales-names';
 import * as util from 'util';
 import { PlaceHelper } from '../../data/places/place-helper';
 import { IndexViewModel } from '../../view-models/index-view-model';
-import WeatherLayout from '../weather-layout';
+import CommonLayout from '../common-layout';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
@@ -17,7 +17,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
         const capitalView = capital ? capital.name : null;
 
         return (
-            <WeatherLayout {...this.props}>
+            <CommonLayout {...this.props}>
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item'>
@@ -28,7 +28,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                         </div>
                     </div>
                 </main>
-            </WeatherLayout>
+            </CommonLayout>
         )
     }
 }

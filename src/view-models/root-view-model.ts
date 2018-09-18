@@ -12,7 +12,7 @@ export class RootModelBuilder<T extends RootViewModel, I extends RootViewModelIn
         const locale = initLocale(input.req, input.res, config);
 
         this.model = {
-            __: input.res.__,
+            __: input.req.__,
             config,
             lang: locale.lang,
             country: locale.country,

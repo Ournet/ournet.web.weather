@@ -2,6 +2,7 @@ import { PageViewModel, PageViewModelInput, PageViewModelBuilder } from "./page-
 import { Place, HourlyForecastDataPoint, HourlyForecastDataPointStringFields } from "@ournet/api-client";
 import { createQueryApiClient } from "../data/api";
 import logger from "../logger";
+import { PlaceNoAdmin1Fields } from "../data/common";
 
 
 export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends PageViewModelInput> extends PageViewModelBuilder<T, I> {
@@ -9,6 +10,7 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends PageV
         const apiClient = createQueryApiClient<T>();
 
         const model = this.model;
+        const { country } = model;
 
         const result = await apiClient
             .placesPlaceById('capital', { fields: 'id name names longitude latitude timezone' },
@@ -30,6 +32,8 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends PageV
                 { place: { longitude, latitude, timezone } });
         }
 
+        this.api.placesMainPlaces('mainPlaces', { fields: PlaceNoAdmin1Fields }, { country, limit: 20 });
+
         return super.build();
     }
 
@@ -37,6 +41,7 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends PageV
         if (data.capitalForecast) {
             this.model.capitalForecast = data.capitalForecast;
         }
+        this.model.mainPlaces = data.mainPlaces || [];
 
         return super.formatModel(data);
     }
@@ -46,4 +51,5 @@ export class WeatherViewModelBuilder<T extends WeatherViewModel, I extends PageV
 export interface WeatherViewModel extends PageViewModel {
     capital: Place
     capitalForecast: HourlyForecastDataPoint
+    mainPlaces: Place[]
 }

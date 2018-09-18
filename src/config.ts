@@ -49,9 +49,8 @@ export interface AppConfig {
     languages: string[]
     host: string
     domain: string
-
+    placesCount: number
     capitalId: string
-    mainPlaces: string[]
 
     assets: {
         css: {

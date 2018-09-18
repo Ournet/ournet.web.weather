@@ -11,7 +11,7 @@ export type Locale = {
 
 i18n.configure({
     locales: ['en', 'ro', 'ru', 'hu', 'cs', 'bg', 'it', 'pl', 'sq', 'tr'],
-    directory: join(__dirname, '..', '..', 'locales'),
+    directory: join(__dirname, '..', 'locales'),
 });
 
 export function initLocale(req: Request, res: Response, config: AppConfig): Locale {

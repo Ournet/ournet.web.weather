@@ -8,6 +8,8 @@ export enum OurnetProjects {
     exchange = 'exchange',
 }
 
+export const PlaceNoAdmin1Fields = 'id name names longitude latitude timezone countryCode';
+
 export const PlaceNoAdmin1QueryData: GraphQLQueryItemInput = {
-    fields: 'id name names longitude latitude timezone countryCode'
+    fields: PlaceNoAdmin1Fields
 }
