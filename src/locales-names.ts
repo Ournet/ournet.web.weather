@@ -1,3 +1,5 @@
+import { I18nFn } from "./locale";
+
 export enum LocalesNames {
     back_color = "back_color",
     base_color = "base_color",
@@ -81,4 +83,14 @@ export enum LocalesNames {
     weather_title_format = "weather_title_format",
     width = "width",
     wind = "wind",
+}
+
+export class LocalesHelper {
+    static getCountryName(__: I18nFn, countryCode: string) {
+        return __(`country_${countryCode}`);
+    }
+
+    static getLanguageName(__: I18nFn, languageCode: string) {
+        return __(`language_${languageCode}`);
+    }
 }

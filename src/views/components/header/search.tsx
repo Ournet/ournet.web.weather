@@ -1,7 +1,7 @@
 
 import * as React from 'react';
-import { LocalesNames } from '../../locales-names';
-import { RootViewModel } from '../../view-models/root-view-model';
+import { LocalesNames } from '../../../locales-names';
+import { RootViewModel } from '../../../view-models/root-view-model';
 
 export default class HeaderSearchComponent extends React.Component<RootViewModel> {
     render() {

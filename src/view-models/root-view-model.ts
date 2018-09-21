@@ -2,7 +2,7 @@
 import { Sitemap, sitemap } from "ournet.links";
 import { Request, Response } from "express";
 import { AppConfig, initAppConfig } from "../config";
-import { initLocale } from "../locale";
+import { initLocale, I18nFn } from "../locale";
 
 export class RootModelBuilder<T extends RootViewModel, I extends RootViewModelInput> {
     protected model: T;
@@ -35,5 +35,5 @@ export interface RootViewModel {
     country: string
     config: AppConfig
     links: Sitemap
-    __: (...params: any[]) => string
+    __: I18nFn
 }

@@ -29,3 +29,7 @@ export function initLocale(req: Request, res: Response, config: AppConfig): Loca
         lang, country: config.country
     }
 }
+
+export interface I18nFn {
+    (...params: any[]): string
+}

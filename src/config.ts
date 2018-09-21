@@ -51,6 +51,7 @@ export interface AppConfig {
     domain: string
     placesCount: number
     capitalId: string
+    projects: string[]
 
     assets: {
         css: {

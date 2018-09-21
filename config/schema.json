@@ -43,17 +43,8 @@
             "type": "string"
         },
         "projects": {
-            "type": "object",
-            "news": {
-                "type": "string"
-            },
-            "weather": {
-                "type": "string"
-            },
-            "exchange": {
-                "type": "string"
-            },
-            "horoscope": {
+            "type": "array",
+            "items": {
                 "type": "string"
             }
         },

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import PageHead from './components/page-head';
 import { WeatherViewModel } from '../view-models/weather-view-model';
-import Header from './components/header';
+import Header from './components/header/header';
 
 export default class RootLayout extends React.Component<WeatherViewModel, any> {
     render() {
