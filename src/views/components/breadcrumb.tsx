@@ -15,16 +15,14 @@ export default class BreadcrumbComponent extends React.Component<BreadcrumbViewD
     render() {
         const items: any[] = this.props.items.map((link, index) => {
             if (index === this.props.items.length - 1) {
-                return <li key={index} aria-current="page" className="c-breadcrumb__item"><a href={link.url} title={link.title}>{link.text}</a></li>
+                return <a key={index} href={link.url} title={link.title}>{link.text}</a>;
             } else {
-                return <li key={index} className="c-breadcrumb__item"><a href={link.url} title={link.title}>{link.text}</a>›</li>
+                return [<a key={index} href={link.url} title={link.title}>{link.text}</a>, ' › ']
             }
         });
         return (
             <nav aria-label="breadcrumb" className='c-breadcrumb'>
-                <ol className='c-breadcrumb__list o-list-inline'>
-                    {items}
-                </ol>
+                {items}
             </nav>
         )
     }

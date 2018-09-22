@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import { Request } from "express";
+import { Dictionary } from "@ournet/domain";
 
 const CONFIGS: { [country: string]: AppConfig } = {};
 const baseConfig: AppConfig = require('../config/index.json');
@@ -64,6 +65,17 @@ export interface AppConfig {
             pageWidget: string,
         }
     }
+
+    lists?: ConfigPlaceList[]
+}
+
+export type ConfigPlaceList = {
+    id: string
+    name: Dictionary<string>
+    title: Dictionary<string>
+    description: Dictionary<string>
+    image: string
+	ids: string[]
 }
 
 export function getFavicon(config: AppConfig, filename?: string) {

@@ -53,6 +53,7 @@ export enum LocalesNames {
     places = "places",
     position = "position",
     preview = "preview",
+    project_name = "project_name",
     recent_search = "recent_search",
     report_hour = "report_hour",
     search_place_format = "search_place_format",
