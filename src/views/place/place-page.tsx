@@ -8,16 +8,14 @@ import { PlaceViewModel } from '../../view-models/place-view-model';
 import { PageTitleViewModel } from '../components/page-title';
 import Breadcrumb, { BreadcrumbViewData } from '../components/breadcrumb';
 import PageTitle from '../components/page-title';
-import PlaceForecastCard from '../components/forecast/place-forecast-card';
-import PlaceForecastShort from '../components/forecast/place-forecast-short';
-import PlaceDailyForecast from '../components/forecast/place-daily-forecast';
+import PlaceDailyReport from '../components/forecast/place-daily-report';
 
 
 export default class PlacePage extends React.Component<PlaceViewModel> {
     render() {
         const props = this.props;
         const { __, lang, links, head, place, placeForecast } = props;
-        if (!placeForecast || !placeForecast.daily) {
+        if (!placeForecast || !placeForecast.details) {
             return null;
         }
         const localeParams = { ul: lang };
@@ -45,25 +43,10 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
         return (
             <CommonLayout {...props}>
                 <main>
-                    <div className='o-layout'>
-                        <div className='o-layout__item u-1/1 u-3/4@desktop'>
-                            <Breadcrumb {...breadcrumbData} />
-                            <PageTitle {...pageTitle} />
-                            <div className='o-layout'>
-                                <div className='o-layout__item u-1/1 u-1/2@tablet'>
-                                    <PlaceForecastCard root={this.props} place={place} forecast={placeForecast} />
-                                </div>
-                                <div className='o-layout__item u-1/1 u-1/2@tablet'>
-                                    <PlaceForecastShort root={this.props} place={place} forecast={placeForecast} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className='o-layout__item u-1/1 u-1/4@desktop'>
-                            ADS
-                        </div>
-                    </div>
-                    <h2>Vremea pentru următoarele zile</h2>
-                    <PlaceDailyForecast root={this.props} forecast={placeForecast.daily} place={place} />
+                    <Breadcrumb {...breadcrumbData} />
+                    <PageTitle {...pageTitle} />
+
+                    <PlaceDailyReport root={this.props} report={placeForecast.details} place={place} />
                 </main>
             </CommonLayout>
         )
