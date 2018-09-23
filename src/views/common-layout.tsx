@@ -2,10 +2,11 @@ import * as React from 'react';
 import { WeatherViewModel } from '../view-models/weather-view-model';
 import RootLayout from './root-layout';
 import ExploreMenu from './components/explore-menu';
+import HoroscopeGroup from './components/horoscope/horoscope-group';
 
 export default class CommonLayout extends React.Component<WeatherViewModel> {
     render() {
-        const { mainPlaces } = this.props;
+        const { mainPlaces, links, __, lang } = this.props;
 
         return (
             <RootLayout {...this.props}>
@@ -15,6 +16,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                     </div>
                     <div className="o-layout__item u-4/5@tablet u-3/6@desktop">
                         {this.props.children}
+                        <HoroscopeGroup {...this.props} />
                     </div>
                     <div className="o-layout__item u-2/6@desktop">
                         RiGHT
