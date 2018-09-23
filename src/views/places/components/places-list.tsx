@@ -28,7 +28,7 @@ export default class PlacesListComponent extends Component<PlacesListViewData> {
                 }
             }
             return (
-                <div key={place.id} className='c-list-places__i o-layout__item u-1/2 u-1/3@tablet u-1/4@desktop'>
+                <div key={place.id} className='c-places-list__i o-layout__item u-1/2 u-1/3@tablet'>
                     {link}
                     {adm1}
                 </div>
@@ -36,7 +36,7 @@ export default class PlacesListComponent extends Component<PlacesListViewData> {
         })
 
         return (
-            <div className='o-layout c-list-places'>
+            <div className='o-layout o-layout--small c-places-list'>
                 {items}
             </div>
         )

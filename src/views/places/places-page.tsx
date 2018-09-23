@@ -3,9 +3,9 @@ import * as React from 'react';
 import { PlaceHelper } from '../../data/places/place-helper';
 import { LocalesNames } from '../../locales-names';
 import Breadcrumb, { BreadcrumbViewData } from '../components/breadcrumb';
-import PageTitle, { PageTitleViewModel } from '../components/page-title';
+import PageTitle from '../components/page-title';
 import * as util from 'util';
-import PlacesListComponent from './components/places-list';
+import PlacesList from './components/places-list';
 import { PlacesViewModel } from '../../view-models/places-view-model';
 import CommonLayout from '../common-layout';
 
@@ -35,25 +35,14 @@ export default class PlacesPage extends React.Component<PlacesViewModel> {
                 PlaceHelper.getName(placesAdmin1, lang), __('country_' + country));
         }
 
-        const pageTitle: PageTitleViewModel = {
-            title: title,
-        }
-
         head.title = title;
 
         return (
             <CommonLayout {...props}>
                 <main>
-                    <div className='o-layout'>
-                        <div className='o-layout__item u-3/4@desktop'>
-                            <Breadcrumb {...breadcrumbData} />
-                            <PageTitle {...pageTitle} />
-                            <PlacesListComponent root={props} places={places} />
-                        </div>
-                        <div className='o-layout__item u-1/4@desktop'>
-                            ADS
-                        </div>
-                    </div>
+                    <Breadcrumb {...breadcrumbData} />
+                    <PageTitle title={title} />
+                    <PlacesList root={props} places={places} />
                 </main>
             </CommonLayout>
         )

@@ -9,7 +9,7 @@ import PageTitle from '../components/page-title';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
-        const { country, lang, capital, head, __ } = this.props;
+        const { country, lang, head, __ } = this.props;
         const countryName = __('country_' + country);
         const inCountryName = PlaceHelper.inCountryName(countryName, lang);
         head.title = util.format(__(LocalesNames.home_title_format), inCountryName);
