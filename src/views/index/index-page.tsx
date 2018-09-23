@@ -5,6 +5,7 @@ import * as util from 'util';
 import { PlaceHelper } from '../../data/places/place-helper';
 import { IndexViewModel } from '../../view-models/index-view-model';
 import CommonLayout from '../common-layout';
+import PageTitle from '../components/page-title';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
@@ -14,14 +15,12 @@ export default class IndexPage extends React.Component<IndexViewModel> {
         head.title = util.format(__(LocalesNames.home_title_format), inCountryName);
         head.description = util.format(__(LocalesNames.weather_in_cn_summary), inCountryName);
 
-        const capitalView = capital ? capital.name : null;
-
         return (
             <CommonLayout {...this.props}>
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item'>
-                            {capitalView}
+                            <PageTitle title={head.title} subTitle={head.description} />
                         </div>
                         <div className='o-layout__item'>
 

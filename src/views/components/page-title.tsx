@@ -7,7 +7,7 @@ export type PageTitleViewModel = {
     h?: 1 | 2 | 3 | 4
 }
 
-export default class PageTitleComponent extends React.Component<PageTitleViewModel> {
+export default class PageTitle extends React.Component<PageTitleViewModel> {
     render() {
         const { title, subTitle } = this.props;
         return (

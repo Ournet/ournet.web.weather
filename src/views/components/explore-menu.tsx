@@ -39,7 +39,7 @@ export default class ExploreMenuComponent extends React.Component<ExploreMenuCom
                 </ul>
                 {
                     config.lists && config.lists.map(list => (
-                        <h5 className="c-exp__title">
+                        <h5 key={list.id} className="c-exp__title">
                             <a href={links.weather.place(list.id, { ul: lang })}>
                                 {list.name[lang]} ›
                             </a>
