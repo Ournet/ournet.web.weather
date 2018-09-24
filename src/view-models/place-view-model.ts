@@ -99,6 +99,7 @@ function getPageInfo(place: Place, __: I18nFn, lang: string) {
 
     } else {
 
+        const admname = PlaceHelper.getName(adm1, lang);
         const shortadmname = PlaceHelper.shortAdm1Name(adm1, lang);
 
         let longname = inname;
@@ -117,7 +118,7 @@ function getPageInfo(place: Place, __: I18nFn, lang: string) {
             util.format(__('weather_item_head_description_format'),
                 longname + util.format(' (%s, %s)', place.asciiname, adm1.asciiname), place.name);
 
-        subTitle = util.format(__('place_weather_details_info'), longname, util.format('%s, %s', place.asciiname, adm1.asciiname), name);
+        subTitle = util.format(__('place_weather_details_info'), longname, util.format('%s, %s', place.asciiname, admname), name);
 
         title = util.format(__('weather_title_format'), longname);
     }

@@ -14,6 +14,10 @@ export default class RootLayout extends React.Component<WeatherViewModel, any> {
                     <meta charSet="utf-8" />
                     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimal-ui" />
                     <PageHead {...this.props} />
+                    <link rel="dns-prefetch" href="//assets.ournetcdn.net" />
+                    <link rel="dns-prefetch" href="//ajax.googleapis.com" />
+                    <link rel="dns-prefetch" href="//tpc.googlesyndication.com" />
+                    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
                 </head>
                 <body className={`proj-weather country-${country}`}>
                     <div className='o-wrapper'>
