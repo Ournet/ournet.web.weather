@@ -19,7 +19,10 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                         <HoroscopeGroup {...this.props} />
                     </div>
                     <div className="o-layout__item u-2/6@desktop">
-                        RiGHT
+                        <div className='c-ad'>
+                            <ins className='adsbygoogle' style={{ display: 'block' }} data-ad-client='ca-pub-3959589883092051' data-ad-slot='1115823833' data-ad-format='auto'></ins>
+                            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+                        </div>
                     </div>
                 </div>
             </RootLayout>

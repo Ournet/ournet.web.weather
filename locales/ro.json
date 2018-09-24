@@ -81,5 +81,6 @@
 	"error_title": "Eroare",
 	"error_description": "A apărut o eroare. Căutăm vinovații...",
 	"report_hour": "Ora",
-	"humidity": "Umiditate"
+	"humidity": "Umiditate",
+	"forecast_no_data": "Vă rugăm să încercați peste câteva minute."
 }

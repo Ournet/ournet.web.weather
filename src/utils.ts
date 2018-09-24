@@ -1,4 +1,10 @@
 
+export function unixTime(date?: Date) {
+    date = date || new Date();
+
+    return Math.floor(date.getTime() / 1000);
+}
+
 export function startWithUpperCase(text: string) {
     if (text && text.length) {
         return text[0].toUpperCase() + text.substr(1);

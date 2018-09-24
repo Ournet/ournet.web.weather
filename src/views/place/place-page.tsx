@@ -14,7 +14,7 @@ import PlaceDailyReport from '../components/forecast/place-daily-report';
 export default class PlacePage extends React.Component<PlaceViewModel> {
     render() {
         const props = this.props;
-        const { __, lang, links, head, place, placeForecast } = props;
+        const { __, lang, links, head, place, placeForecast, holidays } = props;
         if (!placeForecast || !placeForecast.details) {
             return null;
         }
@@ -46,7 +46,7 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
                     <Breadcrumb {...breadcrumbData} />
                     <PageTitle {...pageTitle} />
 
-                    <PlaceDailyReport root={this.props} report={placeForecast.details} place={place} />
+                    <PlaceDailyReport root={this.props} holidays={holidays} report={placeForecast.details} place={place} />
                 </main>
             </CommonLayout>
         )
