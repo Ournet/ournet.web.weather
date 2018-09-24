@@ -6,10 +6,11 @@ import { PlaceHelper } from '../../data/places/place-helper';
 import { IndexViewModel } from '../../view-models/index-view-model';
 import CommonLayout from '../common-layout';
 import PageTitle from '../components/page-title';
+import { Share } from '../components/share';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
-        const { country, lang, head, __ } = this.props;
+        const { country, lang, head, __, config } = this.props;
         const countryName = __('country_' + country);
         const inCountryName = PlaceHelper.inCountryName(countryName, lang);
         head.title = util.format(__(LocalesNames.home_title_format), inCountryName);
@@ -20,6 +21,7 @@ export default class IndexPage extends React.Component<IndexViewModel> {
                 <main>
                     <div className='o-layout'>
                         <div className='o-layout__item'>
+                            <Share services={config.shareServices} align='right' url={head.canonical} lang={lang} />
                             <PageTitle title={head.title} subTitle={head.description} />
                         </div>
                         <div className='o-layout__item'>

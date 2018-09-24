@@ -9,12 +9,13 @@ import { PageTitleViewModel } from '../components/page-title';
 import Breadcrumb, { BreadcrumbViewData } from '../components/breadcrumb';
 import PageTitle from '../components/page-title';
 import PlaceDailyReport from '../components/forecast/place-daily-report';
+import { Share } from '../components/share';
 
 
 export default class PlacePage extends React.Component<PlaceViewModel> {
     render() {
         const props = this.props;
-        const { __, lang, links, place, placeForecast, holidays, title, subTitle, description } = props;
+        const { __, lang, links, place, placeForecast, holidays, title, subTitle, description, config, head } = props;
         if (!placeForecast || !placeForecast.details) {
             return null;
         }
@@ -42,6 +43,7 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
         return (
             <CommonLayout {...props}>
                 <main>
+                    <Share services={config.shareServices} align='right' url={head.canonical} lang={lang} />
                     <Breadcrumb {...breadcrumbData} />
                     <PageTitle {...pageTitle} />
 
