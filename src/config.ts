@@ -55,6 +55,7 @@ export interface AppConfig {
     projects: string[]
     email: string
     internationalIds: string[]
+    shareServices: string[]
 
     assets: {
         css: {
