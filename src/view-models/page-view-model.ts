@@ -2,6 +2,7 @@
 import { RootViewModel, RootViewModelInput } from "./root-view-model";
 import { AsyncViewModelBuilder } from "./async-view-model";
 import { OurnetQueryApi } from "@ournet/api-client";
+import { getSchema, getHost } from "ournet.links";
 
 export class PageViewModelBuilder<T extends PageViewModel, I extends PageViewModelInput> extends AsyncViewModelBuilder<T, I>{
     constructor(input: I, api: OurnetQueryApi<T>) {
@@ -11,6 +12,11 @@ export class PageViewModelBuilder<T extends PageViewModel, I extends PageViewMod
             title: this.model.config.name,
             elements: [],
         };
+    }
+
+    setCanonical(link: string) {
+        const { country } = this.model;
+        this.model.head.canonical = getSchema('weather', country) + '//' + getHost('weather', country) + link;
     }
 }
 

@@ -14,7 +14,7 @@ import PlaceDailyReport from '../components/forecast/place-daily-report';
 export default class PlacePage extends React.Component<PlaceViewModel> {
     render() {
         const props = this.props;
-        const { __, lang, links, head, place, placeForecast, holidays } = props;
+        const { __, lang, links, place, placeForecast, holidays, title, subTitle, description } = props;
         if (!placeForecast || !placeForecast.details) {
             return null;
         }
@@ -32,12 +32,11 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
         }
 
         const placeName = PlaceHelper.getName(place, lang);
-        const inPlaceName = PlaceHelper.inPlaceName(place, lang);
         breadcrumbData.items.push({ text: placeName, url: links.weather.place(place.id.toString(), localeParams) });
 
         const pageTitle: PageTitleViewModel = {
-            title: util.format(__(LocalesNames.weather_title_format, inPlaceName)),
-            subTitle: head.description,
+            title,
+            subTitle,
         }
 
         return (
@@ -47,6 +46,7 @@ export default class PlacePage extends React.Component<PlaceViewModel> {
                     <PageTitle {...pageTitle} />
 
                     <PlaceDailyReport root={this.props} holidays={holidays} report={placeForecast.details} place={place} />
+                    <p className='c-seo-mute'>{description}</p>
                 </main>
             </CommonLayout>
         )
