@@ -42,7 +42,9 @@ export default class PlacesPage extends React.Component<PlacesViewModel> {
                 <main>
                     <Breadcrumb {...breadcrumbData} />
                     <PageTitle title={title} />
-                    <PlacesList root={props} places={places} />
+                    {places.length === 0
+                        ? <div className='c-nodata'>{__(LocalesNames.not_found_places)}</div>
+                        : <PlacesList root={props} places={places} />}
                 </main>
             </CommonLayout>
         )

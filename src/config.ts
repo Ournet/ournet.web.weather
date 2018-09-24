@@ -53,6 +53,8 @@ export interface AppConfig {
     placesCount: number
     capitalId: string
     projects: string[]
+    email: string
+    internationalIds: string[]
 
     assets: {
         css: {

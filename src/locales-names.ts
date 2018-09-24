@@ -84,7 +84,8 @@ export enum LocalesNames {
     weather_title_format = "weather_title_format",
     width = "width",
     wind = "wind",
-    forecast_no_data = "forecast_no_data"
+    forecast_no_data = "forecast_no_data",
+    not_found_places = "not_found_places",
 }
 
 export class LocalesHelper {

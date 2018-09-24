@@ -12,9 +12,12 @@ export function placesHandler(input: PlacesViewModelInput, next: NextFunction) {
     new PlacesViewModelBuilder(input, api)
         .build()
         .then(data => {
-            if (input.q && data.places.length === 1) {
-                return input.res.redirect(data.links.weather.place(data.places[0].id, { ul: data.lang }));
+            if (input.q && input.q.trim().length > 1) {
+                if (data.places.length === 1) {
+                    return input.res.redirect(data.links.weather.place(data.places[0].id, { ul: data.lang }));
+                }
             }
+
             renderPage(input.res, <PlacesPage {...data} />);
         }).catch(next);
 }

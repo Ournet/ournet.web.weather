@@ -3,6 +3,7 @@ import { Sitemap, sitemap } from "ournet.links";
 import { Request, Response } from "express";
 import { AppConfig, initAppConfig } from "../config";
 import { initLocale, I18nFn } from "../locale";
+const version = require('../../package.json').version;
 
 export class RootModelBuilder<T extends RootViewModel, I extends RootViewModelInput> {
     protected model: T;
@@ -17,6 +18,7 @@ export class RootModelBuilder<T extends RootViewModel, I extends RootViewModelIn
             lang: locale.lang,
             country: locale.country,
             links: sitemap(config.languages[0]),
+            version,
         } as T;
     }
 
@@ -36,4 +38,5 @@ export interface RootViewModel {
     config: AppConfig
     links: Sitemap
     __: I18nFn
+    version: string
 }
