@@ -96,4 +96,8 @@ export class LocalesHelper {
     static getLanguageName(__: I18nFn, languageCode: string) {
         return __(`language_${languageCode}`);
     }
+
+    static getProjectName(__: I18nFn, project: string) {
+        return __(project);
+    }
 }
