@@ -2,7 +2,7 @@
 import { Router } from 'express';
 import { indexHandler } from '../controllers/index-controller';
 import { placeHandler } from '../controllers/place-controller';
-import { placesHandler } from '../controllers/places-controller';
+import { placesHandler, placesDailyForecastHandler } from '../controllers/places-controller';
 import { GLOBAL_CONFIG_LIST_IDS } from '../config';
 
 const route: Router = Router();
@@ -26,3 +26,6 @@ route.get('/places', (req, res, next) =>
 
 route.get('/places/:admin1', (req, res, next) =>
     placesHandler({ req, res, admin1Code: req.params.admin1 }, next));
+
+route.get('/controls/places-daily-forecast/:date(\\d{4}-\\d{2}-\\d{2})/:ids', (req, res, next) =>
+    placesDailyForecastHandler({ req, res, date: req.params.date, ids: req.params.ids.split(',') }, next));

@@ -23,6 +23,11 @@ export default class PageHeadComponent extends React.Component<PageViewModel> {
         } else {
             elements.push(<link type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/main.css`} />)
         }
+        if (env.isProduction) {
+            elements.push(<script async={true} src={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.js.main}.js`} />);
+        } else {
+            elements.push(<script async={true} src={`http://localhost:8080/js/weather/main.js`} />)
+        }
         if (head.canonical) {
             elements.push(<link rel="canonical" href={head.canonical} />)
         }

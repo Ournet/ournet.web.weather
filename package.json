@@ -6,9 +6,9 @@
   "watch": {
     "start": {
       "patterns": [
-        "lib"
+        "lib", "config", "locales"
       ],
-      "extensions": "js",
+      "extensions": "js,json",
       "quiet": true,
       "legacyWatch": true,
       "delay": 2000

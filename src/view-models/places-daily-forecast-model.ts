@@ -19,12 +19,14 @@ export type PlaceDailyForecast = {
 }
 
 export interface PlacesDailyForecastViewModel extends RootViewModel {
-    data: PlaceDailyForecast[]
+    data: DailyForecastDataPoint[]
+    places: Place[]
+    reports: PlaceDailyForecast[]
 }
 
 export interface PlacesDailyForecastViewModelInput extends RootViewModelInput {
     ids: string[]
-    date: number
+    date: string
 }
 
 export class PlacesDailyForecastViewModelBuilder extends AsyncViewModelBuilder<PlacesDailyForecastViewModel, PlacesDailyForecastViewModelInput> {
@@ -32,11 +34,11 @@ export class PlacesDailyForecastViewModelBuilder extends AsyncViewModelBuilder<P
         const localApiClient = createQueryApiClient<{ places: Place[] }>();
 
         const result = await localApiClient
-            .placesPlacesByIds('places', { fields: 'id name names' }, { ids: this.input.ids })
+            .placesPlacesByIds('places', { fields: 'id name names longitude latitude timezone' }, { ids: this.input.ids })
             .execute();
 
         if (result.data && result.data.places) {
-            const places = result.data.places;
+            const places = this.model.places = result.data.places;
 
             const placesData = places.map(place => ({
                 longitude: place.longitude,
@@ -50,5 +52,21 @@ export class PlacesDailyForecastViewModelBuilder extends AsyncViewModelBuilder<P
         }
 
         return super.build();
+    }
+
+    protected formatModel(data: PlacesDailyForecastViewModel) {
+        this.model.data = data.data;
+        this.model.reports = [];
+
+        data.data.forEach((report, index) => {
+            if (report) {
+                this.model.reports.push({
+                    place: this.model.places[index],
+                    forecast: report,
+                })
+            }
+        })
+
+        return super.formatModel(data);
     }
 }

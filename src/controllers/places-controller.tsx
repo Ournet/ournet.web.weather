@@ -5,6 +5,8 @@ import { createQueryApiClient } from "../data/api";
 import { renderPage } from "../renderer";
 import { PlacesViewModelInput, PlacesViewModel, PlacesViewModelBuilder } from '../view-models/places-view-model';
 import PlacesPage from '../views/places/places-page';
+import { PlacesDailyForecastViewModelInput, PlacesDailyForecastViewModel, PlacesDailyForecastViewModelBuilder } from '../view-models/places-daily-forecast-model';
+import PlacesDailyForecast from '../views/components/forecast/places-daily-forecast';
 
 export function placesHandler(input: PlacesViewModelInput, next: NextFunction) {
     const api = createQueryApiClient<PlacesViewModel>();
@@ -20,4 +22,13 @@ export function placesHandler(input: PlacesViewModelInput, next: NextFunction) {
 
             renderPage(input.res, <PlacesPage {...data} />);
         }).catch(next);
+}
+
+export function placesDailyForecastHandler(input: PlacesDailyForecastViewModelInput, next: NextFunction) {
+    const api = createQueryApiClient<PlacesDailyForecastViewModel>();
+
+    new PlacesDailyForecastViewModelBuilder(input, api)
+        .build()
+        .then(data => renderPage(input.res, <PlacesDailyForecast root={data} reports={data.reports} />))
+        .catch(next);
 }
