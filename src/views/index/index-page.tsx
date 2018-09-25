@@ -7,27 +7,21 @@ import { IndexViewModel } from '../../view-models/index-view-model';
 import CommonLayout from '../common-layout';
 import PageTitle from '../components/page-title';
 import { Share } from '../components/share';
+import ForecastBrowser from '../components/forecast/forecast-browser';
+import * as moment from 'moment-timezone';
 
 export default class IndexPage extends React.Component<IndexViewModel> {
     render() {
-        const { country, lang, head, __, config } = this.props;
-        const countryName = __('country_' + country);
-        const inCountryName = PlaceHelper.inCountryName(countryName, lang);
-        head.title = util.format(__(LocalesNames.home_title_format), inCountryName);
-        head.description = util.format(__(LocalesNames.weather_in_cn_summary), inCountryName);
+        const { lang, head, __, config, mainPlaces, placeIds } = this.props;
+
+        const today = moment().tz(mainPlaces[0].timezone).locale(lang);
 
         return (
             <CommonLayout {...this.props}>
                 <main>
-                    <div className='o-layout'>
-                        <div className='o-layout__item'>
-                            <Share services={config.shareServices} align='right' url={head.canonical} lang={lang} />
-                            <PageTitle title={head.title} subTitle={head.description} />
-                        </div>
-                        <div className='o-layout__item'>
-
-                        </div>
-                    </div>
+                    <Share services={config.shareServices} align='right' url={head.canonical} lang={lang} />
+                    <PageTitle title={head.title} subTitle={head.description} />
+                    <ForecastBrowser places={placeIds} today={today} days={5} __={__} />
                 </main>
             </CommonLayout>
         )

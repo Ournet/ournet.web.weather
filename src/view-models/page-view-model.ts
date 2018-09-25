@@ -29,7 +29,7 @@ export interface PageViewModel extends RootViewModel {
 }
 
 export interface PageHeadViewData {
-    title?: string
+    title: string
     description?: string
     elements: JSX.Element[]
     canonical?: string

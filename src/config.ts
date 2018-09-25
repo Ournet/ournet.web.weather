@@ -1,7 +1,7 @@
 import { readFileSync } from "fs";
 import { join } from "path";
 import { Request } from "express";
-import { Dictionary } from "@ournet/domain";
+import { Dictionary, uniq } from "@ournet/domain";
 
 const CONFIGS: { [country: string]: AppConfig } = {};
 const baseConfig: AppConfig = require('../config/index.json');
@@ -19,6 +19,15 @@ const hosts: { [index: string]: string } = {
     'moti2.al': 'al',
     'hava.one': 'tr'
 };
+
+export function getSupportedCountries() {
+    return ['md', 'ro', 'ru', 'bg', 'hu', 'in', 'cz', 'it', 'al', 'tr']
+}
+
+export const GLOBAL_CONFIG_LIST_IDS = uniq(getSupportedCountries()
+    .map(country => require(`../config/${country}.json`) as AppConfig)
+    .map(config => config.lists || [])
+    .reduce<string[]>((ids, list) => ids.concat(list.map(item => item.id)), []));
 
 function getCountry(req: Request) {
     return hosts[req.hostname] || process.env.COUNTRY;
@@ -78,7 +87,7 @@ export type ConfigPlaceList = {
     title: Dictionary<string>
     description: Dictionary<string>
     image: string
-	ids: string[]
+    ids: string[]
 }
 
 export function getFavicon(config: AppConfig, filename?: string) {
