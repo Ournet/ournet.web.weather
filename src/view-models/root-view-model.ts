@@ -3,6 +3,7 @@ import { Sitemap, sitemap } from "ournet.links";
 import { Request, Response } from "express";
 import { AppConfig, initAppConfig } from "../config";
 import { initLocale, I18nFn } from "../locale";
+import { OurnetProjects } from "../data/common";
 const version = require('../../package.json').version;
 
 export class RootModelBuilder<T extends RootViewModel, I extends RootViewModelInput> {
@@ -19,6 +20,7 @@ export class RootModelBuilder<T extends RootViewModel, I extends RootViewModelIn
             country: locale.country,
             links: sitemap(config.languages[0]),
             version,
+            project: OurnetProjects.weather,
         } as T;
     }
 
@@ -39,4 +41,5 @@ export interface RootViewModel {
     links: Sitemap
     __: I18nFn
     version: string
+    project: OurnetProjects
 }
