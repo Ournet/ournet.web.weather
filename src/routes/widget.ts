@@ -2,7 +2,8 @@
 import { Router } from 'express';
 import { RootModelBuilder, RootViewModel } from '../view-models/root-view-model';
 import { getHost } from 'ournet.links';
-import { widget1FrameHandler } from '../controllers/widgets-controller';
+import { widget1FrameHandler, widget2FrameHandler } from '../controllers/widgets-controller';
+import { Widget2ViewModelBuilder } from '../view-models/widget2-view-model';
 
 const route: Router = Router();
 
@@ -60,4 +61,45 @@ route.get('/widget/widget_html_script', function (req, res) {
     }
 
     res.send(data.join('\n'));
+});
+
+route.get('/widget2/widget_frame', (req, res, next) =>
+    widget2FrameHandler(Widget2ViewModelBuilder.inputFromRequest(req, res), next));
+
+route.get('/widget2/widget_html_script', function (req, res) {
+    const model = new RootModelBuilder({ req, res }).build() as RootViewModel;
+    const { config, links, country, project } = model;
+
+    const scripttype = req.query.scripttype;
+
+    delete req.query.cn;
+    delete req.query.scripttype;
+
+    let script = '';
+    const host = getHost(project, country);
+
+    const widgetInfo = Widget2ViewModelBuilder.createWidgetInfo(Widget2ViewModelBuilder.inputFromRequest(req, res));
+    const iframeHeight = widgetInfo.iframeHeight;
+
+    if (scripttype === 'iframe') {
+        const data = ['<!-- ' + config.name + ' Weather Widget -->'];
+        data.push('<iframe src="' + host, links.weather.widget2.widgetFrame(req.query) + '" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height:' + iframeHeight + 'px;width:' + req.query.w + 'px;" allowTransparency="true"></iframe>');
+        data.push('<noscript><a href="http://' + config.host + '">' + config.name + '</a></noscript>');
+        script = data.join('\n');
+    } else {
+        const params = [];
+        for (var prop in req.query) {
+            if (![null, '', undefined].includes(req.query[prop])) {
+                params.push(prop + '=' + req.query[prop]);
+            }
+        }
+
+        script = ['<!-- ' + config.name + ' Weather Widget -->',
+        '<ins class="ournetweather" style="display:block;max-width:' + req.query.w + 'px;height:' + iframeHeight + 'px" data-cn="' + config.country + '" data-params="' + params.join(';') + '" data-h="' + iframeHeight + '"></ins>',
+        '<noscript><a href="http://' + config.host + '">' + config.name + '</a></noscript>',
+            '<script>(ournetweather=window.ournetweather||[]).push({})</script>',
+            '<script async src="//assets.ournetcdn.net/ournet/js/weather/widget-ins.js"></script>'
+        ].join('\n');
+    }
+    res.send(script);
 });

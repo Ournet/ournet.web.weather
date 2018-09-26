@@ -12,6 +12,10 @@ export function startWithUpperCase(text: string) {
     return text;
 }
 
+export function isNullOrEmpty(val?: string) {
+    return [null, undefined, ''].includes(val);
+}
+
 export function toBeaufort(ms: number) {
     if (ms <= 0.2) {
         return 0;
