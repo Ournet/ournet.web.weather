@@ -2,12 +2,14 @@
 import { Router } from 'express';
 import { RootModelBuilder, RootViewModel } from '../view-models/root-view-model';
 import { getHost } from 'ournet.links';
-import { widget1FrameHandler, widget2FrameHandler } from '../controllers/widgets-controller';
+import { widget1FrameHandler, widget2FrameHandler, widgetHandler } from '../controllers/widgets-controller';
 import { Widget2ViewModelBuilder } from '../view-models/widget2-view-model';
 
 const route: Router = Router();
 
 export default route;
+
+route.get('/widget', (req, res, next) => widgetHandler({ req, res }, next));
 
 route.get('/widget/widget_frame', (req, res, next) =>
     widget1FrameHandler({

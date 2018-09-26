@@ -12,14 +12,14 @@ export default class PageHead extends React.Component<PageViewModel> {
         const elements: JSX.Element[] = []
 
         if (env.isProduction) {
-            elements.push(<link type="text/css" rel="stylesheet" href={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.css.main}.css`} />);
+            elements.push(<link key='1' type="text/css" rel="stylesheet" href={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.css.main}.css`} />);
         } else {
-            elements.push(<link type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/main.css`} />)
+            elements.push(<link key='2' type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/main.css`} />)
         }
         if (env.isProduction) {
-            elements.push(<script async={true} src={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.js.main}.js`} />);
+            elements.push(<script key='3' async={true} src={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.js.main}.js`} />);
         } else {
-            elements.push(<script async={true} src={`http://localhost:8080/js/weather/main.js`} />)
+            elements.push(<script key='4' async={true} src={`http://localhost:8080/js/weather/main.js`} />)
         }
 
         head.elements = elements.concat(head.elements);
