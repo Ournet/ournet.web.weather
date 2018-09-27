@@ -16,11 +16,6 @@ export default class PageHead extends React.Component<PageViewModel> {
         } else {
             elements.push(<link key='2' type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/main.css`} />)
         }
-        if (env.isProduction) {
-            elements.push(<script key='3' async={true} src={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.js.main}.js`} />);
-        } else {
-            elements.push(<script key='4' async={true} src={`http://localhost:8080/js/weather/main.js`} />)
-        }
 
         head.elements = elements.concat(head.elements);
 

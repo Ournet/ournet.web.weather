@@ -33,7 +33,7 @@ route.get('/widget/widget_html_script', function (req, res) {
     const days = req.query.days && parseInt(req.query.days) || 5,
         height = 29 + days * 42 + days - 1,
         width = req.query.w;
-    const scripttype = req.query.scripttype;
+    const scripttype = req.query.scripttype || 'iframe';
 
     delete req.query.scripttype;
 
@@ -42,7 +42,7 @@ route.get('/widget/widget_html_script', function (req, res) {
     const host = getHost(project, country);
 
     if (scripttype === 'iframe') {
-        data.push('<iframe src="' + host + links.weather.widget.widgetFrame(req.query) + '" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height:' + height + 'px;width:' + width + 'px;" allowTransparency="true"></iframe>');
+        data.push('<iframe src="//' + host + links.weather.widget.widgetFrame(req.query) + '" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height:' + height + 'px;width:' + width + 'px;" allowTransparency="true"></iframe>');
         data.push('<noscript><a href="http://' + host + '">' + config.name + '</a></noscript>');
     } else {
 

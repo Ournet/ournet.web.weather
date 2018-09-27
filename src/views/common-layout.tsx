@@ -3,6 +3,7 @@ import { WeatherViewModel } from '../view-models/weather-view-model';
 import RootLayout from './root-layout';
 import ExploreMenu from './components/explore-menu';
 import HoroscopeGroup from './components/horoscope/horoscope-group';
+import env from '../env';
 
 export default class CommonLayout extends React.Component<WeatherViewModel> {
     render() {
@@ -10,6 +11,10 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
 
         return (
             <RootLayout {...this.props}>
+                {env.isProduction ?
+                    <script key='3' async={true} src={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.js.main}.js`} />
+                    : <script key='4' async={true} src={`http://localhost:8080/js/weather/main.js`} />
+                }
                 <div className="o-layout">
                     <div className="o-layout__item u-1/5 u-hide-mobile u-1/6@desktop">
                         <ExploreMenu root={this.props} canonical={this.props.head.canonical} places={mainPlaces} />
