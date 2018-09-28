@@ -8,6 +8,7 @@ import { LocalesNames } from '../../locales-names';
 import WidgetConfigs from './components/widget-configs';
 import Widget1Config from './components/widget1-config';
 import env from '../../env';
+import Widget2Config from './components/widget2-config';
 
 export default class WidgetPage extends React.Component<WidgetViewModel> {
     render() {
@@ -31,7 +32,7 @@ export default class WidgetPage extends React.Component<WidgetViewModel> {
                             <PageTitle title={head.title} subTitle={head.description} />
                             <div id='widget-configs'>
                                 <input id='widget-config-type' type='hidden' defaultValue='widget' />
-                                <WidgetConfigs previewSelector='#widget-iframe' scriptSelector='#widget-script' tabs={{ widget: 'Widget 1' }} selected={0} contents={[<Widget1Config {...this.props} />]} />
+                                <WidgetConfigs previewSelector='#widget-iframe' scriptSelector='#widget-script' tabs={{ widget: 'Widget 1', widget2: 'Widget 2' }} selected={0} contents={[<Widget1Config {...this.props} />, <Widget2Config {...this.props} />]} />
                             </div>
                             <br />
                             <Share url={head.canonical} services={config.shareServices} lang={lang} />

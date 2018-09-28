@@ -75,7 +75,7 @@ route.get('/widget2/widget_html_script', function (req, res) {
     const model = new RootModelBuilder({ req, res }).build() as RootViewModel;
     const { config, links, country, project } = model;
 
-    const scripttype = req.query.scripttype;
+    const scripttype = req.query.scripttype || 'iframe';
 
     delete req.query.cn;
     delete req.query.scripttype;
@@ -83,12 +83,18 @@ route.get('/widget2/widget_html_script', function (req, res) {
     let script = '';
     const host = getHost(project, country);
 
+    for (let prop in req.query) {
+        if (isNullOrEmpty(req.query[prop])) {
+            delete req.query[prop];
+        }
+    }
+
     const widgetInfo = Widget2ViewModelBuilder.createWidgetInfo(Widget2ViewModelBuilder.inputFromRequest(req, res));
     const iframeHeight = widgetInfo.iframeHeight;
 
     if (scripttype === 'iframe') {
         const data = ['<!-- ' + config.name + ' Weather Widget -->'];
-        data.push('<iframe src="' + host, links.weather.widget2.widgetFrame(req.query) + '" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height:' + iframeHeight + 'px;width:' + req.query.w + 'px;" allowTransparency="true"></iframe>');
+        data.push('<iframe src="//' + host, links.weather.widget2.widgetFrame(req.query) + '" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height:' + iframeHeight + 'px;width:' + req.query.w + 'px;" allowTransparency="true"></iframe>');
         data.push('<noscript><a href="http://' + config.host + '">' + config.name + '</a></noscript>');
         script = data.join('\n');
     } else {
