@@ -15,14 +15,14 @@ export default class Widget1Config extends React.Component<WeatherViewModel> {
                         <tr>
                             <th>{__(LocalesNames.place)}</th>
                             <td>
-                                <input type='text' className='c-wconfig__place' value={PlaceHelper.getName(place, lang)} />
-                                <input type='hidden' name='id' className='c-wconfig__input c-wconfig__placeid' value={place.id} />
+                                <input type='text' className='c-wconfig__place' defaultValue={PlaceHelper.getName(place, lang)} />
+                                <input type='hidden' name='id' className='c-wconfig__input c-wconfig__placeid' defaultValue={place.id} />
                             </td>
                         </tr>
                         <tr>
                             <th>{__(LocalesNames.days)}:</th>
                             <td>
-                                <input type='number' maxLength={1} name='days' className='c-wconfig__input' value={5} max={9} min={1} />
+                                <input type='number' maxLength={1} name='days' className='c-wconfig__input' defaultValue='5' max={9} min={1} />
                             </td>
                         </tr>
                         <tr>
@@ -64,13 +64,13 @@ export default class Widget1Config extends React.Component<WeatherViewModel> {
                         <tr>
                             <th>{__(LocalesNames.width)}:</th>
                             <td>
-                                <input type='number' maxLength={3} name='w' className='c-wconfig__input' value={200} max={999} min={50} />
+                                <input type='number' maxLength={3} name='w' className='c-wconfig__input' defaultValue='200' max={999} min={50} />
                             </td>
                         </tr>
                         <tr>
                             <th></th>
                             <td>
-                                <button className='c-wconfig__btn'>{__(LocalesNames.generate)}</button>
+                                <button className='c-wconfig__btn c-btn c-btn--primary c-btn--small'>{__(LocalesNames.generate)}</button>
                             </td>
                         </tr>
                     </tbody>

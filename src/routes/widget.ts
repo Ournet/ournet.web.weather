@@ -4,6 +4,7 @@ import { RootModelBuilder, RootViewModel } from '../view-models/root-view-model'
 import { getHost } from 'ournet.links';
 import { widget1FrameHandler, widget2FrameHandler, widgetHandler } from '../controllers/widgets-controller';
 import { Widget2ViewModelBuilder } from '../view-models/widget2-view-model';
+import { isNullOrEmpty } from '../utils';
 
 const route: Router = Router();
 
@@ -41,21 +42,23 @@ route.get('/widget/widget_html_script', function (req, res) {
 
     const host = getHost(project, country);
 
+    for (let prop in req.query) {
+        if (isNullOrEmpty(req.query[prop])) {
+            delete req.query[prop];
+        }
+    }
+
     if (scripttype === 'iframe') {
         data.push('<iframe src="//' + host + links.weather.widget.widgetFrame(req.query) + '" scrolling="no" frameborder="0" style="border:none;overflow:hidden;height:' + height + 'px;width:' + width + 'px;" allowTransparency="true"></iframe>');
         data.push('<noscript><a href="http://' + host + '">' + config.name + '</a></noscript>');
     } else {
 
         let params = [];
-
-        // req.query.height = height;
-
         for (var prop in req.query) {
             if (![null, '', undefined].includes(req.query[prop])) {
                 params.push(prop + '=' + req.query[prop]);
             }
         }
-
         data.push('<ins class="ournetweather" style="display:block;max-width:' + width + 'px;height:' + height + 'px" data-type="widget" data-cn="' + country + '" data-params="' + params.join(';') + '" data-h="' + height + '"></ins>');
         data.push('<noscript><a href="http://' + host + '">' + config.name + '</a></noscript>');
         data.push('<script>(ournetweather=window.ournetweather||[]).push({})</script>');

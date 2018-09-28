@@ -27,9 +27,10 @@ export default class WidgetPage extends React.Component<WidgetViewModel> {
                     }
                     <div className='o-layout'>
                         <div className='o-layout__item u-2/5@tablet'>
+                            <Share url={head.canonical} services={config.shareServices} lang={lang} align='right' />
                             <PageTitle title={head.title} subTitle={head.description} />
                             <div id='widget-configs'>
-                                <input id='widget-config-type' type='hidden' value='widget' />
+                                <input id='widget-config-type' type='hidden' defaultValue='widget' />
                                 <WidgetConfigs previewSelector='#widget-iframe' scriptSelector='#widget-script' tabs={{ widget: 'Widget 1' }} selected={0} contents={[<Widget1Config {...this.props} />]} />
                             </div>
                             <br />

@@ -4,6 +4,7 @@ import { RootModelBuilder, RootViewModel } from '../view-models/root-view-model'
 import { createQueryApiClient } from '../data/api';
 import { Place, PlaceStringFields } from '@ournet/api-client';
 import { placesDailyForecastHandler } from '../controllers/places-controller';
+import { PlaceHelper } from '../data/places/place-helper';
 
 const route: Router = Router();
 
@@ -18,7 +19,7 @@ route.get('/controls/findplace', async (req, res) => {
         return res.send([]);
     }
     const model = new RootModelBuilder({ req, res }).build() as RootViewModel;
-    const { country } = model;;
+    const { country, lang } = model;;
 
     const api = createQueryApiClient<{ places: Place[] }>();
     const placesResult = await api.placesSearchPlace("places",
@@ -30,5 +31,5 @@ route.get('/controls/findplace', async (req, res) => {
         return res.send([]);
     }
 
-    return res.send(placesResult.data.places);
+    return res.send(placesResult.data.places.map(place => ({ id: place.id, name: PlaceHelper.getName(place, lang), admin: place.admin1 && PlaceHelper.getName(place.admin1, lang) })));
 });
