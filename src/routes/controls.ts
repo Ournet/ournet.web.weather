@@ -24,12 +24,14 @@ route.get('/controls/findplace', async (req, res) => {
     const api = createQueryApiClient<{ places: Place[] }>();
     const placesResult = await api.placesSearchPlace("places",
         { fields: PlaceStringFields },
-        { query: q.trim(), country, limit: 10, searchType: 'phrase_prefix' })
+        { query: q.trim(), country, limit: 10, type: 'phrase_prefix' })
         .execute();
 
     if (!placesResult || !placesResult.data) {
         return res.send([]);
     }
 
-    return res.send(placesResult.data.places.map(place => ({ id: place.id, name: PlaceHelper.getName(place, lang), admin: place.admin1 && PlaceHelper.getName(place.admin1, lang) })));
+    const places = (placesResult.data.places || []).filter(item => item.featureClass !== 'A');
+
+    return res.send((places).map(place => ({ id: place.id, name: PlaceHelper.getName(place, lang), admin: place.admin1 && PlaceHelper.getName(place.admin1, lang) })));
 });
