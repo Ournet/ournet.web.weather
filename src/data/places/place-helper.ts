@@ -1,6 +1,7 @@
 import { Place } from "@ournet/api-client";
 import { PlaceHelper as DomainPlaceHelpers } from '@ournet/places-domain';
 import { startWithUpperCase } from "../../utils";
+const standard = require('standard-text');
 
 export class PlaceHelper {
     static getName(place: Place, lang: string) {
@@ -8,9 +9,9 @@ export class PlaceHelper {
             DomainPlaceHelpers.parseNames(place.names || '').find(item => item.lang === lang)
             : null;
         if (name && name.name) {
-            return name.name;
+            return standard(name.name, lang);
         }
-        return place.name;
+        return standard(place.name, lang);
     }
     static shortAdm1Name(place: Place, lang: string) {
         let name = PlaceHelper.getName(place, lang);

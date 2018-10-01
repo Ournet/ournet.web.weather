@@ -27,11 +27,11 @@ export function maxageIndex(res: Response) {
     maxage(res, 60 * 1);
 }
 
-export function maxageCategory(res: Response) {
-    maxage(res, 60 * 2);
+export function maxagePlaces(res: Response) {
+    maxage(res, 60 * 12);
 }
 
-export function maxageArticle(res: Response) {
-    // 2 hours
-    maxage(res, 60 * 2);
+export function maxagePlace(res: Response) {
+    // 4 hours
+    maxage(res, 60 * 4);
 }
