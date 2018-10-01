@@ -4,6 +4,7 @@ import RootLayout from './root-layout';
 import ExploreMenu from './components/explore-menu';
 import HoroscopeGroup from './components/horoscope/horoscope-group';
 import env from '../env';
+import LatestNews from './components/news/latest-news';
 
 export default class CommonLayout extends React.Component<WeatherViewModel> {
     render() {
@@ -28,6 +29,7 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                             <ins className='adsbygoogle' style={{ display: 'block' }} data-ad-client='ca-pub-3959589883092051' data-ad-slot='1115823833' data-ad-format='auto'></ins>
                             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                         </div>
+                        <LatestNews {...this.props} />
                     </div>
                 </div>
             </RootLayout>

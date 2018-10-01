@@ -1258,7 +1258,7 @@ debug@*, debug@^3.0.1, debug@^3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.2, debug@^2.3.3, debug@^2.6.8:
+debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -3042,12 +3042,6 @@ osenv@^0.1.4:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.0"
 
-ournet.links@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/ournet.links/-/ournet.links-0.4.5.tgz#36fee1cadc67964214f4c8df5bc81f746950ea70"
-  dependencies:
-    urlset "^0.6.0"
-
 p-finally@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/p-finally/-/p-finally-1.0.0.tgz#3fbcfb15b899a44123b34b6dcc18b724336a2cae"
@@ -4226,12 +4220,6 @@ url-parse-lax@^1.0.0:
   resolved "https://registry.yarnpkg.com/url-parse-lax/-/url-parse-lax-1.0.0.tgz#7af8f303645e9bd79a272e7a14ac68bc0609da73"
   dependencies:
     prepend-http "^1.0.1"
-
-urlset@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/urlset/-/urlset-0.6.0.tgz#148cb751c497ae2eb892452521cac91144dfe1a7"
-  dependencies:
-    debug "^2.3.2"
 
 use@^3.1.0:
   version "3.1.0"
