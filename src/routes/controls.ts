@@ -6,6 +6,7 @@ import { Place, PlaceStringFields } from '@ournet/api-client';
 import { placesDailyForecastHandler } from '../controllers/places-controller';
 import { PlaceHelper } from '../data/places/place-helper';
 import { atonic } from '@ournet/domain';
+import { maxage } from '../maxage';
 
 const route: Router = Router();
 
@@ -16,6 +17,9 @@ route.get('/controls/places-daily-forecast/:date(\\d{4}-\\d{2}-\\d{2})/:ids', (r
 
 route.get('/controls/findplace', async (req, res) => {
     let q = req.query.q;
+
+    maxage(res, 60 * 24 * 7); // 7 days
+
     if (!q || q.trim().length < 3) {
         return res.send([]);
     }

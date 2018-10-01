@@ -7,9 +7,12 @@ import { PlacesViewModelInput, PlacesViewModel, PlacesViewModelBuilder } from '.
 import PlacesPage from '../views/places/places-page';
 import { PlacesDailyForecastViewModelInput, PlacesDailyForecastViewModel, PlacesDailyForecastViewModelBuilder } from '../view-models/places-daily-forecast-model';
 import PlacesDailyForecast from '../views/components/forecast/places-daily-forecast';
+import { maxageIndex, maxagePlaces } from '../maxage';
 
 export function placesHandler(input: PlacesViewModelInput, next: NextFunction) {
     const api = createQueryApiClient<PlacesViewModel>();
+
+    maxagePlaces(input.res);
 
     new PlacesViewModelBuilder(input, api)
         .build()
@@ -26,6 +29,8 @@ export function placesHandler(input: PlacesViewModelInput, next: NextFunction) {
 
 export function placesDailyForecastHandler(input: PlacesDailyForecastViewModelInput, next: NextFunction) {
     const api = createQueryApiClient<PlacesDailyForecastViewModel>();
+
+    maxageIndex(input.res);
 
     new PlacesDailyForecastViewModelBuilder(input, api)
         .build()

@@ -5,6 +5,7 @@ import { getHost } from 'ournet.links';
 import { widget1FrameHandler, widget2FrameHandler, widgetHandler } from '../controllers/widgets-controller';
 import { Widget2ViewModelBuilder } from '../view-models/widget2-view-model';
 import { isNullOrEmpty } from '../utils';
+import { maxage } from '../maxage';
 
 const route: Router = Router();
 
@@ -30,6 +31,8 @@ route.get('/widget/widget_frame', (req, res, next) =>
 route.get('/widget/widget_html_script', function (req, res) {
     const model = new RootModelBuilder({ req, res }).build() as RootViewModel;
     const { config, links, country, project } = model;
+
+    maxage(res, 60);
 
     const days = req.query.days && parseInt(req.query.days) || 5,
         height = 29 + days * 42 + days - 1,
@@ -74,6 +77,8 @@ route.get('/widget2/widget_frame', (req, res, next) =>
 route.get('/widget2/widget_html_script', function (req, res) {
     const model = new RootModelBuilder({ req, res }).build() as RootViewModel;
     const { config, links, country, project } = model;
+
+    maxage(res, 60);
 
     const scripttype = req.query.scripttype || 'iframe';
 

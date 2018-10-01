@@ -10,9 +10,12 @@ import Widget2Frame from '../views/widgets/widget2-frame';
 import { PageViewModelInput } from '../view-models/page-view-model';
 import { WidgetViewModel, WidgetViewModelBuilder } from '../view-models/widget-view-model';
 import WidgetPage from '../views/widgets/widget';
+import { maxage } from '../maxage';
 
 export function widgetHandler(input: PageViewModelInput, next: NextFunction) {
     const api = createQueryApiClient<WidgetViewModel>();
+
+    maxage(input.res, 60);
 
     new WidgetViewModelBuilder(input, api)
         .build()
@@ -23,6 +26,8 @@ export function widgetHandler(input: PageViewModelInput, next: NextFunction) {
 export function widget1FrameHandler(input: Widget1ViewModelInput, next: NextFunction) {
     const api = createQueryApiClient<Widget1ViewModel>();
 
+    maxage(input.res, 60);
+
     new Widget1ViewModelBuilder(input, api)
         .build()
         .then(data => renderPage(input.res, <Widget1Frame {...data} />))
@@ -31,6 +36,8 @@ export function widget1FrameHandler(input: Widget1ViewModelInput, next: NextFunc
 
 export function widget2FrameHandler(input: Widget2ViewModelInput, next: NextFunction) {
     const api = createQueryApiClient<Widget2ViewModel>();
+
+    maxage(input.res, 60);
 
     new Widget2ViewModelBuilder(input, api)
         .build()
