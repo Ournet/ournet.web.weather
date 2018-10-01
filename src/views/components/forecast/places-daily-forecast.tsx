@@ -36,8 +36,7 @@ export default class PlacesDailyForecast extends React.Component<PlacesDailyFore
                         </div>
                         <div className='dr-r dr-r-wind'>
                             <span className={'wind-speed beaufort-' + toBeaufort(item.forecast.windSpeed || 1)}>{item.forecast.windSpeed}</span>
-                            {__(LocalesNames.item_wind_speed_ms)}
-                            <span className={'wind-dir wind-dir-'}>&rarr;</span>
+                            <span className='wind-dir'>{item.forecast.windDir}</span>
                         </div>
                     </div>
                 ))}

@@ -50,8 +50,7 @@ export default class PlaceDayReport extends React.Component<PlaceDayReportViewDa
                     </div>
                     <div className='dr-r dr-r-wind'>
                         <span className={'wind-speed beaufort-' + toBeaufort(item.windSpeed || 1)}>{item.windSpeed}</span>
-                        {__(LocalesNames.item_wind_speed_ms)}
-                        <span className={'wind-dir wind-dir-'}>&rarr;</span>
+                        <span className='wind-dir'>{item.windDir}</span>
                     </div>
                     <div className='dr-r dr-r-hum'>{(Math.round((item.humidity || 0) * 100)) + '%'}</div>
                 </div>
@@ -68,7 +67,7 @@ export default class PlaceDayReport extends React.Component<PlaceDayReportViewDa
                 <div className='dr-head'>
                     <div className='dr-h dr-h-date'>{__(LocalesNames.report_hour)}</div>
                     <div className='dr-h dr-h-temp'>{__(LocalesNames.temperature) + ' °C'}</div>
-                    <div className='dr-h dr-h-wind'>{__(LocalesNames.wind)}</div>
+                    <div className='dr-h dr-h-wind'>{__(LocalesNames.wind)}, {__(LocalesNames.item_wind_speed_ms)}</div>
                     <div className='dr-h dr-h-hum'>{__(LocalesNames.humidity)}</div>
                 </div>
                 <div className='dr-body'>
