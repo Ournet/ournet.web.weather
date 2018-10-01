@@ -12,10 +12,6 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
 
         return (
             <RootLayout {...this.props}>
-                {env.isProduction ?
-                    <script key='3' async={true} src={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.js.main}.js`} />
-                    : <script key='4' async={true} src={`http://localhost:8080/js/weather/main.js`} />
-                }
                 <div className="o-layout">
                     <div className="o-layout__item u-1/5 u-hide-mobile u-1/6@desktop">
                         <ExploreMenu root={this.props} canonical={this.props.head.canonical} places={mainPlaces} />
@@ -32,6 +28,10 @@ export default class CommonLayout extends React.Component<WeatherViewModel> {
                         </div>
                     </div>
                 </div>
+                {env.isProduction ?
+                    <script key='3' async={true} src={`//assets.ournetcdn.net/ournet/css/weather/main-${config.assets.js.main}.js`} />
+                    : <script key='4' async={true} src={`http://localhost:8080/js/weather/main.js`} />
+                }
             </RootLayout>
         )
     }

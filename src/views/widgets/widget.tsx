@@ -18,14 +18,6 @@ export default class WidgetPage extends React.Component<WidgetViewModel> {
         return (
             <RootLayout {...props}>
                 <main>
-                    {env.isProduction
-                        ? <link type="text/css" rel="stylesheet" href={`//assets.ournetcdn.net/ournet/css/weather/page-widget-${config.assets.css.pageWidget}.css`} />
-                        : <link type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/page-widget.css`} />
-                    }
-                    {env.isProduction
-                        ? <script async={true} src={`//assets.ournetcdn.net/ournet/css/weather/page-widget-${config.assets.js.pageWidget}.js`} />
-                        : <script async={true} src={`http://localhost:8080/js/weather/page-widget.js`} />
-                    }
                     <div className='o-layout'>
                         <div className='o-layout__item u-2/5@tablet'>
                             <Share url={head.canonical} services={config.shareServices} lang={lang} align='right' />
@@ -51,6 +43,14 @@ export default class WidgetPage extends React.Component<WidgetViewModel> {
                         </div>
                     </div>
                 </main>
+                {env.isProduction
+                    ? <link type="text/css" rel="stylesheet" href={`//assets.ournetcdn.net/ournet/css/weather/page-widget-${config.assets.css.pageWidget}.css`} />
+                    : <link type="text/css" rel="stylesheet" href={`http://localhost:8080/css/weather/page-widget.css`} />
+                }
+                {env.isProduction
+                    ? <script async={true} src={`//assets.ournetcdn.net/ournet/css/weather/page-widget-${config.assets.js.pageWidget}.js`} />
+                    : <script async={true} src={`http://localhost:8080/js/weather/page-widget.js`} />
+                }
             </RootLayout>
         )
     }
