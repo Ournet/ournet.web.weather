@@ -7,7 +7,7 @@ export default class MobileMenuComponent extends React.Component<RootViewModel> 
         // const { config, links, lang, __, country } = this.props;
 
         return (
-            <div className='c-mobm u-mobile-only'>
+            <div className='c-mobm u-mobile-only' data-ref='.c-exp'>
                 <div className='c-mobm__overlay u-hidden'></div>
                 <div className='c-mobm__btn'>
                     <i className="c-mobm__btn-i"></i>

@@ -17,7 +17,7 @@ export default class LatestNews extends React.Component<WeatherViewModel> {
 
         return (
             <div className='c-group c-latest-news'>
-                <GroupHeader name={__(LocalesNames.latest_news)} link={host + links.news.home({ ul: lang })} type='new' />
+                <GroupHeader name={__(LocalesNames.latest_news)} link={host + links.news.home({ ul: lang })} />
                 {latestNews.map(item => (
                     <a key={item.id} className='o-media o-media--small' href={host + links.news.event(item.slug, item.id, { ul: lang })}>
                         <img alt='' className='o-media__img' src={ImageStorageHelper.eventUrl(item.imageId, 'square', 'jpg')} />
