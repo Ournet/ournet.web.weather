@@ -12,9 +12,9 @@ export default class RootLayout extends React.Component<WeatherViewModel, any> {
 
         return (
             <html lang={lang}>
-                <AccentLine />
                 <PageHead {...this.props} />
                 <body className={`proj-weather country-${country}`}>
+                    <AccentLine />
                     <div className='o-wrapper'>
                         <Header {...this.props} />
                         {children}

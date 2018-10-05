@@ -65,6 +65,8 @@ export interface AppConfig {
     email: string
     internationalIds: string[]
     shareServices: string[]
+    googleAnalyticsId: string
+    widgetGoogleAnalyticsId: string
 
     assets: {
         css: {
@@ -79,6 +81,11 @@ export interface AppConfig {
     }
 
     lists?: ConfigPlaceList[]
+
+    oneSignal?: {
+        appId: string
+        safari_web_id: string
+    },
 }
 
 export type ConfigPlaceList = {

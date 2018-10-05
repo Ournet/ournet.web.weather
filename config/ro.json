@@ -127,5 +127,9 @@
 				"7283138"
 			]
 		}
-	]
+	],
+	"oneSignal": {
+		"appId": "2dcf3c29-b621-452f-88e9-f2ffbcbe7b81",
+		"safari_web_id": "web.onesignal.auto.37a647a2-1bdc-46a8-a505-4f4cc6400a46"
+	}
 }

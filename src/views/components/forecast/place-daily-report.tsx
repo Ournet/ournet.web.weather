@@ -4,6 +4,7 @@ import { Place, HoursForecastDataBlock, HoursForecastDataPoint, PublicHoliday } 
 import * as moment from 'moment-timezone';
 import PlaceDayReport from './place-day-report';
 import { LocalesNames } from '../../../locales-names';
+import SubscribeBar from '../subscribe-bar';
 
 export type PlaceDailyReportPorps = {
     root: RootViewModel
@@ -44,6 +45,12 @@ export default class PlaceDailyReport extends React.Component<PlaceDailyReportPo
                         <ins className='adsbygoogle' style={{ display: 'block' }} data-ad-client='ca-pub-3959589883092051' data-ad-slot='2239682634' data-ad-format='auto'></ins>
                         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                     </div>,
+                    row
+                ]
+            }
+            if (index === 2) {
+                return [
+                    <SubscribeBar root={this.props.root} place={place} />,
                     row
                 ]
             }
