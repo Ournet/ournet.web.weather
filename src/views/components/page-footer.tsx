@@ -4,7 +4,7 @@ import { RootViewModel } from '../../view-models/root-view-model';
 import { LocalesNames, LocalesHelper } from '../../locales-names';
 import { getSchema, getHost } from 'ournet.links';
 import { Dictionary } from '@ournet/domain';
-import AccentLine from './accent-line';
+// import AccentLine from './accent-line';
 const countryNames = require('../../../country-names.json') as Dictionary<Dictionary<string>>;
 
 export default class PageFooter extends React.Component<RootViewModel> {
@@ -12,7 +12,7 @@ export default class PageFooter extends React.Component<RootViewModel> {
         const { config, __, links, lang, country, version } = this.props;
         return (
             <footer className='c-footer'>
-                <AccentLine type='tiny' />
+                {/* <AccentLine type='tiny' /> */}
                 <div className='o-wrapper'>
                     <div className='o-layout'>
                         <div className='o-layout__item u-1/3@tablet o-footer-info'>

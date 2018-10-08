@@ -14,10 +14,10 @@ export default class HeaderComponent extends React.Component<WeatherViewModel> {
             : null;
         return (
             <header className='c-header o-layout o-layout--small'>
-                <div className='o-layout__item u-2/5 u-1/4@tablet'>
+                <div className='o-layout__item u-2/6 u-1/6@tablet'>
                     <Logo {...this.props} />
                 </div>
-                <div className='o-layout__item u-3/5 u-2/4@tablet'>
+                <div className='o-layout__item u-4/6 u-3/6@tablet'>
                     <div className='c-header__item o-layout'>
                         <div className="o-layout__item u-5/6">
                             <Search {...this.props} />
@@ -27,7 +27,7 @@ export default class HeaderComponent extends React.Component<WeatherViewModel> {
                         </div>
                     </div>
                 </div>
-                <div className='o-layout__item u-1/4@tablet u-hide-mobile u-tr'>
+                <div className='o-layout__item u-2/6@tablet u-hide-mobile u-tr'>
                     {placeForecast}
                 </div>
             </header>
