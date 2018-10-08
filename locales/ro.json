@@ -84,5 +84,6 @@
 	"humidity": "Umiditate",
 	"notifications_subscribe_for_place": "Abonează-te la alerte meteo pentru %s",
 	"forecast_no_data": "Vă rugăm să încercați peste câteva minute.",
-	"not_found_places": "Nu am găsit nici o localitate."
+	"not_found_places": "Nu am găsit nici o localitate.",
+	"country_al": "country_al"
 }

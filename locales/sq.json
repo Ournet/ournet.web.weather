@@ -67,19 +67,17 @@
 	"temperature": "Temperaturë",
 	"mm": "mm",
 	"wind": "Erë",
-
 	"subscribe": "Pajtohem",
 	"invalid_email": "Email i pavlefshem!",
 	"forecast_on_email_place": "Moti në email për %s",
 	"total_subscribers_format": "Gjithsej abonentë: %d",
-
 	"weather_for_10days": "Moti për 10 ditë",
 	"days": "ditë",
-
 	"share_with_your_friends": "Ndani me miqtë tuaj",
 	"no_thanks": "Jo faleminderit",
 	"error_title": "Gabim",
 	"error_description": "Ndodhi një gabim.",
 	"report_hour": "Orë",
-	"humidity": "Lagështia"
+	"humidity": "Lagështia",
+	"not_found_places": "not_found_places"
 }

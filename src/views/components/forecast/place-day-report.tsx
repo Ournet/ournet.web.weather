@@ -75,7 +75,7 @@ export default class PlaceDayReport extends React.Component<PlaceDayReportViewDa
                 </div>
                 {todayHolidays.length > 0 &&
                     <div className='dr-footer'>
-                        {todayHolidays.map(item => <div>{item.name}</div>)}
+                        {todayHolidays.map(item => <div key={item.date}>{item.name}</div>)}
                     </div>}
             </div>
         )
