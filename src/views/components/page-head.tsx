@@ -29,7 +29,7 @@ export default class PageHead extends React.Component<PageViewModel> {
                 <meta property='og:site_name' content={config.name}/>
                 <meta property='og:locale' content={lang+'_'+country.toUpperCase()}/>
                 {head.description && <meta name="description" content={head.description} />}
-                {head.canonical && <meta name="canonical" content={head.canonical} />}
+                {head.canonical && <link rel="canonical" href={head.canonical} />}
                 <link rel='shortcut icon' href={`//assets.ournetcdn.net/ournet/img/icons/${shortDomainName}/favicon.ico`} type='image/x-icon' />
                 <link rel='apple-touch-icon' href={`//assets.ournetcdn.net/ournet/img/icons/${shortDomainName}/apple-touch-icon.png`} />
                 {head.elements}
